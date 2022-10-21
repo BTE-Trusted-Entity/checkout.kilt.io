@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "lib": ["esnext"],
+    "target": "es2021",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "esModuleInterop": true,
+    "typeRoots": ["./node_modules/@types", "./src/@types"],
+    "strict": true,
+    "rootDir": "./src",
+    "outDir": "dist"
+  }
+}
