@@ -1,7 +1,7 @@
 {
   "repository": "git@github.com:BTE-Trusted-Entity/checkout.kilt.io.git",
   "private": true,
-  "license": "",
+  "license": "UNLICENSED",
   "type": "module",
   "scripts": {
     "prettify": "prettier --write \"src/**/*.ts*\"",
