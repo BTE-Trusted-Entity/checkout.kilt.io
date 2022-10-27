@@ -1,5 +1,5 @@
-import { logger } from './logger.js';
-import { manager, server } from './manager.js';
+import { logger } from './logger';
+import { manager, server } from './manager';
 
 export function exitOnError(error: Error) {
   logger.fatal(error);

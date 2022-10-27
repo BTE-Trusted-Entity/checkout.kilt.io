@@ -1,13 +1,14 @@
 {
   "compilerOptions": {
-    "lib": ["esnext"],
-    "target": "es2021",
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
+    "target": "ES2020",
+    "module": "CommonJS",
+    "moduleResolution": "node",
     "esModuleInterop": true,
     "typeRoots": ["./node_modules/@types", "./src/@types"],
     "strict": true,
+    "jsx": "react-jsx",
     "rootDir": "./src",
     "outDir": "dist"
-  }
+  },
+  "include": ["./src/**/*"]
 }

@@ -2,12 +2,13 @@ import { ServerRegisterPluginObject } from '@hapi/hapi';
 import inert from '@hapi/inert';
 import pino from 'hapi-pino';
 
-import { home } from './routes/home.js';
+// import { home } from './routes/home';
+import { staticFiles } from './endpoints/staticFiles';
 
-import { configuration } from './utilities/configuration.js';
-import { configureDevErrors } from './utilities/configureDevErrors.js';
-import { exitOnError } from './utilities/exitOnError.js';
-import { manager, server } from './utilities/manager.js';
+import { configuration } from './utilities/configuration';
+import { configureDevErrors } from './utilities/configureDevErrors';
+import { exitOnError } from './utilities/exitOnError';
+import { manager, server } from './utilities/manager';
 
 const { isProduction } = configuration;
 
@@ -34,7 +35,8 @@ const logger = {
   await configureDevErrors(server);
   server.logger.info('Server configured');
 
-  server.route(home);
+  // server.route(home);
+  server.route(staticFiles);
   server.logger.info('Routes configured');
 
   await manager.start();

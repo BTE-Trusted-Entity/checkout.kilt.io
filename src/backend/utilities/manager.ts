@@ -1,7 +1,7 @@
 import Hapi from '@hapi/hapi';
 import exiting from 'exiting';
 
-import { configuration } from './configuration.js';
+import { configuration } from './configuration';
 
 const { isProduction, port } = configuration;
 
