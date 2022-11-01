@@ -41,7 +41,7 @@
     "frontend": {
       "context": "browser",
       "engines": {
-        "browsers": "last 2 Chrome versions, last 2 Firefox versions"
+        "browsers": "> 0.5%, last 2 versions, not dead"
       },
       "source": [
         "src/frontend/index.html"

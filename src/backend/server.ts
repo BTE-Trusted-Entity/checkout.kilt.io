@@ -30,7 +30,7 @@ const logger = {
 
 (async () => {
   await server.register(inert);
-  await server.register(logger as ServerRegisterPluginObject<pino.Options>);
+  await server.register(logger);
   await configureDevErrors(server);
   server.logger.info('Server configured');
 
