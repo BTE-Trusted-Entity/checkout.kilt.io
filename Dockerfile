@@ -13,8 +13,9 @@ COPY src ./src
 COPY tsconfig.json ./
 
 # install build dependencies, build the app
-# @parcel/css-linux-x64-musl & lightningcss-linux-x64-musl is not optional but marked so
-RUN yarn install --frozen-lockfile --ignore-optional && yarn add --ignore-optional --dev @parcel/css-linux-x64-musl lightningcss-linux-x64-musl && yarn cache clean --all && yarn build
+# @parcel/css-linux-x64-musl & lightningcss-linux-x64-musl are not optional but marked so
+RUN yarn install --frozen-lockfile --ignore-optional && yarn add --ignore-optional --dev @parcel/css-linux-x64-musl lightningcss-linux-x64-musl && yarn cache clean --all 
+RUN yarn build
 
 FROM base AS release
 
