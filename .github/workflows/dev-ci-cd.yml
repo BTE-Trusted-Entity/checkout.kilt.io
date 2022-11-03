@@ -29,24 +29,24 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v1
       - name: Build image
         run: |
-          docker build -t checkout:latest .
+          docker build -t kilt-checkout:latest .
 
       - name: Tag, and push image to Amazon ECR
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: checkout
+          ECR_REPOSITORY: bte/kilt-checkout
           IMAGE_TAG: ${{ github.sha }}
         run: |
-          docker tag checkout $ECR_REGISTRY/$ECR_REPOSITORY:latest
-          docker tag checkout $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          docker tag kilt-checkout $ECR_REGISTRY/$ECR_REPOSITORY:latest
+          docker tag kilt-checkout $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
       - name: Deploy to kilt cluster
         uses: evosecurity/kubectl-aws-eks@master
         env:
           KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG }}
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: checkout
+          ECR_REPOSITORY: bte/kilt-checkout
           IMAGE_TAG: ${{ github.sha }}
         with:
-          args: rollout restart deployment checkout-dev -n checkout
+          args: set image -n kilt-checkout deployment/checkout-dev checkout-dev=$ECR_REGISTRY/$ECR_REPOSITORY@$IMAGE_TAG
