@@ -41,6 +41,7 @@ jobs:
           docker tag kilt-checkout $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+
       - name: Deploy to kilt cluster
         uses: evosecurity/kubectl-aws-eks@master
         env:
