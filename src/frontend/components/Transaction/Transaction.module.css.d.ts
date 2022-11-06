@@ -15,7 +15,7 @@ export const termsLine: string;
 export const termsLineEnabled: string;
 export const termsLabel: string;
 export const termsLabelText: string;
-export const agree: string;
+export const accept: string;
 export const termsLink: string;
 export const instruction: string;
 export const cost: string;

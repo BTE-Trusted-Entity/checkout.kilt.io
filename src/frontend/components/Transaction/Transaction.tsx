@@ -88,7 +88,7 @@ export function Transaction(): JSX.Element | null {
       <p className={enabled ? styles.termsLineEnabled : styles.termsLine}>
         <label className={styles.termsLabel}>
           <input
-            className={styles.agree}
+            className={styles.accept}
             type="checkbox"
             onChange={handleTermsClick}
             checked={enabled}
@@ -112,7 +112,21 @@ export function Transaction(): JSX.Element | null {
       </p>
 
       <div className={styles.paypal}>
-        <PayPalButtons fundingSource="paypal" disabled={!enabled} />
+        <PayPalButtons
+          fundingSource="paypal"
+          disabled={!enabled}
+          createOrder={(data, actions) => {
+            return actions.order.create({
+              purchase_units: [
+                {
+                  amount: {
+                    value: cost,
+                  },
+                },
+              ],
+            });
+          }}
+        />
       </div>
 
       <p className={styles.footnote}>*PayPal account required</p>
