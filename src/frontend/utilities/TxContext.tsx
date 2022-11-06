@@ -1,6 +1,9 @@
 import { createContext } from 'react';
 
-export const TxContext = createContext<{ address: string; tx: string }>({});
+export const TxContext = createContext<{ address: string; tx: string }>({
+  address: '',
+  tx: '',
+});
 
 export function TxProvider({ children }: { children: JSX.Element }) {
   const params = new URLSearchParams(window.location.search);
