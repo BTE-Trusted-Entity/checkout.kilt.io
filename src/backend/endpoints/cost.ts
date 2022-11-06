@@ -8,7 +8,7 @@ export const cost: ServerRoute = {
   method: 'GET',
   path: paths.cost,
   handler: (request: Request, h: ResponseToolkit) => {
-    return h.response({ cost: configuration.didCost } as { cost: number });
+    return h.response(configuration.didCost);
   },
   options: { cors: true, auth: false },
 };

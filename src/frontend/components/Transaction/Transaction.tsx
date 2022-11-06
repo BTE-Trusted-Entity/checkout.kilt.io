@@ -22,16 +22,7 @@ function useCost() {
 
   useEffect(() => {
     (async () => {
-      const { cost: didCost } = (await ky.get(paths.cost).json()) as {
-        cost: number;
-      };
-      setCost(
-        didCost.toLocaleString(undefined, {
-          style: 'currency',
-          currency: 'EUR',
-          currencyDisplay: 'code',
-        }),
-      );
+      setCost(await ky.get(paths.cost).text());
     })();
   }, []);
 
@@ -41,11 +32,11 @@ function useCost() {
 export function Transaction(): JSX.Element | null {
   const { address } = useContext(TxContext);
 
+  const cost = useCost();
+
   const [status] = useState<
     'prepared' | 'paymentAuthorized' | 'complete' | 'error'
   >('prepared');
-
-  const cost = useCost();
 
   const [enabled, setEnabled] = useState(false);
   const handleTermsClick = useCallback(
@@ -58,6 +49,12 @@ export function Transaction(): JSX.Element | null {
   if (!cost) {
     return null;
   }
+
+  const costAsLocaleString = parseFloat(cost).toLocaleString(undefined, {
+    style: 'currency',
+    currency: 'EUR',
+    currencyDisplay: 'code',
+  });
 
   return (
     <form className={styles.container}>
@@ -111,7 +108,7 @@ export function Transaction(): JSX.Element | null {
 
       <p className={styles.cost}>
         <span>Total cost</span>
-        <span className={styles.costValue}>{cost}</span>
+        <span className={styles.costValue}>{costAsLocaleString}</span>
       </p>
 
       <div className={styles.paypal}>

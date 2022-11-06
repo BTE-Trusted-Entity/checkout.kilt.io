@@ -23,11 +23,12 @@ if (!baseUri) {
   throw new ConfigurationError('No base URI provided');
 }
 
-if (!env.COST_DID) {
+const didCost = env.COST_DID;
+
+if (!didCost) {
   throw new ConfigurationError('No DID cost provided');
 }
-const didCost = parseFloat(env.COST_DID);
-if (Number.isNaN(didCost)) {
+if (Number.isNaN(parseFloat(didCost))) {
   throw new ConfigurationError('DID cost is not a number');
 }
 
