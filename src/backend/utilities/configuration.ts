@@ -1,6 +1,7 @@
-import dotenv from 'dotenv';
 import { cwd } from 'node:process';
 import path from 'node:path';
+
+import dotenv from 'dotenv';
 
 dotenv.config();
 const { env } = process;
