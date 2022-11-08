@@ -1,4 +1,3 @@
-import { ServerRegisterPluginObject } from '@hapi/hapi';
 import inert from '@hapi/inert';
 import pino from 'hapi-pino';
 
