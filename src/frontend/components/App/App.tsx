@@ -11,13 +11,13 @@ export function App(): JSX.Element {
 
       <main className={styles.main}>
         <div className={styles.cover}>
-          <h1 className={styles.heading}>Get your DID</h1>
+          <h2 className={styles.heading}>Get your DID</h2>
           <p className={styles.subline}>Pay with PayPal</p>
 
           <section className={styles.infoContainer}>
-            <h2 className={styles.infoHeading}>
+            <h3 className={styles.infoHeading}>
               Services - Build your Identity
-            </h2>
+            </h3>
             <p className={styles.infoTagline}>
               Your First Step to Creating a Digital Identity
             </p>

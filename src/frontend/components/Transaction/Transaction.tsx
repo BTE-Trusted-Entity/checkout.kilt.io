@@ -9,6 +9,7 @@ import {
 import { Identicon } from '@polkadot/react-identicon';
 
 import { PayPalButtons } from '@paypal/react-paypal-js';
+import { CreateOrderData, CreateOrderActions } from '@paypal/paypal-js';
 
 import ky from 'ky';
 
@@ -46,6 +47,24 @@ export function Transaction(): JSX.Element | null {
     [],
   );
 
+  const createOrder = useCallback(
+    (data: CreateOrderData, actions: CreateOrderActions) => {
+      if (!cost) {
+        throw new Error('Missing cost');
+      }
+      return actions.order.create({
+        purchase_units: [
+          {
+            amount: {
+              value: cost,
+            },
+          },
+        ],
+      });
+    },
+    [cost],
+  );
+
   if (!cost) {
     return null;
   }
@@ -58,7 +77,7 @@ export function Transaction(): JSX.Element | null {
 
   return (
     <form className={styles.container}>
-      <h1 className={styles.heading}>Purchase Process</h1>
+      <h2 className={styles.heading}>Purchase Process</h2>
 
       {status === 'prepared' && (
         <p className={styles.txPrepared}>Transaction prepared</p>
@@ -70,7 +89,7 @@ export function Transaction(): JSX.Element | null {
 
       <section className={styles.addressContainer}>
         <div
-          className={status === 'complete' ? styles.complete : styles.pending}
+          className={status === 'complete' ? styles.identicon : styles.pending}
         >
           <Identicon value={address} size={50} theme="polkadot" />
         </div>
@@ -82,7 +101,10 @@ export function Transaction(): JSX.Element | null {
       </section>
 
       <p className={styles.instruction}>
-        To complete your order, please first accept the Terms and Conditions
+        To complete your order, please first accept the{' '}
+        <a href="#" className={styles.termsLink}>
+          Terms and Conditions
+        </a>{' '}
       </p>
 
       <p className={enabled ? styles.termsLineEnabled : styles.termsLine}>
@@ -93,13 +115,9 @@ export function Transaction(): JSX.Element | null {
             onChange={handleTermsClick}
             checked={enabled}
           />
-          <span />
+          <span className={styles.checkbox} />
           <span className={styles.termsLabelText}>
-            I accept the{' '}
-            <a href="#" className={styles.termsLink}>
-              Terms and Conditions
-            </a>{' '}
-            of the Checkout Service.
+            I accept the Terms and Conditions of the Checkout Service.
           </span>
         </label>
       </p>
@@ -115,21 +133,9 @@ export function Transaction(): JSX.Element | null {
         <PayPalButtons
           fundingSource="paypal"
           disabled={!enabled}
-          createOrder={(data, actions) => {
-            return actions.order.create({
-              purchase_units: [
-                {
-                  amount: {
-                    value: cost,
-                  },
-                },
-              ],
-            });
-          }}
+          createOrder={createOrder}
         />
       </div>
-
-      <p className={styles.footnote}>*PayPal account required</p>
     </form>
   );
 }

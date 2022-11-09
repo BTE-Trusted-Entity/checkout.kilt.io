@@ -5,21 +5,16 @@
   position: absolute;
   top: 0;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: calc((100% - min(90%, 1110rem / 16)) / 2);
+  box-sizing: border-box;
 }
 
 @media screen and (max-width: 500px) {
   .header {
     height: 2.5rem;
   }
-}
-
-.content {
-  width: 90%;
-  max-width: calc(1110rem / 16);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .title {
@@ -39,7 +34,7 @@
   height: 2.25rem;
   width: calc(150rem / 16);
   background:
-    url('../../images/kilt-logo.svg') no-repeat center/auto,
+    url('./kilt-logo.svg') no-repeat center/3rem auto,
     var(--color-orange);
   border-radius: calc(5rem / 16);
 }
@@ -52,6 +47,6 @@
   .kiltLink {
     height: 1.25rem;
     width: 2.5rem;
-    background-size: 70%;
+    background-size: 1.75rem auto;
   }
 }

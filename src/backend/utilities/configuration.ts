@@ -32,6 +32,14 @@ if (Number.isNaN(parseFloat(didCost))) {
   throw new ConfigurationError('DID cost is not a number');
 }
 
+const paypal = {
+  clientId: env.CLIENT_ID_PAYPAL,
+};
+
+if (!paypal.clientId) {
+  throw new ConfigurationError('No paypal client credentials provided');
+}
+
 export const configuration = {
   baseUri,
   port: env.PORT || 3000,
@@ -39,4 +47,5 @@ export const configuration = {
   distFolder: path.join(cwd(), 'dist', 'frontend'),
   httpAuthPassword,
   didCost,
+  paypal,
 };

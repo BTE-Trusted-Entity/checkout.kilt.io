@@ -20,13 +20,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: calc(150rem / 16) 0 calc(175rem / 16);
-  background: url('../../images/splash.jpg') no-repeat bottom left / cover;
+  padding-inline: calc((100% - min(90%, 1110rem / 16)) / 2);
+  padding-block: calc(150rem / 16) calc(175rem / 16);
+  box-sizing: border-box;
+  background: url('./splash.jpg') no-repeat bottom left / cover;
 }
 
 @media screen and (max-width: 500px) {
   .cover {
-    padding-top: 4rem;
+    padding-block: 4rem calc(150rem / 16);
   }
 }
 
@@ -34,7 +36,7 @@
   composes: coverText from '../Typography/Typography.module.css';
   margin: 0 0 0.75rem;
   padding-top: 2rem;
-  background: url('../../images/did_logo.svg') no-repeat top;
+  background: url('./did_logo.svg') no-repeat top;
 }
 
 .subline {
@@ -43,8 +45,6 @@
 }
 
 .infoContainer {
-  width: 90%;
-  max-width: calc(1110rem / 16);
   margin: calc(148rem / 16) 0 0;
 }
 

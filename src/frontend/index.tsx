@@ -5,7 +5,7 @@ import { App } from './components/App/App';
 import { TxProvider } from './utilities/TxContext';
 
 function renderApp() {
-  const container = document.querySelector('.app');
+  const container = document.getElementById('app');
   if (!container) {
     return;
   }
