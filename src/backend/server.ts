@@ -4,6 +4,7 @@ import pino from 'hapi-pino';
 import { staticFiles } from './endpoints/staticFiles';
 
 import { configuration } from './utilities/configuration';
+import { configureAuthentication } from './utilities/configureAuthentication';
 import { configureDevErrors } from './utilities/configureDevErrors';
 import { exitOnError } from './utilities/exitOnError';
 import { manager, server } from './utilities/manager';
@@ -30,6 +31,8 @@ const logger = {
 (async () => {
   await server.register(inert);
   await server.register(logger);
+
+  await configureAuthentication(server);
   await configureDevErrors(server);
   server.logger.info('Server configured');
 
