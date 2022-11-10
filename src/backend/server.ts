@@ -2,6 +2,7 @@ import inert from '@hapi/inert';
 import pino from 'hapi-pino';
 
 import { cost } from './endpoints/cost';
+import { paypalClientID } from './endpoints/paypalClientID';
 
 import { staticFiles } from './endpoints/staticFiles';
 
@@ -38,6 +39,7 @@ const logger = {
   await configureDevErrors(server);
   server.logger.info('Server configured');
 
+  server.route(paypalClientID);
   server.route(cost);
 
   server.route(staticFiles);
