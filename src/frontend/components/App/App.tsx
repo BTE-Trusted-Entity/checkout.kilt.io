@@ -11,7 +11,7 @@ export function App(): JSX.Element {
 
       <main className={styles.main}>
         <div className={styles.cover}>
-          <h2 className={styles.heading}>Get your DID</h2>
+          <h1 className={styles.heading}>Get your DID</h1>
           <p className={styles.subline}>Pay with PayPal</p>
 
           <section className={styles.infoContainer}>
