@@ -1,0 +1,60 @@
+@font-face {
+  font-family: 'Overpass Thin';
+  src: url('overpass-v12-latin-100.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Overpass Light';
+  src: url('overpass-v12-latin-300.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Overpass Regular';
+  src: url('overpass-v12-latin-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Overpass ExtraBold';
+  src: url('overpass-v12-latin-800.woff2') format('woff2');
+}
+
+:root {
+  font-family: 'Overpass Regular', sans-serif;
+  font-size: 16px;
+  letter-spacing: 0.1px;
+  color: var(--color-white);
+}
+
+.coverText {
+  font-family: 'Overpass Light', sans-serif;
+  font-size: calc(94rem / 16);
+}
+
+.subText {
+  font-family: 'Overpass Thin', sans-serif;
+  font-size: 2.25rem;
+}
+
+.importantText {
+  font-family: 'Overpass ExtraBold', sans-serif;
+}
+
+@media screen and (max-width: 700px) {
+  .coverText {
+    font-size: calc(70rem / 16);
+  }
+
+  .subText {
+    font-size: 1.75rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .coverText {
+    font-size: calc(45rem / 16);
+  }
+
+  .subText {
+    font-size: 1.25rem;
+  }
+}

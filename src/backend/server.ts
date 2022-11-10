@@ -1,6 +1,8 @@
 import inert from '@hapi/inert';
 import pino from 'hapi-pino';
 
+import { cost } from './endpoints/cost';
+
 import { staticFiles } from './endpoints/staticFiles';
 
 import { configuration } from './utilities/configuration';
@@ -35,6 +37,8 @@ const logger = {
   await configureAuthentication(server);
   await configureDevErrors(server);
   server.logger.info('Server configured');
+
+  server.route(cost);
 
   server.route(staticFiles);
   server.logger.info('Routes configured');
