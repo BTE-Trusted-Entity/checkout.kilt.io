@@ -1,17 +1,21 @@
 import { createRoot } from 'react-dom/client';
 import { PayPalScriptProvider } from '@paypal/react-paypal-js';
 
+import ky from 'ky';
+
+import { paths } from '../backend/endpoints/paths';
+
 import { App } from './components/App/App';
 import { TxProvider } from './utilities/TxContext';
 
-function renderApp() {
+(async function renderApp() {
   const container = document.getElementById('app');
   if (!container) {
     return;
   }
 
   const paypal = {
-    'client-id': process.env.CLIENT_ID_PAYPAL as string,
+    'client-id': await ky.get(paths.paypalClientID).text(),
     currency: 'EUR',
     intent: 'authorize',
   };
@@ -24,6 +28,4 @@ function renderApp() {
       </PayPalScriptProvider>
     </TxProvider>,
   );
-}
-
-renderApp();
+})();
