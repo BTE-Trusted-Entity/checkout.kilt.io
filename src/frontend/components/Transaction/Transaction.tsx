@@ -122,7 +122,7 @@ export function Transaction(): JSX.Element | null {
         </label>
       </p>
 
-      <p className={styles.instruction}>then continue with PayPal*</p>
+      <p className={styles.instruction}>then continue with PayPal</p>
 
       <p className={styles.cost}>
         <span>Total cost</span>

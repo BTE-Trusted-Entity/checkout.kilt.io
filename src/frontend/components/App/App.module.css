@@ -6,6 +6,16 @@
   position: relative;
 }
 
+.photoCitation {
+  font-size: calc(10rem / 16);
+  position: absolute;
+  font-style: inherit;
+  writing-mode: vertical-rl;
+  top: 4.5rem;
+  right: 0.5rem;
+  transform: rotate(180deg);
+}
+
 .main {
   background: var(--color-primary);
   width: 100%;
