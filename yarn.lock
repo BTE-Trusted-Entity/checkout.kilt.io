@@ -3641,7 +3641,7 @@ hapi-dev-errors@^4.0.0:
     youch "~2.0.10"
     youch-terminal "~1.0.0"
 
-hapi-pino@^10.0.0:
+hapi-pino@^10.2.0:
   version "10.2.0"
   resolved "https://registry.yarnpkg.com/hapi-pino/-/hapi-pino-10.2.0.tgz#7f88dbce751f73e762bd3c53de8c59b2179bdfda"
   integrity sha512-1sryQ0k3Zl6TqNfRem4rVIUq0dRovmZO/wvMR32DHyLUfRyjAf+P99ke8lmpi7vjtgH6TEmLF19nByqn5/XCQg==
