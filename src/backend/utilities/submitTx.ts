@@ -1,4 +1,4 @@
-import { Keyring } from '@polkadot/api';
+import { Keyring } from '@polkadot/keyring';
 import {
   blake2AsHex,
   blake2AsU8a,
