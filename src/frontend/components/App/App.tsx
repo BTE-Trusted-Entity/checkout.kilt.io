@@ -5,19 +5,15 @@ import * as styles from './App.module.css';
 import { Header } from '../Header/Header';
 import { Footer } from '../Footer/Footer';
 import { Transaction } from '../Transaction/Transaction';
-import { useShowOverlay } from '../../utilities/ShowOverlayContext';
+import { useBooleanState } from '../../utilities/useBooleanState';
 
 export function App(): JSX.Element {
-  const { visible } = useShowOverlay();
+  const showOverlay = useBooleanState();
 
   return (
     <Fragment>
-      <div className={!visible ? styles.container : styles.blurred}>
+      <div className={!showOverlay.current ? styles.container : styles.blurred}>
         <Header />
-
-        <cite className={styles.photoCitation}>
-          Photo by Clayton Cardinalli on Unsplash
-        </cite>
 
         <main className={styles.main}>
           <div className={styles.cover}>
@@ -43,13 +39,17 @@ export function App(): JSX.Element {
             </section>
           </div>
 
-          <Transaction />
+          <Transaction showOverlay={showOverlay} />
         </main>
 
         <Footer />
+
+        <cite className={styles.photoCitation}>
+          Photo by Clayton Cardinalli on Unsplash
+        </cite>
       </div>
 
-      {visible && (
+      {showOverlay.current && (
         <div className={styles.overlay}>
           <p>Please wait while your transaction is being processed</p>
         </div>

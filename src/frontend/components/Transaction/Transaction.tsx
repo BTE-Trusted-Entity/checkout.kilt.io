@@ -1,3 +1,11 @@
+import type {
+  CreateOrderData,
+  CreateOrderActions,
+  OnApproveData,
+  OnApproveActions,
+  PurchaseUnit,
+} from '@paypal/paypal-js';
+
 import {
   ChangeEvent,
   useCallback,
@@ -9,13 +17,6 @@ import {
 import { Identicon } from '@polkadot/react-identicon';
 
 import { PayPalButtons } from '@paypal/react-paypal-js';
-import {
-  CreateOrderData,
-  CreateOrderActions,
-  OnApproveData,
-  OnApproveActions,
-  PurchaseUnit,
-} from '@paypal/paypal-js';
 
 import ky from 'ky';
 
@@ -23,7 +24,10 @@ import * as styles from './Transaction.module.css';
 
 import { TxContext } from '../../utilities/TxContext';
 import { paths } from '../../../backend/endpoints/paths';
-import { useShowOverlay } from '../../utilities/ShowOverlayContext';
+import {
+  UseBooleanState,
+  useBooleanState,
+} from '../../utilities/useBooleanState';
 
 function getCostAsLocaleString(cost: string) {
   return parseFloat(cost).toLocaleString(undefined, {
@@ -34,7 +38,6 @@ function getCostAsLocaleString(cost: string) {
 }
 
 function PurchaseDetails({ purchase }: { purchase: PurchaseUnit }) {
-  const total = getCostAsLocaleString(purchase.amount.value);
   const address = purchase.shipping?.address;
 
   const name = purchase.shipping?.name?.full_name;
@@ -46,22 +49,26 @@ function PurchaseDetails({ purchase }: { purchase: PurchaseUnit }) {
       <dl className={styles.purchaseDetails}>
         <div className={styles.purchaseDetail}>
           <dt className={styles.detailName}>Order total:</dt>
-          <dd className={styles.detailValue}>{total}</dd>
+          <dd className={styles.detailValue}>
+            {getCostAsLocaleString(purchase.amount.value)}
+          </dd>
         </div>
 
         {address && (
-          <div className={styles.purchaseDetail}>
+          <address className={styles.purchaseDetail}>
             <dt className={styles.detailName}>Billing address:</dt>
             <dd className={styles.detailValue}>
               {name && <span>{name}</span>}
               {address.address_line_1 && <span>{address.address_line_1}</span>}
               {address.address_line_2 && <span>{address.address_line_2}</span>}
               {address.postal_code && (
-                <span>{`${address.postal_code} ${address.admin_area_1}`}</span>
+                <span>
+                  {address.postal_code} {address.admin_area_1}
+                </span>
               )}
               <span>{address.country_code}</span>
             </dd>
-          </div>
+          </address>
         )}
       </dl>
 
@@ -76,7 +83,6 @@ function PurchaseDetails({ purchase }: { purchase: PurchaseUnit }) {
           <a className={styles.serviceLink} href="https://w3n.id/">
             web3name
           </a>
-          .
         </li>
         <li>
           Add credentials to your DID such as social media accounts, GitHub and
@@ -84,14 +90,12 @@ function PurchaseDetails({ purchase }: { purchase: PurchaseUnit }) {
           <a className={styles.serviceLink} href="https://socialkyc.io/">
             SocialKYC
           </a>
-          .
         </li>
         <li>
           Sign digital files with your DID in a secure, decentralized way using{' '}
           <a className={styles.serviceLink} href="https://didsign.io/">
             DIDsign
           </a>
-          .
         </li>
         <li>
           Link your DID to your Polkadot ecosystem addresses (and soon,
@@ -121,31 +125,33 @@ type TransactionStatus =
   | 'complete'
   | 'error';
 
-export function Transaction(): JSX.Element | null {
+export function Transaction({
+  showOverlay,
+}: {
+  showOverlay: UseBooleanState;
+}): JSX.Element | null {
   const { address, tx } = useContext(TxContext);
 
   const cost = useCost();
 
-  const [status, setStatus] = useState<TransactionStatus>('prepared');
-
-  const { showOverlay } = useShowOverlay();
+  const [status, setStatus] = useState<TransactionStatus>('authorizing');
 
   useEffect(() => {
     if (['authorizing', 'submitting'].includes(status)) {
-      showOverlay(true);
+      showOverlay.on();
     } else {
-      showOverlay(false);
+      showOverlay.off();
     }
   }, [status, showOverlay]);
 
   const [purchaseDetails, setPurchaseDetails] = useState<PurchaseUnit>();
 
-  const [enabled, setEnabled] = useState(false);
+  const enabled = useBooleanState();
   const handleTermsClick = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
-      setEnabled(event.target.checked);
+      enabled.set(event.target.checked);
     },
-    [],
+    [enabled],
   );
 
   const createOrder = useCallback(
@@ -214,8 +220,6 @@ export function Transaction(): JSX.Element | null {
     return null;
   }
 
-  const costAsLocaleString = getCostAsLocaleString(cost);
-
   return (
     <form className={styles.container}>
       <h2 className={styles.heading}>Purchase Process</h2>
@@ -247,16 +251,20 @@ export function Transaction(): JSX.Element | null {
             To complete your order, please first accept the{' '}
             <a href="#" className={styles.termsLink}>
               Terms and Conditions
-            </a>{' '}
+            </a>
           </p>
 
-          <p className={enabled ? styles.termsLineEnabled : styles.termsLine}>
+          <p
+            className={
+              enabled.current ? styles.termsLineEnabled : styles.termsLine
+            }
+          >
             <label className={styles.termsLabel}>
               <input
                 className={styles.accept}
                 type="checkbox"
                 onChange={handleTermsClick}
-                checked={enabled}
+                checked={enabled.current}
               />
               <span className={styles.checkbox} />
               <span className={styles.termsLabelText}>
@@ -269,13 +277,15 @@ export function Transaction(): JSX.Element | null {
 
           <p className={styles.cost}>
             <span>Total cost</span>
-            <span className={styles.costValue}>{costAsLocaleString}</span>
+            <span className={styles.costValue}>
+              {getCostAsLocaleString(cost)}
+            </span>
           </p>
 
           <div className={styles.paypal}>
             <PayPalButtons
               fundingSource="paypal"
-              disabled={!enabled}
+              disabled={!enabled.current}
               createOrder={createOrder}
               onApprove={onApprove}
               onError={handlePayPalError}

@@ -53,6 +53,12 @@ if (!seedPhrase) {
   throw new ConfigurationError('No seed phrase provided');
 }
 
+const keyUri = env.DID_KEY_URI;
+
+if (!keyUri) {
+  throw new ConfigurationError('No DID key URI provided');
+}
+
 export const configuration = {
   baseUri,
   port: env.PORT || 3000,
@@ -63,4 +69,5 @@ export const configuration = {
   paypal,
   TXDBaseUrl,
   seedPhrase,
+  keyUri,
 };

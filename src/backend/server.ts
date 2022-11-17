@@ -1,5 +1,6 @@
 import inert from '@hapi/inert';
 import pino from 'hapi-pino';
+import { init } from '@kiltprotocol/core';
 
 import { cost } from './endpoints/cost';
 import { paypalClientID } from './endpoints/paypalClientID';
@@ -41,6 +42,7 @@ const logger = {
   await configureDevErrors(server);
   server.logger.info('Server configured');
 
+  await init();
   await testLiveness();
   server.logger.info('Liveness tests passed');
 

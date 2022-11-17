@@ -7,7 +7,6 @@ import { paths } from '../backend/endpoints/paths';
 
 import { App } from './components/App/App';
 import { TxProvider } from './utilities/TxContext';
-import { ShowOverlayProvider } from './utilities/ShowOverlayContext';
 
 (async function renderApp() {
   const container = document.getElementById('app');
@@ -25,9 +24,7 @@ import { ShowOverlayProvider } from './utilities/ShowOverlayContext';
   root.render(
     <TxProvider>
       <PayPalScriptProvider options={paypal}>
-        <ShowOverlayProvider>
-          <App />
-        </ShowOverlayProvider>
+        <App />
       </PayPalScriptProvider>
     </TxProvider>,
   );

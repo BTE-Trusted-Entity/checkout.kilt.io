@@ -1,7 +1,7 @@
 export const paths = {
-  cost: '/cost',
-  paypalClientID: '/paypal-client-id',
-  submit: '/submit',
+  cost: '/api/cost',
+  paypalClientID: '/api/paypal-client-id',
+  submit: '/api/submit',
 
   staticFiles: '/{param*}',
 
