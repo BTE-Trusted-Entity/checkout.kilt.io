@@ -168,16 +168,16 @@ export function Transaction(): JSX.Element | null {
 
   const onApprove = useCallback(
     async (data: OnApproveData, actions: OnApproveActions) => {
-      setStatus('authorizing');
-      const { orderID } = data;
+      (async () => {
+        try {
+          setStatus('authorizing');
+          const { orderID } = data;
 
-      if (!actions.order) {
-        throw new Error('Order not found');
-      }
+          if (!actions.order) {
+            throw new Error('Order not found');
+          }
 
-      actions.order
-        .authorize()
-        .then((authorization) => {
+          const authorization = await actions.order.authorize();
           const payments = authorization.purchase_units[0].payments;
 
           if (!payments || !payments.authorizations) {
@@ -188,21 +188,19 @@ export function Transaction(): JSX.Element | null {
 
           setStatus('submitting');
 
-          return ky
+          const captured = await ky
             .post(paths.submit, {
               json: { orderID, authorizationID, tx },
               timeout: false,
             })
             .json<PurchaseUnit>();
-        })
-        .then((captured) => {
           setPurchaseDetails(captured);
           setStatus('complete');
-        })
-        .catch((error) => {
+        } catch (error) {
           setStatus('error');
           console.error(error);
-        });
+        }
+      })();
     },
     [tx],
   );
