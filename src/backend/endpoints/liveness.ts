@@ -1,5 +1,3 @@
-import { setInterval } from 'timers/promises';
-
 import { ServerRoute } from '@hapi/hapi';
 import got from 'got';
 
@@ -26,10 +24,12 @@ async function canAccessPayPal() {
   }
 }
 
-async function checkPayPalConnection() {
-  for await (const foo of setInterval(5 * 60 * 1000)) {
-    await canAccessPayPal();
-  }
+function checkPayPalConnection() {
+  setInterval(async () => {
+    try {
+      await canAccessPayPal();
+    } catch {}
+  }, 5 * 60 * 1000);
 }
 
 async function canAccessTXD() {
@@ -43,10 +43,12 @@ async function canAccessTXD() {
   }
 }
 
-async function checkTXDConnection() {
-  for await (const foo of setInterval(5 * 60 * 1000)) {
-    await canAccessTXD();
-  }
+function checkTXDConnection() {
+  setInterval(async () => {
+    try {
+      await canAccessTXD();
+    } catch {}
+  }, 5 * 60 * 1000);
 }
 
 export async function testLiveness() {

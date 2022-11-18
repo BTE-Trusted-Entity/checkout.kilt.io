@@ -36,6 +36,8 @@ async function pollTxStatus(id: string) {
   const endpoint = `/api/v1/submission/${id}`;
   const headers = makeHeaders(endpoint);
 
+  const timeout = 2 * 60 * 1000;
+
   for await (const startTime of setInterval(1000, Date.now())) {
     const data = await got(`${TXDBaseUrl}${endpoint}`, { headers }).json<{
       status: 'Pending' | 'InBlock' | 'Finalized' | 'Failed';
@@ -43,7 +45,7 @@ async function pollTxStatus(id: string) {
 
     if (data.status === 'Pending') {
       const now = Date.now();
-      if (now - startTime > 2 * 60 * 1000) {
+      if (now - startTime > timeout) {
         logger.error('Timeout, transaction pending too long');
         throw Boom.gatewayTimeout();
       }
