@@ -237,7 +237,7 @@
 }
 
 .dialog::backdrop {
-  background: rgba(68, 0, 49, 0.3);
+  background: rgb(68 0 49 / 30%);
   backdrop-filter: blur(3px);
 }
 
@@ -251,13 +251,18 @@
   border: none;
   width: 100%;
   margin: 0;
-  text-align: center;
+}
+
+.dialog[open] {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 .dialog::before {
   content: '';
-  display: block;
-  margin: 1.5rem auto;
   width: calc(50rem / 16);
   height: calc(50rem / 16);
   background: url('spinner.svg') no-repeat center/contain;
