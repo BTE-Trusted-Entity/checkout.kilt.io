@@ -14,8 +14,6 @@ import {
   useState,
 } from 'react';
 
-import { Identicon } from '@polkadot/react-identicon';
-
 import { PayPalButtons } from '@paypal/react-paypal-js';
 
 import ky from 'ky';
@@ -28,6 +26,7 @@ import {
   UseBooleanState,
   useBooleanState,
 } from '../../utilities/useBooleanState';
+import { Avatar } from '../Avatar/Avatar';
 
 function getCostAsLocaleString(cost: string) {
   return parseFloat(cost).toLocaleString(undefined, {
@@ -233,11 +232,7 @@ export function Transaction({
       )}
 
       <section className={styles.addressContainer}>
-        <div
-          className={status === 'complete' ? styles.identicon : styles.pending}
-        >
-          <Identicon value={address} size={50} theme="polkadot" />
-        </div>
+        <Avatar address={address} isOnChain={status === 'complete'} />
 
         <p className={styles.address}>
           <span className={styles.addressName}>For account address</span>

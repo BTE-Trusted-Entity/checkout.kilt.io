@@ -59,22 +59,6 @@
   }
 }
 
-.identicon {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 0;
-  border-radius: 50%;
-  height: calc(62rem / 16);
-  width: calc(62rem / 16);
-  background: var(--color-orange);
-}
-
-.pending {
-  composes: identicon;
-  background: rgb(167 167 167 / 60%);
-}
-
 .address {
   display: flex;
   flex-direction: column;

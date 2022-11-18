@@ -5,8 +5,6 @@ export const txStatus: string;
 export const txPrepared: string;
 export const txComplete: string;
 export const addressContainer: string;
-export const identicon: string;
-export const pending: string;
 export const address: string;
 export const addressName: string;
 export const addressValue: string;
