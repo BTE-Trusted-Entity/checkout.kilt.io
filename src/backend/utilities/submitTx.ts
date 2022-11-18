@@ -1,3 +1,5 @@
+import { setInterval } from 'timers/promises';
+
 import { Crypto } from '@kiltprotocol/utils';
 import got from 'got';
 import Boom from '@hapi/boom';
@@ -34,14 +36,17 @@ async function pollTxStatus(id: string) {
   const endpoint = `/api/v1/submission/${id}`;
   const headers = makeHeaders(endpoint);
 
-  while (true) {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
+  for await (const startTime of setInterval(1000, Date.now())) {
     const data = await got(`${TXDBaseUrl}${endpoint}`, { headers }).json<{
       status: 'Pending' | 'InBlock' | 'Finalized' | 'Failed';
     }>();
 
     if (data.status === 'Pending') {
+      const now = Date.now();
+      if (now - startTime > 2 * 60 * 1000) {
+        logger.error('Timeout, transaction pending too long');
+        throw Boom.gatewayTimeout();
+      }
       logger.debug('Transaction pending');
     }
 
