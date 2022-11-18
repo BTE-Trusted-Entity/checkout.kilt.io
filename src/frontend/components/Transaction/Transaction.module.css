@@ -236,32 +236,26 @@
   }
 }
 
-.dialog::backdrop {
+.dialog[open]::backdrop {
   background: rgb(68 0 49 / 30%);
   backdrop-filter: blur(3px);
 }
 
-.dialog {
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  background: transparent;
-  color: var(--color-white);
-  border: none;
-  width: 100%;
-  margin: 0;
-}
-
 .dialog[open] {
+  width: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background: transparent;
+  color: var(--color-white);
+  border: none;
+  margin: 0;
   gap: 1.5rem;
 }
 
-.dialog::before {
+.dialog[open]::before {
   content: '';
   width: calc(50rem / 16);
   height: calc(50rem / 16);
