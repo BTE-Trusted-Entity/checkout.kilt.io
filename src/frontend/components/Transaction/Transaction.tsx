@@ -134,7 +134,7 @@ export function Transaction({
 
   const cost = useCost();
 
-  const [status, setStatus] = useState<TransactionStatus>('authorizing');
+  const [status, setStatus] = useState<TransactionStatus>('prepared');
 
   useEffect(() => {
     if (['authorizing', 'submitting'].includes(status)) {
