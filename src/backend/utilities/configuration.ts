@@ -23,6 +23,12 @@ if (!baseUri) {
   throw new ConfigurationError('No base URI provided');
 }
 
+const TXDBaseUrl = env.BASE_URI_TXD;
+
+if (!TXDBaseUrl) {
+  throw new ConfigurationError('No TXD URL provided');
+}
+
 const didCost = env.COST_DID;
 
 if (!didCost) {
@@ -33,11 +39,24 @@ if (Number.isNaN(parseFloat(didCost))) {
 }
 
 const paypal = {
+  baseUrl: env.BASE_URI_PAYPAL,
   clientId: env.CLIENT_ID_PAYPAL,
+  secret: env.SECRET_PAYPAL,
 };
 
-if (!paypal.clientId) {
+if (!paypal.baseUrl || !paypal.clientId || !paypal.secret) {
   throw new ConfigurationError('No paypal client credentials provided');
+}
+
+const seedPhrase = env.SECRET_SEED_PHRASE;
+if (!seedPhrase) {
+  throw new ConfigurationError('No seed phrase provided');
+}
+
+const keyUri = env.DID_KEY_URI;
+
+if (!keyUri) {
+  throw new ConfigurationError('No DID key URI provided');
 }
 
 export const configuration = {
@@ -48,4 +67,7 @@ export const configuration = {
   httpAuthPassword,
   didCost,
   paypal,
+  TXDBaseUrl,
+  seedPhrase,
+  keyUri,
 };

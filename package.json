@@ -20,22 +20,27 @@
   },
   "dependencies": {
     "@hapi/basic": "^7.0.0",
+    "@hapi/boom": "^10.0.0",
     "@hapi/hapi": "^20.2.2",
     "@hapi/inert": "^7.0.0",
+    "@kiltprotocol/core": "^0.29.0",
+    "@kiltprotocol/utils": "^0.29.0",
     "@paypal/react-paypal-js": "^7.8.1",
-    "@polkadot/react-identicon": "^2.9.12",
+    "@polkadot/ui-shared": "^2.9.13",
     "dotenv": "^16.0.1",
     "exiting": "^6.1.0",
+    "got": "^11.8.5",
     "hapi-dev-errors": "^4.0.0",
     "hapi-pino": "^10.0.0",
     "ky": "^0.32.2",
     "pino": "^8.3.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "zod": "^3.19.1"
   },
   "devDependencies": {
-    "@types/hapi__basic": "^5.1.2",
     "@paypal/paypal-js": "^5.1.1",
+    "@types/hapi__basic": "^5.1.2",
     "@types/hapi__hapi": "^20.0.12",
     "@types/hapi__inert": "^5.2.3",
     "@types/react": "^18.0.24",
@@ -57,13 +62,12 @@
     "path-browserify": "^1.0.1",
     "pino-pretty": "^8.1.0",
     "prettier": "^2.7.1",
-    "process": "^0.11.10",
     "stylelint": "^14.14.0",
     "stylelint-config-css-modules": "^4.1.0",
     "stylelint-config-standard": "^29.0.0",
     "supervisor": "^0.12.0",
     "typed-css-modules": "^0.7.2",
-    "typescript": "^4.7.4"
+    "typescript": "^4.9.3"
   },
   "targets": {
     "frontend": {

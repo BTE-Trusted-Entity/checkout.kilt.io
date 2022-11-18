@@ -1,5 +1,6 @@
 export const __esModule: true;
 export const container: string;
+export const photoCitation: string;
 export const main: string;
 export const cover: string;
 export const heading: string;
@@ -8,4 +9,3 @@ export const infoContainer: string;
 export const infoHeading: string;
 export const infoTagline: string;
 export const info: string;
-export const photoCitation: string;

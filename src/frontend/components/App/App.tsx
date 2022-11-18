@@ -9,10 +9,6 @@ export function App(): JSX.Element {
     <div className={styles.container}>
       <Header />
 
-      <cite className={styles.photoCitation}>
-        Photo by Clayton Cardinalli on Unsplash
-      </cite>
-
       <main className={styles.main}>
         <div className={styles.cover}>
           <h1 className={styles.heading}>Get your DID</h1>
@@ -41,6 +37,10 @@ export function App(): JSX.Element {
       </main>
 
       <Footer />
+
+      <cite className={styles.photoCitation}>
+        Photo by Clayton Cardinalli on Unsplash
+      </cite>
     </div>
   );
 }

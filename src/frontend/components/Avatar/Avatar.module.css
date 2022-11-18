@@ -1,0 +1,23 @@
+.avatar {
+  height: calc(62rem / 16);
+  width: calc(62rem / 16);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--color-orange);
+}
+
+.pending {
+  composes: avatar;
+  background: rgb(167 167 167 / 60%);
+}
+
+.identicon {
+  --size: calc(50rem / 16);
+
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+}
