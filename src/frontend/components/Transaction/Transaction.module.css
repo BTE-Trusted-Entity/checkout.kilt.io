@@ -225,3 +225,41 @@
 .serviceLink {
   color: var(--color-white);
 }
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.dialog::backdrop {
+  background: rgba(68, 0, 49, 0.3);
+  backdrop-filter: blur(3px);
+}
+
+.dialog {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: transparent;
+  color: var(--color-white);
+  border: none;
+  width: 100%;
+  margin: 0;
+  text-align: center;
+}
+
+.dialog::before {
+  content: '';
+  display: block;
+  margin: 1.5rem auto;
+  width: calc(50rem / 16);
+  height: calc(50rem / 16);
+  background: url('spinner.svg') no-repeat center/contain;
+  animation: rotation 1.5s infinite linear;
+}

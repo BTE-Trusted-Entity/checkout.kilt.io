@@ -3,12 +3,6 @@
   flex-direction: column;
   width: 100%;
   min-height: 100vh;
-  position: relative;
-}
-
-.blurred {
-  composes: container;
-  filter: blur(3px);
 }
 
 .photoCitation {
@@ -99,36 +93,4 @@
   .info {
     font-size: calc(18rem / 16);
   }
-}
-
-@keyframes rotation {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(359deg);
-  }
-}
-
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgb(68 0 49 / 30%);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.overlay::before {
-  content: '';
-  width: calc(50rem / 16);
-  height: calc(50rem / 16);
-  background: url('spinner.svg') no-repeat center/contain;
-  animation: rotation 1.5s infinite linear;
 }

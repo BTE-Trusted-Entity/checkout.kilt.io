@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 
-export interface UseBooleanState {
+interface UseBooleanState {
   current: boolean;
   on: () => void;
   off: () => void;

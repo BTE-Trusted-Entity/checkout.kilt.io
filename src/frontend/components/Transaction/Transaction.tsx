@@ -11,6 +11,7 @@ import {
   useCallback,
   useContext,
   useEffect,
+  useRef,
   useState,
 } from 'react';
 
@@ -22,10 +23,7 @@ import * as styles from './Transaction.module.css';
 
 import { TxContext } from '../../utilities/TxContext';
 import { paths } from '../../../backend/endpoints/paths';
-import {
-  UseBooleanState,
-  useBooleanState,
-} from '../../utilities/useBooleanState';
+import { useBooleanState } from '../../utilities/useBooleanState';
 import { Avatar } from '../Avatar/Avatar';
 
 function getCostAsLocaleString(cost: string) {
@@ -124,24 +122,14 @@ type TransactionStatus =
   | 'complete'
   | 'error';
 
-export function Transaction({
-  showOverlay,
-}: {
-  showOverlay: UseBooleanState;
-}): JSX.Element | null {
+export function Transaction(): JSX.Element | null {
   const { address, tx } = useContext(TxContext);
+
+  const dialogRef = useRef<HTMLDialogElement>(null);
 
   const cost = useCost();
 
   const [status, setStatus] = useState<TransactionStatus>('prepared');
-
-  useEffect(() => {
-    if (['authorizing', 'submitting'].includes(status)) {
-      showOverlay.on();
-    } else {
-      showOverlay.off();
-    }
-  }, [status, showOverlay]);
 
   const [purchaseDetails, setPurchaseDetails] = useState<PurchaseUnit>();
 
@@ -176,6 +164,8 @@ export function Transaction({
       (async () => {
         try {
           setStatus('authorizing');
+          dialogRef.current?.showModal();
+
           const { orderID } = data;
 
           if (!actions.order) {
@@ -199,11 +189,14 @@ export function Transaction({
               timeout: false,
             })
             .json<PurchaseUnit>();
+
           setPurchaseDetails(captured);
           setStatus('complete');
         } catch (error) {
           setStatus('error');
           console.error(error);
+        } finally {
+          dialogRef.current?.close();
         }
       })();
     },
@@ -292,6 +285,10 @@ export function Transaction({
       {status === 'complete' && purchaseDetails && (
         <PurchaseDetails purchase={purchaseDetails} />
       )}
+
+      <dialog className={styles.dialog} ref={dialogRef}>
+        Please wait while your transaction is being processed
+      </dialog>
     </form>
   );
 }
