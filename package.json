@@ -16,7 +16,8 @@
     "dev": "yarn parcel watch",
     "build": "rm -rf dist && NODE_OPTIONS=--no-experimental-fetch yarn parcel build",
     "start": "node --enable-source-maps dist/backend/server.js",
-    "dev-start": "echo '{\"type\":\"commonjs\"}' > dist/package.json && supervisor --watch dist/backend/ --enable-source-maps dist/backend/server.js"
+    "dev-start": "echo '{\"type\":\"commonjs\"}' > dist/package.json && supervisor --watch dist/backend/ --enable-source-maps dist/backend/server.js",
+    "storybook": "start-storybook --port 6007 --modern"
   },
   "dependencies": {
     "@hapi/basic": "^7.0.0",
@@ -40,6 +41,16 @@
   },
   "devDependencies": {
     "@paypal/paypal-js": "^5.1.1",
+    "@storybook/addon-actions": "^6.5.13",
+    "@storybook/addon-console": "^1.2.3",
+    "@storybook/addon-controls": "^6.5.13",
+    "@storybook/addon-links": "^6.5.13",
+    "@storybook/addon-toolbars": "^6.5.13",
+    "@storybook/addon-viewport": "^6.5.13",
+    "@storybook/addons": "^6.5.13",
+    "@storybook/builder-webpack5": "^6.5.13",
+    "@storybook/manager-webpack5": "^6.5.13",
+    "@storybook/react": "^6.5.13",
     "@types/hapi__basic": "^5.1.2",
     "@types/hapi__hapi": "^20.0.12",
     "@types/hapi__inert": "^5.2.3",
@@ -62,6 +73,7 @@
     "path-browserify": "^1.0.1",
     "pino-pretty": "^8.1.0",
     "prettier": "^2.7.1",
+    "stream-browserify": "^3.0.0",
     "stylelint": "^14.14.0",
     "stylelint-config-css-modules": "^4.1.0",
     "stylelint-config-standard": "^29.0.0",
