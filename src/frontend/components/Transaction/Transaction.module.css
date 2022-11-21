@@ -200,6 +200,7 @@
 .purchaseDetail {
   display: flex;
   gap: 1rem;
+  font-style: normal;
 }
 
 .detailName {
