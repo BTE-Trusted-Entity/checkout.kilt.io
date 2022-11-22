@@ -29,5 +29,6 @@ export const detailValue: string;
 export const servicesHeading: string;
 export const services: string;
 export const serviceLink: string;
+export const restart: string;
 export const dialog: string;
 export const rotation: string;

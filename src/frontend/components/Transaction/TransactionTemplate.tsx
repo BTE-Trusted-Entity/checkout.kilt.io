@@ -84,6 +84,21 @@ function PurchaseDetails({ purchase }: { purchase: PurchaseUnit }) {
   );
 }
 
+function AccountAddress({ isOnChain }: { isOnChain: boolean }) {
+  const { address } = useContext(TxContext);
+
+  return (
+    <section className={styles.addressContainer}>
+      <Avatar address={address} isOnChain={isOnChain} />
+
+      <p className={styles.address}>
+        <span className={styles.addressName}>For account address</span>
+        <span className={styles.addressValue}>{address}</span>
+      </p>
+    </section>
+  );
+}
+
 export type TransactionStatus =
   | 'prepared'
   | 'authorizing'
@@ -114,8 +129,6 @@ export function TransactionTemplate({
   purchaseDetails,
   flowError,
 }: Props) {
-  const { address } = useContext(TxContext);
-
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
@@ -140,14 +153,7 @@ export function TransactionTemplate({
         <Fragment>
           <p className={styles.txPrepared}>Transaction prepared</p>
 
-          <section className={styles.addressContainer}>
-            <Avatar address={address} isOnChain={status === 'complete'} />
-
-            <p className={styles.address}>
-              <span className={styles.addressName}>For account address</span>
-              <span className={styles.addressValue}>{address}</span>
-            </p>
-          </section>
+          <AccountAddress isOnChain={false} />
 
           <section className={styles.incomplete}>
             <p className={styles.instruction}>
@@ -188,6 +194,9 @@ export function TransactionTemplate({
       {status === 'complete' && purchaseDetails && (
         <Fragment>
           <p className={styles.txComplete}>Order complete</p>
+
+          <AccountAddress isOnChain />
+
           <PurchaseDetails purchase={purchaseDetails} />
         </Fragment>
       )}
