@@ -143,7 +143,7 @@ export function Transaction(): JSX.Element | null {
       <div className={styles.paypal}>
         <PayPalButtons
           fundingSource="paypal"
-          disabled={!enabled}
+          disabled={!enabled.current}
           createOrder={createOrder}
           onApprove={onApprove}
           onError={handlePayPalError}
