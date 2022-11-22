@@ -26,6 +26,11 @@ function MockPaypalButtonDisabled() {
   );
 }
 
+const actions = {
+  handleTermsClick: action('terms'),
+  handleRestart: action('restart'),
+};
+
 const mockPurchaseDetails: PurchaseUnit = {
   amount: { value: '4.00' },
   shipping: {
@@ -54,7 +59,7 @@ export function Prepared(): JSX.Element {
   return (
     <TransactionTemplate
       status="prepared"
-      handleTermsClick={action('terms')}
+      {...actions}
       cost={localeCost}
       enabled={false}
     >
@@ -67,7 +72,7 @@ export function TermsAccepted(): JSX.Element {
   return (
     <TransactionTemplate
       status="prepared"
-      handleTermsClick={action('terms')}
+      {...actions}
       cost={localeCost}
       enabled={true}
     >
@@ -80,7 +85,7 @@ export function Authorizing(): JSX.Element {
   return (
     <TransactionTemplate
       status="authorizing"
-      handleTermsClick={action('terms')}
+      {...actions}
       cost={localeCost}
       enabled={true}
     >
@@ -93,7 +98,7 @@ export function Submitting(): JSX.Element {
   return (
     <TransactionTemplate
       status="submitting"
-      handleTermsClick={action('terms')}
+      {...actions}
       cost={localeCost}
       enabled={true}
     >
@@ -106,10 +111,52 @@ export function Complete(): JSX.Element {
   return (
     <TransactionTemplate
       status="complete"
-      handleTermsClick={action('terms')}
+      {...actions}
       cost={localeCost}
       enabled={true}
       purchaseDetails={mockPurchaseDetails}
+    >
+      <MockPaypalButton />
+    </TransactionTemplate>
+  );
+}
+
+export function PayPalError(): JSX.Element {
+  return (
+    <TransactionTemplate
+      status="error"
+      flowError="paypal"
+      {...actions}
+      cost={localeCost}
+      enabled={true}
+    >
+      <MockPaypalButton />
+    </TransactionTemplate>
+  );
+}
+
+export function TXDError(): JSX.Element {
+  return (
+    <TransactionTemplate
+      status="error"
+      flowError="txd"
+      {...actions}
+      cost={localeCost}
+      enabled={true}
+    >
+      <MockPaypalButton />
+    </TransactionTemplate>
+  );
+}
+
+export function UnknownError(): JSX.Element {
+  return (
+    <TransactionTemplate
+      status="error"
+      flowError="unknown"
+      {...actions}
+      cost={localeCost}
+      enabled={true}
     >
       <MockPaypalButton />
     </TransactionTemplate>

@@ -1,0 +1,13 @@
+.buttonPrimary {
+  composes: regularText from '../Typography/Typography.module.css';
+  height: 2.25rem;
+  width: calc(150rem / 16);
+  border: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: var(--color-white);
+  background-color: var(--color-orange);
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: calc(5rem / 16);
+}

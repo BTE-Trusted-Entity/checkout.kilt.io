@@ -14,7 +14,7 @@ import {
   useState,
 } from 'react';
 
-import ky from 'ky';
+import ky, { HTTPError } from 'ky';
 
 import { PayPalButtons } from '@paypal/react-paypal-js';
 
@@ -26,7 +26,11 @@ import { useBooleanState } from '../../utilities/useBooleanState/useBooleanState
 
 import { getCostAsLocaleString } from '../../utilities/getCostAsLocaleString/getCostAsLocaleString';
 
-import { TransactionTemplate } from './TransactionTemplate';
+import {
+  FlowError,
+  TransactionStatus,
+  TransactionTemplate,
+} from './TransactionTemplate';
 
 function useCost() {
   const [cost, setCost] = useState<string>();
@@ -40,19 +44,13 @@ function useCost() {
   return cost;
 }
 
-type TransactionStatus =
-  | 'prepared'
-  | 'authorizing'
-  | 'submitting'
-  | 'complete'
-  | 'error';
-
 export function Transaction(): JSX.Element | null {
   const { tx } = useContext(TxContext);
 
   const cost = useCost();
 
   const [status, setStatus] = useState<TransactionStatus>('prepared');
+  const [flowError, setFlowError] = useState<FlowError>();
 
   const [purchaseDetails, setPurchaseDetails] = useState<PurchaseUnit>();
 
@@ -114,18 +112,31 @@ export function Transaction(): JSX.Element | null {
 
           setPurchaseDetails(captured);
           setStatus('complete');
-        } catch (error) {
+        } catch (exception) {
           setStatus('error');
-          console.error(error);
+          if (
+            exception instanceof HTTPError &&
+            [502, 504].includes(exception.response.status)
+          ) {
+            setFlowError('txd');
+          } else {
+            setFlowError('unknown');
+          }
         }
       })();
     },
     [tx],
   );
 
-  // TODO: https://kiltprotocol.atlassian.net/browse/SK-1376
   const handlePayPalError = useCallback((error: Record<string, unknown>) => {
     console.error(error);
+    setStatus('error');
+    setFlowError('paypal');
+  }, []);
+
+  const handleRestart = useCallback(() => {
+    setStatus('prepared');
+    setFlowError(undefined);
   }, []);
 
   if (!cost) {
@@ -138,7 +149,9 @@ export function Transaction(): JSX.Element | null {
       enabled={enabled.current}
       cost={getCostAsLocaleString(cost)}
       handleTermsClick={handleTermsClick}
+      handleRestart={handleRestart}
       purchaseDetails={purchaseDetails}
+      flowError={flowError}
     >
       <div className={styles.paypal}>
         <PayPalButtons
