@@ -16,10 +16,10 @@ exports[`TransactionTemplate should match snapshot with flowError=paypal 1`] = `
       Error
     </p>
     <p>
-      Something went wrong during your PayPal payment. Your account was not debited. Please restart the payment process.
+      Something went wrong during your PayPal payment. Your account was not debited.
     </p>
     <p>
-      Please try again.
+      Please restart the payment process.
     </p>
     <button
       class="restart"
@@ -51,10 +51,10 @@ exports[`TransactionTemplate should match snapshot with flowError=txd 1`] = `
       Error
     </p>
     <p>
-      Something went wrong during the blockchain transaction. Your account was not debited. Please restart the payment process.
+      Something went wrong during the blockchain transaction. Your account was not debited.
     </p>
     <p>
-      Please try again.
+      Please restart the payment process.
     </p>
     <button
       class="restart"
@@ -86,10 +86,10 @@ exports[`TransactionTemplate should match snapshot with flowError=unknown 1`] = 
       Error
     </p>
     <p>
-      Some unexpected error happened. Please check your internet connection and make sure to follow the exact steps of the payment process.
+      Some unexpected error happened.
     </p>
     <p>
-      Please try again.
+      Please check your internet connection and make sure to follow the exact steps of the payment process.
     </p>
     <button
       class="restart"

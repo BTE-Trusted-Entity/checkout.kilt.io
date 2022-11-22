@@ -205,28 +205,35 @@ export function TransactionTemplate({
         <Fragment>
           <p className={styles.txError}>Error</p>
           {flowError === 'paypal' && (
-            <p>
-              Something went wrong during your PayPal payment. Your account was
-              not debited. Please restart the payment process.
-            </p>
+            <Fragment>
+              <p>
+                Something went wrong during your PayPal payment. Your account
+                was not debited.
+              </p>
+              <p>Please restart the payment process.</p>
+            </Fragment>
           )}
 
           {flowError === 'txd' && (
-            <p>
-              Something went wrong during the blockchain transaction. Your
-              account was not debited. Please restart the payment process.
-            </p>
+            <Fragment>
+              <p>
+                Something went wrong during the blockchain transaction. Your
+                account was not debited.
+              </p>
+              <p>Please restart the payment process.</p>
+            </Fragment>
           )}
 
           {flowError === 'unknown' && (
-            <p>
-              Some unexpected error happened. Please check your internet
-              connection and make sure to follow the exact steps of the payment
-              process.
-            </p>
+            <Fragment>
+              <p>Some unexpected error happened.</p>
+              <p>
+                Please check your internet connection and make sure to follow
+                the exact steps of the payment process.
+              </p>
+            </Fragment>
           )}
 
-          <p>Please try again.</p>
           <button className={styles.restart} onClick={handleRestart}>
             Restart
           </button>
