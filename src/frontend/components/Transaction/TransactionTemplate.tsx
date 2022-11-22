@@ -106,17 +106,16 @@ export function TransactionTemplate({
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
-    if (
-      ['authorizing', 'submitting'].includes(status) &&
-      !dialogRef.current?.open
-    ) {
-      dialogRef.current?.showModal();
+    const dialog = dialogRef.current;
+    if (!dialog) {
+      return;
     }
-    if (
-      ['prepared', 'complete', 'error'].includes(status) &&
-      dialogRef.current?.open
-    ) {
-      dialogRef.current?.close();
+
+    if (['authorizing', 'submitting'].includes(status) && !dialog.open) {
+      dialog.showModal();
+    }
+    if (['prepared', 'complete', 'error'].includes(status) && dialog.open) {
+      dialog.close();
     }
   }, [status]);
 
@@ -145,6 +144,7 @@ export function TransactionTemplate({
         <section className={styles.incomplete}>
           <p className={styles.instruction}>
             To complete your order, please first accept the{' '}
+            {/* TODO: Add link to terms and conditions */}
             <a href="#" className={styles.termsLink}>
               Terms and Conditions
             </a>
