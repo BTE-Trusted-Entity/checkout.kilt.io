@@ -3,6 +3,7 @@
   flex-direction: column;
   width: 100%;
   min-height: 100vh;
+  background: var(--color-primary);
 }
 
 .photoCitation {
@@ -16,7 +17,6 @@
 }
 
 .main {
-  background: var(--color-primary);
   width: 100%;
   display: flex;
   flex-direction: column;

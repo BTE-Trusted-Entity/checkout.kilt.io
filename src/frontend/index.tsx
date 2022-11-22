@@ -6,7 +6,7 @@ import ky from 'ky';
 import { paths } from '../backend/endpoints/paths';
 
 import { App } from './components/App/App';
-import { TxProvider } from './utilities/TxContext';
+import { TxProvider } from './utilities/TxContext/TxContext';
 
 (async function renderApp() {
   const container = document.getElementById('app');
