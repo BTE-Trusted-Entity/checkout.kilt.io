@@ -2582,10 +2582,10 @@
     chrome-trace-event "^1.0.2"
     nullthrows "^1.1.1"
 
-"@paypal/paypal-js@^5.0.6", "@paypal/paypal-js@^5.1.1":
-  version "5.1.1"
-  resolved "https://registry.yarnpkg.com/@paypal/paypal-js/-/paypal-js-5.1.1.tgz#81ab1f78dd2001061a2472f561d20df687a1d295"
-  integrity sha512-MMQ8TA048gTB43pzEOMzod8WY8hfzy+ahd7w29LtMvXduqzp7/29WxrTlsy4k6ARG6WGJ/uGqpc4+la4UZEQgw==
+"@paypal/paypal-js@^5.0.6", "@paypal/paypal-js@^5.1.2":
+  version "5.1.2"
+  resolved "https://registry.yarnpkg.com/@paypal/paypal-js/-/paypal-js-5.1.2.tgz#fa36512eb702a5920aab6cc5551b947ae695241a"
+  integrity sha512-hdJUnAmsmhsZ1D4WgWg3Q7cpoUZ3Xxrr2LMREsOZVAARNVtzoy1ZZrDKzvFYEXUyWWDRr45Bc6Ov3yvZidLMrA==
   dependencies:
     promise-polyfill "^8.2.3"
 
