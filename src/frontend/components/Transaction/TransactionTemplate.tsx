@@ -1,4 +1,11 @@
-import { ChangeEventHandler, useContext, useEffect, useRef } from 'react';
+import {
+  ChangeEventHandler,
+  Fragment,
+  MouseEventHandler,
+  useContext,
+  useEffect,
+  useRef,
+} from 'react';
 
 import { PurchaseUnit } from '@paypal/paypal-js';
 
@@ -77,6 +84,21 @@ function PurchaseDetails({ purchase }: { purchase: PurchaseUnit }) {
   );
 }
 
+function AccountAddress({ isOnChain }: { isOnChain: boolean }) {
+  const { address } = useContext(TxContext);
+
+  return (
+    <section className={styles.addressContainer}>
+      <Avatar address={address} isOnChain={isOnChain} />
+
+      <p className={styles.address}>
+        <span className={styles.addressName}>For account address</span>
+        <span className={styles.addressValue}>{address}</span>
+      </p>
+    </section>
+  );
+}
+
 export type TransactionStatus =
   | 'prepared'
   | 'authorizing'
@@ -84,13 +106,17 @@ export type TransactionStatus =
   | 'complete'
   | 'error';
 
+export type FlowError = 'paypal' | 'txd' | 'unknown';
+
 interface Props {
   children: JSX.Element;
   status: TransactionStatus;
   enabled: boolean;
   cost: string;
   handleTermsClick: ChangeEventHandler;
+  handleRestart: MouseEventHandler;
   purchaseDetails?: PurchaseUnit;
+  flowError?: FlowError;
 }
 
 export function TransactionTemplate({
@@ -99,10 +125,10 @@ export function TransactionTemplate({
   enabled,
   cost,
   handleTermsClick,
+  handleRestart,
   purchaseDetails,
+  flowError,
 }: Props) {
-  const { address } = useContext(TxContext);
-
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
@@ -123,61 +149,95 @@ export function TransactionTemplate({
     <form className={styles.container}>
       <h2 className={styles.heading}>Purchase Process</h2>
 
-      {status !== 'complete' && (
-        <p className={styles.txPrepared}>Transaction prepared</p>
-      )}
+      {['prepared', 'authorizing', 'submitting'].includes(status) && (
+        <Fragment>
+          <p className={styles.txPrepared}>Transaction prepared</p>
 
-      {status === 'complete' && (
-        <p className={styles.txComplete}>Order complete</p>
-      )}
+          <AccountAddress isOnChain={false} />
 
-      <section className={styles.addressContainer}>
-        <Avatar address={address} isOnChain={status === 'complete'} />
+          <section className={styles.incomplete}>
+            <p className={styles.instruction}>
+              To complete your order, please first accept the{' '}
+              {/* TODO: Add link to terms and conditions */}
+              <a href="#" className={styles.termsLink}>
+                Terms and Conditions
+              </a>
+            </p>
 
-        <p className={styles.address}>
-          <span className={styles.addressName}>For account address</span>
-          <span className={styles.addressValue}>{address}</span>
-        </p>
-      </section>
+            <p className={enabled ? styles.termsLineEnabled : styles.termsLine}>
+              <label className={styles.termsLabel}>
+                <input
+                  className={styles.accept}
+                  type="checkbox"
+                  onChange={handleTermsClick}
+                  checked={enabled}
+                />
+                <span className={styles.checkbox} />
+                <span className={styles.termsLabelText}>
+                  I accept the Terms and Conditions of the Checkout Service.
+                </span>
+              </label>
+            </p>
 
-      {status !== 'complete' && (
-        <section className={styles.incomplete}>
-          <p className={styles.instruction}>
-            To complete your order, please first accept the{' '}
-            {/* TODO: Add link to terms and conditions */}
-            <a href="#" className={styles.termsLink}>
-              Terms and Conditions
-            </a>
-          </p>
+            <p className={styles.instruction}>then continue with PayPal</p>
 
-          <p className={enabled ? styles.termsLineEnabled : styles.termsLine}>
-            <label className={styles.termsLabel}>
-              <input
-                className={styles.accept}
-                type="checkbox"
-                onChange={handleTermsClick}
-                checked={enabled}
-              />
-              <span className={styles.checkbox} />
-              <span className={styles.termsLabelText}>
-                I accept the Terms and Conditions of the Checkout Service.
-              </span>
-            </label>
-          </p>
+            <p className={styles.cost}>
+              <span>Total cost</span>
+              <span className={styles.costValue}>{cost}</span>
+            </p>
 
-          <p className={styles.instruction}>then continue with PayPal</p>
-
-          <p className={styles.cost}>
-            <span>Total cost</span>
-            <span className={styles.costValue}>{cost}</span>
-          </p>
-
-          {children}
-        </section>
+            {children}
+          </section>
+        </Fragment>
       )}
 
       {status === 'complete' && purchaseDetails && (
-        <PurchaseDetails purchase={purchaseDetails} />
+        <Fragment>
+          <p className={styles.txComplete}>Order complete</p>
+
+          <AccountAddress isOnChain />
+
+          <PurchaseDetails purchase={purchaseDetails} />
+        </Fragment>
+      )}
+
+      {status === 'error' && (
+        <Fragment>
+          <p className={styles.txError}>Error</p>
+          {flowError === 'paypal' && (
+            <Fragment>
+              <p>
+                Something went wrong during your PayPal payment. Your account
+                was not debited.
+              </p>
+              <p>Please restart the payment process.</p>
+            </Fragment>
+          )}
+
+          {flowError === 'txd' && (
+            <Fragment>
+              <p>
+                Something went wrong during the blockchain transaction. Your
+                account was not debited.
+              </p>
+              <p>Please restart the payment process.</p>
+            </Fragment>
+          )}
+
+          {flowError === 'unknown' && (
+            <Fragment>
+              <p>Some unexpected error happened.</p>
+              <p>
+                Please check your internet connection and make sure to follow
+                the exact steps of the payment process.
+              </p>
+            </Fragment>
+          )}
+
+          <button className={styles.restart} onClick={handleRestart}>
+            Restart
+          </button>
+        </Fragment>
       )}
 
       <dialog className={styles.dialog} ref={dialogRef}>

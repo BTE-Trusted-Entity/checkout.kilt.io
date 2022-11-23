@@ -24,6 +24,11 @@ const mockPurchaseDetails: PurchaseUnit = {
   },
 };
 
+const actions = {
+  handleTermsClick: jest.fn(),
+  handleRestart: jest.fn(),
+};
+
 function MockPayPalButton() {
   return <button>PayPal</button>;
 }
@@ -37,7 +42,7 @@ describe('TransactionTemplate', () => {
         status="prepared"
         enabled={false}
         cost={localeCost}
-        handleTermsClick={jest.fn()}
+        {...actions}
       >
         <MockPayPalButton />
       </TransactionTemplate>,
@@ -52,7 +57,7 @@ describe('TransactionTemplate', () => {
         status="prepared"
         enabled={true}
         cost={localeCost}
-        handleTermsClick={jest.fn()}
+        {...actions}
       >
         <MockPayPalButton />
       </TransactionTemplate>,
@@ -67,7 +72,7 @@ describe('TransactionTemplate', () => {
         status="authorizing"
         enabled={true}
         cost={localeCost}
-        handleTermsClick={jest.fn()}
+        {...actions}
       >
         <MockPayPalButton />
       </TransactionTemplate>,
@@ -82,7 +87,7 @@ describe('TransactionTemplate', () => {
         status="submitting"
         enabled={true}
         cost={localeCost}
-        handleTermsClick={jest.fn()}
+        {...actions}
       >
         <MockPayPalButton />
       </TransactionTemplate>,
@@ -97,8 +102,56 @@ describe('TransactionTemplate', () => {
         status="complete"
         enabled={true}
         cost={localeCost}
-        handleTermsClick={jest.fn()}
+        {...actions}
         purchaseDetails={mockPurchaseDetails}
+      >
+        <MockPayPalButton />
+      </TransactionTemplate>,
+    );
+
+    expect(container).toMatchSnapshot();
+  });
+
+  it('should match snapshot with flowError=paypal', () => {
+    const { container } = render(
+      <TransactionTemplate
+        status="error"
+        flowError="paypal"
+        enabled={true}
+        cost={localeCost}
+        {...actions}
+      >
+        <MockPayPalButton />
+      </TransactionTemplate>,
+    );
+
+    expect(container).toMatchSnapshot();
+  });
+
+  it('should match snapshot with flowError=txd', () => {
+    const { container } = render(
+      <TransactionTemplate
+        status="error"
+        flowError="txd"
+        enabled={true}
+        cost={localeCost}
+        {...actions}
+      >
+        <MockPayPalButton />
+      </TransactionTemplate>,
+    );
+
+    expect(container).toMatchSnapshot();
+  });
+
+  it('should match snapshot with flowError=unknown', () => {
+    const { container } = render(
+      <TransactionTemplate
+        status="error"
+        flowError="unknown"
+        enabled={true}
+        cost={localeCost}
+        {...actions}
       >
         <MockPayPalButton />
       </TransactionTemplate>,

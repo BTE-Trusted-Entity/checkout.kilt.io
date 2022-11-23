@@ -1,5 +1,110 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`TransactionTemplate should match snapshot with flowError=paypal 1`] = `
+<div>
+  <form
+    class="container"
+  >
+    <h2
+      class="heading"
+    >
+      Purchase Process
+    </h2>
+    <p
+      class="txError"
+    >
+      Error
+    </p>
+    <p>
+      Something went wrong during your PayPal payment. Your account was not debited.
+    </p>
+    <p>
+      Please restart the payment process.
+    </p>
+    <button
+      class="restart"
+    >
+      Restart
+    </button>
+    <dialog
+      class="dialog"
+    >
+      Please wait while your transaction is being processed
+    </dialog>
+  </form>
+</div>
+`;
+
+exports[`TransactionTemplate should match snapshot with flowError=txd 1`] = `
+<div>
+  <form
+    class="container"
+  >
+    <h2
+      class="heading"
+    >
+      Purchase Process
+    </h2>
+    <p
+      class="txError"
+    >
+      Error
+    </p>
+    <p>
+      Something went wrong during the blockchain transaction. Your account was not debited.
+    </p>
+    <p>
+      Please restart the payment process.
+    </p>
+    <button
+      class="restart"
+    >
+      Restart
+    </button>
+    <dialog
+      class="dialog"
+    >
+      Please wait while your transaction is being processed
+    </dialog>
+  </form>
+</div>
+`;
+
+exports[`TransactionTemplate should match snapshot with flowError=unknown 1`] = `
+<div>
+  <form
+    class="container"
+  >
+    <h2
+      class="heading"
+    >
+      Purchase Process
+    </h2>
+    <p
+      class="txError"
+    >
+      Error
+    </p>
+    <p>
+      Some unexpected error happened.
+    </p>
+    <p>
+      Please check your internet connection and make sure to follow the exact steps of the payment process.
+    </p>
+    <button
+      class="restart"
+    >
+      Restart
+    </button>
+    <dialog
+      class="dialog"
+    >
+      Please wait while your transaction is being processed
+    </dialog>
+  </form>
+</div>
+`;
+
 exports[`TransactionTemplate should match snapshot with status=authorizing 1`] = `
 <div>
   <form

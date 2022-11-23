@@ -44,6 +44,12 @@
   background-image: url('./ok.svg');
 }
 
+.txError {
+  composes: txStatus;
+  background-image: url('./error.svg');
+  margin: 0;
+}
+
 .addressContainer {
   display: flex;
   align-items: flex-end;
@@ -225,6 +231,11 @@
 
 .serviceLink {
   color: var(--color-white);
+}
+
+.restart {
+  composes: buttonPrimary from '../Buttons/Buttons.module.css';
+  margin-top: 1rem;
 }
 
 @keyframes rotation {
