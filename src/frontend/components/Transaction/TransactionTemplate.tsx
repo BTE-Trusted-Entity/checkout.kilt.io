@@ -228,8 +228,11 @@ export function TransactionTemplate({
             <Fragment>
               <p>Some unexpected error happened.</p>
               <p>
-                Please check your internet connection and make sure to follow
-                the exact steps of the payment process.
+                It’s possible that the transaction was still successful. Please
+                wait a moment before checking your Sporran wallet and PayPal
+                balance. After you have confirmed that your account does not
+                have a DID and your payment method was not charged, please check
+                your internet connection and try again.
               </p>
             </Fragment>
           )}
