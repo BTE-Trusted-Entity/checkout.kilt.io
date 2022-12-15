@@ -7,82 +7,10 @@ import {
   useRef,
 } from 'react';
 
-import { PurchaseUnit } from '@paypal/paypal-js';
-
 import * as styles from './Transaction.module.css';
 
 import { TxContext } from '../../utilities/TxContext/TxContext';
 import { Avatar } from '../Avatar/Avatar';
-import { getCostAsLocaleString } from '../../utilities/getCostAsLocaleString/getCostAsLocaleString';
-
-function PurchaseDetails({ purchase }: { purchase: PurchaseUnit }) {
-  const address = purchase.shipping?.address;
-
-  const name = purchase.shipping?.name?.full_name;
-
-  return (
-    <section>
-      <h2 className={styles.purchaseHeading}>Billing information</h2>
-
-      <dl className={styles.purchaseDetails}>
-        <div className={styles.purchaseDetail}>
-          <dt className={styles.detailName}>Order total:</dt>
-          <dd className={styles.detailValue}>
-            {getCostAsLocaleString(purchase.amount.value)}
-          </dd>
-        </div>
-
-        {address && (
-          <address className={styles.purchaseDetail}>
-            <dt className={styles.detailName}>Billing address:</dt>
-            <dd className={styles.detailValue}>
-              {name && <span>{name}</span>}
-              {address.address_line_1 && <span>{address.address_line_1}</span>}
-              {address.address_line_2 && <span>{address.address_line_2}</span>}
-              {address.postal_code && (
-                <span>
-                  {address.postal_code} {address.admin_area_1}
-                </span>
-              )}
-              <span>{address.country_code}</span>
-            </dd>
-          </address>
-        )}
-      </dl>
-
-      <h2 className={styles.servicesHeading}>
-        Congratulations! Now you can start building and using your digital
-        identity with KILT services:
-      </h2>
-
-      <ul className={styles.services}>
-        <li>
-          Give your DID a custom name using{' '}
-          <a className={styles.serviceLink} href="https://w3n.id/">
-            web3name
-          </a>
-        </li>
-        <li>
-          Add credentials to your DID such as social media accounts, GitHub and
-          email address using{' '}
-          <a className={styles.serviceLink} href="https://socialkyc.io/">
-            SocialKYC
-          </a>
-        </li>
-        <li>
-          Sign digital files with your DID in a secure, decentralized way using{' '}
-          <a className={styles.serviceLink} href="https://didsign.io/">
-            DIDsign
-          </a>
-        </li>
-        <li>
-          Link your DID to your Polkadot ecosystem addresses (and soon,
-          Ethereum)
-        </li>
-      </ul>
-    </section>
-  );
-}
 
 function AccountAddress({ isOnChain }: { isOnChain: boolean }) {
   const { address } = useContext(TxContext);
@@ -115,7 +43,6 @@ interface Props {
   cost: string;
   handleTermsClick: ChangeEventHandler;
   handleRestart: MouseEventHandler;
-  purchaseDetails?: PurchaseUnit;
   flowError?: FlowError;
 }
 
@@ -126,7 +53,6 @@ export function TransactionTemplate({
   cost,
   handleTermsClick,
   handleRestart,
-  purchaseDetails,
   flowError,
 }: Props) {
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -191,13 +117,43 @@ export function TransactionTemplate({
         </Fragment>
       )}
 
-      {status === 'complete' && purchaseDetails && (
+      {status === 'complete' && (
         <Fragment>
           <p className={styles.txComplete}>Order complete</p>
 
           <AccountAddress isOnChain />
 
-          <PurchaseDetails purchase={purchaseDetails} />
+          <h2 className={styles.servicesHeading}>
+            Congratulations! Now you can start building and using your digital
+            identity with KILT services:
+          </h2>
+
+          <ul className={styles.services}>
+            <li>
+              Give your DID a custom name using{' '}
+              <a className={styles.serviceLink} href="https://w3n.id/">
+                web3name
+              </a>
+            </li>
+            <li>
+              Add credentials to your DID such as social media accounts, GitHub
+              and email address using{' '}
+              <a className={styles.serviceLink} href="https://socialkyc.io/">
+                SocialKYC
+              </a>
+            </li>
+            <li>
+              Sign digital files with your DID in a secure, decentralized way
+              using{' '}
+              <a className={styles.serviceLink} href="https://didsign.io/">
+                DIDsign
+              </a>
+            </li>
+            <li>
+              Link your DID to your Polkadot ecosystem addresses (and soon,
+              Ethereum)
+            </li>
+          </ul>
         </Fragment>
       )}
 
