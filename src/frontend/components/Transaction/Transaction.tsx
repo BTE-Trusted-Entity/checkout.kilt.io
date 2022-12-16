@@ -3,7 +3,6 @@ import type {
   CreateOrderActions,
   OnApproveData,
   OnApproveActions,
-  PurchaseUnit,
 } from '@paypal/paypal-js';
 
 import {
@@ -51,8 +50,6 @@ export function Transaction(): JSX.Element | null {
 
   const [status, setStatus] = useState<TransactionStatus>('prepared');
   const [flowError, setFlowError] = useState<FlowError>();
-
-  const [purchaseDetails, setPurchaseDetails] = useState<PurchaseUnit>();
 
   const enabled = useBooleanState();
   const handleTermsClick = useCallback(
@@ -103,14 +100,11 @@ export function Transaction(): JSX.Element | null {
 
           setStatus('submitting');
 
-          const captured = await ky
-            .post(paths.submit, {
-              json: { orderID, authorizationID, tx },
-              timeout: false,
-            })
-            .json<PurchaseUnit>();
+          await ky.post(paths.submit, {
+            json: { orderID, authorizationID, tx },
+            timeout: false,
+          });
 
-          setPurchaseDetails(captured);
           setStatus('complete');
         } catch (exception) {
           setStatus('error');
@@ -150,7 +144,6 @@ export function Transaction(): JSX.Element | null {
       cost={getCostAsLocaleString(cost)}
       handleTermsClick={handleTermsClick}
       handleRestart={handleRestart}
-      purchaseDetails={purchaseDetails}
       flowError={flowError}
     >
       <div className={styles.paypal}>

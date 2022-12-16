@@ -1,28 +1,10 @@
 import { describe, it, jest, beforeEach } from '@jest/globals';
-import { PurchaseUnit } from '@paypal/paypal-js';
 
 import { mockDialogAPI, render } from '../../../testing/testing';
 
 import { TransactionTemplate } from './TransactionTemplate';
 
 const localeCost = 'EUR 4.00';
-
-const mockPurchaseDetails: PurchaseUnit = {
-  amount: { value: '4.00' },
-  shipping: {
-    type: 'SHIPPING',
-    name: {
-      full_name: 'Timothy Tumnus',
-    },
-    address: {
-      address_line_1: '1 Lamppost Lane',
-      address_line_2: 'Behind the Wardrobe',
-      postal_code: '123456',
-      admin_area_1: 'Narnia',
-      country_code: 'GB',
-    },
-  },
-};
 
 const actions = {
   handleTermsClick: jest.fn(),
@@ -103,7 +85,6 @@ describe('TransactionTemplate', () => {
         enabled={true}
         cost={localeCost}
         {...actions}
-        purchaseDetails={mockPurchaseDetails}
       >
         <MockPayPalButton />
       </TransactionTemplate>,

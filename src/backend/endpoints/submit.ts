@@ -12,6 +12,8 @@ import got from 'got';
 
 import { OrderResponseBody } from '@paypal/paypal-js';
 
+import Boom from '@hapi/boom';
+
 import { configuration } from '../utilities/configuration';
 
 import { submitTx } from '../utilities/submitTx';
@@ -81,7 +83,11 @@ async function handler(
 
   logger.debug('Generated PayPal access token');
 
-  const order = await getOrderDetails(orderID, accessToken);
+  const { intent, status } = await getOrderDetails(orderID, accessToken);
+
+  if (intent !== 'AUTHORIZE' || status !== 'COMPLETED') {
+    throw Boom.badRequest();
+  }
 
   logger.debug('Fetched PayPal order details, sending transaction to TXD');
 
@@ -93,8 +99,7 @@ async function handler(
 
   logger.debug('Successfully captured payment');
 
-  const purchase = order.purchase_units[0];
-  return h.response(purchase);
+  return h.response().code(204);
 }
 
 export const submit: ServerRoute = {

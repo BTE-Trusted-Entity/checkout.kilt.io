@@ -192,34 +192,6 @@
   }
 }
 
-.purchaseHeading {
-  composes: regularText from '../Typography/Typography.module.css';
-  margin: 1rem 0;
-}
-
-.purchaseDetails {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.purchaseDetail {
-  display: flex;
-  gap: 1rem;
-  font-style: normal;
-}
-
-.detailName {
-  min-width: 8rem;
-}
-
-.detailValue {
-  composes: importantText from '../Typography/Typography.module.css';
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-}
-
 .servicesHeading {
   composes: regularText from '../Typography/Typography.module.css';
   margin-top: 2.75rem;

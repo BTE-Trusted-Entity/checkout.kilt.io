@@ -4,8 +4,6 @@ import { action } from '@storybook/addon-actions';
 
 import { PayPalButtons } from '@paypal/react-paypal-js';
 
-import { PurchaseUnit } from '@paypal/paypal-js';
-
 import * as styles from './Transaction.module.css';
 
 import { TransactionTemplate } from './TransactionTemplate';
@@ -29,23 +27,6 @@ function MockPaypalButtonDisabled() {
 const actions = {
   handleTermsClick: action('terms'),
   handleRestart: action('restart'),
-};
-
-const mockPurchaseDetails: PurchaseUnit = {
-  amount: { value: '4.00' },
-  shipping: {
-    type: 'SHIPPING',
-    name: {
-      full_name: 'Timothy Tumnus',
-    },
-    address: {
-      address_line_1: '1 Lamppost Lane',
-      address_line_2: 'Behind the Wardrobe',
-      postal_code: '123456',
-      admin_area_1: 'Narnia',
-      country_code: 'GB',
-    },
-  },
 };
 
 const localeCost = 'EUR 4.00';
@@ -114,7 +95,6 @@ export function Complete(): JSX.Element {
       {...actions}
       cost={localeCost}
       enabled={true}
-      purchaseDetails={mockPurchaseDetails}
     >
       <MockPaypalButton />
     </TransactionTemplate>
