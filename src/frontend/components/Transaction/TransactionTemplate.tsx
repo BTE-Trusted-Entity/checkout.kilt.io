@@ -148,7 +148,7 @@ export function TransactionTemplate({
   const ref = useRef<HTMLFormElement | null>(null);
 
   useEffect(() => {
-    ref.current?.scrollIntoView();
+    ref.current?.scrollIntoView({ behavior: 'smooth' });
   }, []);
 
   return (
