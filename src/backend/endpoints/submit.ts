@@ -86,7 +86,7 @@ async function handler(
   const { intent, status } = await getOrderDetails(orderID, accessToken);
 
   if (intent !== 'AUTHORIZE' || status !== 'COMPLETED') {
-    throw Boom.badRequest;
+    throw Boom.badRequest();
   }
 
   logger.debug('Fetched PayPal order details, sending transaction to TXD');
