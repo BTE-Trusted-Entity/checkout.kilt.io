@@ -1,7 +1,11 @@
 import { describe, it, jest, beforeEach } from '@jest/globals';
 import { PurchaseUnit } from '@paypal/paypal-js';
 
-import { mockDialogAPI, render } from '../../../testing/testing';
+import {
+  mockDialogAPI,
+  mockScrollIntoView,
+  render,
+} from '../../../testing/testing';
 
 import { TransactionTemplate } from './TransactionTemplate';
 
@@ -34,7 +38,10 @@ function MockPayPalButton() {
 }
 
 describe('TransactionTemplate', () => {
-  beforeEach(mockDialogAPI);
+  beforeEach(() => {
+    mockDialogAPI();
+    mockScrollIntoView();
+  });
 
   it('should match snapshot with status=prepared', () => {
     const { container } = render(
