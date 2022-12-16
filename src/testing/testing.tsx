@@ -29,3 +29,7 @@ export function mockDialogAPI(): void {
     this.open = false;
   });
 }
+
+export function mockScrollIntoView() {
+  HTMLElement.prototype.scrollIntoView = jest.fn();
+}

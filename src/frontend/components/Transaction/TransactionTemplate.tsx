@@ -71,8 +71,14 @@ export function TransactionTemplate({
     }
   }, [status]);
 
+  const ref = useRef<HTMLFormElement | null>(null);
+
+  useEffect(() => {
+    ref.current?.scrollIntoView({ behavior: 'smooth' });
+  }, []);
+
   return (
-    <form className={styles.container}>
+    <form className={styles.container} ref={ref}>
       <h2 className={styles.heading}>Purchase Process</h2>
 
       {['prepared', 'authorizing', 'submitting'].includes(status) && (
