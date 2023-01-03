@@ -5,13 +5,7 @@ import type {
   OnApproveActions,
 } from '@paypal/paypal-js';
 
-import {
-  ChangeEvent,
-  useCallback,
-  useContext,
-  useEffect,
-  useState,
-} from 'react';
+import { ChangeEvent, useCallback, useContext, useState } from 'react';
 
 import ky, { HTTPError } from 'ky';
 
@@ -21,6 +15,7 @@ import * as styles from './Transaction.module.css';
 
 import { TxContext } from '../../utilities/TxContext/TxContext';
 import { paths } from '../../../backend/endpoints/paths';
+import { useCosts } from '../../../backend/endpoints/costsApi';
 import { useBooleanState } from '../../utilities/useBooleanState/useBooleanState';
 
 import { getCostAsLocaleString } from '../../utilities/getCostAsLocaleString/getCostAsLocaleString';
@@ -31,22 +26,10 @@ import {
   TransactionTemplate,
 } from './TransactionTemplate';
 
-function useCost() {
-  const [cost, setCost] = useState<string>();
-
-  useEffect(() => {
-    (async () => {
-      setCost(await ky.get(paths.cost).text());
-    })();
-  }, []);
-
-  return cost;
-}
-
 export function Transaction(): JSX.Element | null {
   const { tx } = useContext(TxContext);
 
-  const cost = useCost();
+  const cost = useCosts()?.did;
 
   const [status, setStatus] = useState<TransactionStatus>('prepared');
   const [flowError, setFlowError] = useState<FlowError>();

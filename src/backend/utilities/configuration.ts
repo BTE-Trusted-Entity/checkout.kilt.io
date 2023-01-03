@@ -38,6 +38,15 @@ if (Number.isNaN(parseFloat(didCost))) {
   throw new ConfigurationError('DID cost is not a number');
 }
 
+const w3nCost = env.COST_W3N;
+
+if (!w3nCost) {
+  throw new ConfigurationError('No w3n cost provided');
+}
+if (Number.isNaN(parseFloat(w3nCost))) {
+  throw new ConfigurationError('w3n cost is not a number');
+}
+
 const paypal = {
   baseUrl: env.BASE_URI_PAYPAL,
   clientId: env.CLIENT_ID_PAYPAL,
@@ -66,6 +75,7 @@ export const configuration = {
   distFolder: path.join(cwd(), 'dist', 'frontend'),
   httpAuthPassword,
   didCost,
+  w3nCost,
   paypal,
   TXDBaseUrl,
   seedPhrase,

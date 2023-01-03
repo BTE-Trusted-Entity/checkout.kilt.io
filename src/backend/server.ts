@@ -3,6 +3,7 @@ import pino from 'hapi-pino';
 import { init } from '@kiltprotocol/core';
 
 import { cost } from './endpoints/cost';
+import { costs } from './endpoints/costs';
 import { paypalClientID } from './endpoints/paypalClientID';
 
 import { staticFiles } from './endpoints/staticFiles';
@@ -48,6 +49,7 @@ const logger = {
 
   server.route(paypalClientID);
   server.route(cost);
+  server.route(costs);
   server.route(submit);
 
   server.route(liveness);
