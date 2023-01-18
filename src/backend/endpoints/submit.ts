@@ -12,7 +12,7 @@ import got from 'got';
 
 import { OrderResponseBody } from '@paypal/paypal-js';
 
-import Boom from '@hapi/boom';
+import * as Boom from '@hapi/boom';
 
 import { configuration } from '../utilities/configuration';
 
