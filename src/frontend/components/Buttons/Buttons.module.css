@@ -1,6 +1,7 @@
 .buttonPrimary {
   composes: regularText from '../Typography/Typography.module.css';
   height: 2.25rem;
+  line-height: 2.25rem;
   width: calc(150rem / 16);
   border: none;
   text-transform: uppercase;
@@ -10,4 +11,8 @@
   background-repeat: no-repeat;
   background-position: center;
   border-radius: calc(5rem / 16);
+}
+
+.buttonPrimary:disabled {
+  opacity: 0.5;
 }

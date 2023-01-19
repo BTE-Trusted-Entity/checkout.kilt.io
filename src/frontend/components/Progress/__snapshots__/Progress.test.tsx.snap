@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Progress should match the snapshot 1`] = `
+<div>
+  <ul
+    class="container"
+  >
+    <li
+      class="completed"
+    >
+      Prepare
+    </li>
+    <li
+      class="current"
+    >
+      Order
+    </li>
+    <li
+      class="step"
+    >
+      Pay
+    </li>
+    <li
+      class="step"
+    >
+      Success
+    </li>
+  </ul>
+</div>
+`;

@@ -5,6 +5,30 @@ exports[`TransactionTemplate should match snapshot with flowError=paypal 1`] = `
   <form
     class="container"
   >
+    <ul
+      class="container"
+    >
+      <li
+        class="completed"
+      >
+        Prepare
+      </li>
+      <li
+        class="completed"
+      >
+        Order
+      </li>
+      <li
+        class="current"
+      >
+        Pay
+      </li>
+      <li
+        class="step"
+      >
+        Success
+      </li>
+    </ul>
     <h2
       class="heading"
     >
@@ -40,6 +64,30 @@ exports[`TransactionTemplate should match snapshot with flowError=txd 1`] = `
   <form
     class="container"
   >
+    <ul
+      class="container"
+    >
+      <li
+        class="completed"
+      >
+        Prepare
+      </li>
+      <li
+        class="completed"
+      >
+        Order
+      </li>
+      <li
+        class="current"
+      >
+        Pay
+      </li>
+      <li
+        class="step"
+      >
+        Success
+      </li>
+    </ul>
     <h2
       class="heading"
     >
@@ -75,6 +123,30 @@ exports[`TransactionTemplate should match snapshot with flowError=unknown 1`] = 
   <form
     class="container"
   >
+    <ul
+      class="container"
+    >
+      <li
+        class="completed"
+      >
+        Prepare
+      </li>
+      <li
+        class="completed"
+      >
+        Order
+      </li>
+      <li
+        class="current"
+      >
+        Pay
+      </li>
+      <li
+        class="step"
+      >
+        Success
+      </li>
+    </ul>
     <h2
       class="heading"
     >
@@ -110,6 +182,30 @@ exports[`TransactionTemplate should match snapshot with status=authorizing 1`] =
   <form
     class="container"
   >
+    <ul
+      class="container"
+    >
+      <li
+        class="completed"
+      >
+        Prepare
+      </li>
+      <li
+        class="completed"
+      >
+        Order
+      </li>
+      <li
+        class="current"
+      >
+        Pay
+      </li>
+      <li
+        class="step"
+      >
+        Success
+      </li>
+    </ul>
     <h2
       class="heading"
     >
@@ -118,7 +214,7 @@ exports[`TransactionTemplate should match snapshot with status=authorizing 1`] =
     <p
       class="txPrepared"
     >
-      Transaction prepared
+      Sporran transaction signed
     </p>
     <section
       class="addressContainer"
@@ -260,7 +356,7 @@ exports[`TransactionTemplate should match snapshot with status=authorizing 1`] =
         <span
           class="addressName"
         >
-          For account address
+          For account address:
         </span>
         <span
           class="addressValue"
@@ -275,14 +371,7 @@ exports[`TransactionTemplate should match snapshot with status=authorizing 1`] =
       <p
         class="instruction"
       >
-        To complete your order, please first accept the
-         
-        <a
-          class="termsLink"
-          href="#"
-        >
-          Terms and Conditions
-        </a>
+        The Checkout Service executes your transaction for a DID on the KILT blockchain. This Service is provided by KILT partner B.T.E. BOTLabs Trusted Entity GmbH. You can use PayPal to pay for this service.
       </p>
       <p
         class="termsLineEnabled"
@@ -301,26 +390,51 @@ exports[`TransactionTemplate should match snapshot with status=authorizing 1`] =
           <span
             class="termsLabelText"
           >
-            I accept the Terms and Conditions of the Checkout Service.
+            I agree to immediate processing of the Checkout Service, and am aware that this ends my right to revoke the Service.
           </span>
         </label>
-      </p>
-      <p
-        class="instruction"
-      >
-        then continue with PayPal
       </p>
       <p
         class="cost"
       >
         <span>
-          Total cost
+          Service fee
         </span>
         <span
           class="costValue"
         >
           EUR 4.00
         </span>
+        <span
+          class="costDetails"
+        >
+          or EUR equivalent, depending on your preferred PayPal currency
+        </span>
+      </p>
+      <p
+        class="instruction"
+      >
+        By clicking the button below, I also agree to the
+         
+        <a
+          class="termsLink"
+          href="#"
+        >
+          Terms and Conditions
+        </a>
+         
+        of the Checkout Service and to start the payment via Paypal.
+      </p>
+      <p
+        class="orderLine"
+      >
+        <button
+          class="order"
+          disabled=""
+          type="submit"
+        >
+          Chargeable order
+        </button>
       </p>
       <button>
         PayPal
@@ -341,6 +455,30 @@ exports[`TransactionTemplate should match snapshot with status=complete 1`] = `
   <form
     class="container"
   >
+    <ul
+      class="container"
+    >
+      <li
+        class="completed"
+      >
+        Prepare
+      </li>
+      <li
+        class="completed"
+      >
+        Order
+      </li>
+      <li
+        class="completed"
+      >
+        Pay
+      </li>
+      <li
+        class="current"
+      >
+        Success
+      </li>
+    </ul>
     <h2
       class="heading"
     >
@@ -491,7 +629,7 @@ exports[`TransactionTemplate should match snapshot with status=complete 1`] = `
         <span
           class="addressName"
         >
-          For account address
+          For account address:
         </span>
         <span
           class="addressValue"
@@ -556,6 +694,30 @@ exports[`TransactionTemplate should match snapshot with status=prepared 1`] = `
   <form
     class="container"
   >
+    <ul
+      class="container"
+    >
+      <li
+        class="current"
+      >
+        Prepare
+      </li>
+      <li
+        class="step"
+      >
+        Order
+      </li>
+      <li
+        class="step"
+      >
+        Pay
+      </li>
+      <li
+        class="step"
+      >
+        Success
+      </li>
+    </ul>
     <h2
       class="heading"
     >
@@ -564,7 +726,7 @@ exports[`TransactionTemplate should match snapshot with status=prepared 1`] = `
     <p
       class="txPrepared"
     >
-      Transaction prepared
+      Sporran transaction signed
     </p>
     <section
       class="addressContainer"
@@ -706,7 +868,7 @@ exports[`TransactionTemplate should match snapshot with status=prepared 1`] = `
         <span
           class="addressName"
         >
-          For account address
+          For account address:
         </span>
         <span
           class="addressValue"
@@ -721,14 +883,7 @@ exports[`TransactionTemplate should match snapshot with status=prepared 1`] = `
       <p
         class="instruction"
       >
-        To complete your order, please first accept the
-         
-        <a
-          class="termsLink"
-          href="#"
-        >
-          Terms and Conditions
-        </a>
+        The Checkout Service executes your transaction for a DID on the KILT blockchain. This Service is provided by KILT partner B.T.E. BOTLabs Trusted Entity GmbH. You can use PayPal to pay for this service.
       </p>
       <p
         class="termsLine"
@@ -746,26 +901,51 @@ exports[`TransactionTemplate should match snapshot with status=prepared 1`] = `
           <span
             class="termsLabelText"
           >
-            I accept the Terms and Conditions of the Checkout Service.
+            I agree to immediate processing of the Checkout Service, and am aware that this ends my right to revoke the Service.
           </span>
         </label>
-      </p>
-      <p
-        class="instruction"
-      >
-        then continue with PayPal
       </p>
       <p
         class="cost"
       >
         <span>
-          Total cost
+          Service fee
         </span>
         <span
           class="costValue"
         >
           EUR 4.00
         </span>
+        <span
+          class="costDetails"
+        >
+          or EUR equivalent, depending on your preferred PayPal currency
+        </span>
+      </p>
+      <p
+        class="instruction"
+      >
+        By clicking the button below, I also agree to the
+         
+        <a
+          class="termsLink"
+          href="#"
+        >
+          Terms and Conditions
+        </a>
+         
+        of the Checkout Service and to start the payment via Paypal.
+      </p>
+      <p
+        class="orderLine"
+      >
+        <button
+          class="order"
+          disabled=""
+          type="submit"
+        >
+          Chargeable order
+        </button>
       </p>
       <button>
         PayPal
@@ -785,6 +965,30 @@ exports[`TransactionTemplate should match snapshot with status=submitting 1`] = 
   <form
     class="container"
   >
+    <ul
+      class="container"
+    >
+      <li
+        class="completed"
+      >
+        Prepare
+      </li>
+      <li
+        class="completed"
+      >
+        Order
+      </li>
+      <li
+        class="current"
+      >
+        Pay
+      </li>
+      <li
+        class="step"
+      >
+        Success
+      </li>
+    </ul>
     <h2
       class="heading"
     >
@@ -793,7 +997,7 @@ exports[`TransactionTemplate should match snapshot with status=submitting 1`] = 
     <p
       class="txPrepared"
     >
-      Transaction prepared
+      Sporran transaction signed
     </p>
     <section
       class="addressContainer"
@@ -935,7 +1139,7 @@ exports[`TransactionTemplate should match snapshot with status=submitting 1`] = 
         <span
           class="addressName"
         >
-          For account address
+          For account address:
         </span>
         <span
           class="addressValue"
@@ -950,14 +1154,7 @@ exports[`TransactionTemplate should match snapshot with status=submitting 1`] = 
       <p
         class="instruction"
       >
-        To complete your order, please first accept the
-         
-        <a
-          class="termsLink"
-          href="#"
-        >
-          Terms and Conditions
-        </a>
+        The Checkout Service executes your transaction for a DID on the KILT blockchain. This Service is provided by KILT partner B.T.E. BOTLabs Trusted Entity GmbH. You can use PayPal to pay for this service.
       </p>
       <p
         class="termsLineEnabled"
@@ -976,26 +1173,51 @@ exports[`TransactionTemplate should match snapshot with status=submitting 1`] = 
           <span
             class="termsLabelText"
           >
-            I accept the Terms and Conditions of the Checkout Service.
+            I agree to immediate processing of the Checkout Service, and am aware that this ends my right to revoke the Service.
           </span>
         </label>
-      </p>
-      <p
-        class="instruction"
-      >
-        then continue with PayPal
       </p>
       <p
         class="cost"
       >
         <span>
-          Total cost
+          Service fee
         </span>
         <span
           class="costValue"
         >
           EUR 4.00
         </span>
+        <span
+          class="costDetails"
+        >
+          or EUR equivalent, depending on your preferred PayPal currency
+        </span>
+      </p>
+      <p
+        class="instruction"
+      >
+        By clicking the button below, I also agree to the
+         
+        <a
+          class="termsLink"
+          href="#"
+        >
+          Terms and Conditions
+        </a>
+         
+        of the Checkout Service and to start the payment via Paypal.
+      </p>
+      <p
+        class="orderLine"
+      >
+        <button
+          class="order"
+          disabled=""
+          type="submit"
+        >
+          Chargeable order
+        </button>
       </p>
       <button>
         PayPal
@@ -1016,6 +1238,30 @@ exports[`TransactionTemplate should match snapshot with terms accepted 1`] = `
   <form
     class="container"
   >
+    <ul
+      class="container"
+    >
+      <li
+        class="completed"
+      >
+        Prepare
+      </li>
+      <li
+        class="current"
+      >
+        Order
+      </li>
+      <li
+        class="step"
+      >
+        Pay
+      </li>
+      <li
+        class="step"
+      >
+        Success
+      </li>
+    </ul>
     <h2
       class="heading"
     >
@@ -1024,7 +1270,7 @@ exports[`TransactionTemplate should match snapshot with terms accepted 1`] = `
     <p
       class="txPrepared"
     >
-      Transaction prepared
+      Sporran transaction signed
     </p>
     <section
       class="addressContainer"
@@ -1166,7 +1412,7 @@ exports[`TransactionTemplate should match snapshot with terms accepted 1`] = `
         <span
           class="addressName"
         >
-          For account address
+          For account address:
         </span>
         <span
           class="addressValue"
@@ -1181,14 +1427,7 @@ exports[`TransactionTemplate should match snapshot with terms accepted 1`] = `
       <p
         class="instruction"
       >
-        To complete your order, please first accept the
-         
-        <a
-          class="termsLink"
-          href="#"
-        >
-          Terms and Conditions
-        </a>
+        The Checkout Service executes your transaction for a DID on the KILT blockchain. This Service is provided by KILT partner B.T.E. BOTLabs Trusted Entity GmbH. You can use PayPal to pay for this service.
       </p>
       <p
         class="termsLineEnabled"
@@ -1207,26 +1446,50 @@ exports[`TransactionTemplate should match snapshot with terms accepted 1`] = `
           <span
             class="termsLabelText"
           >
-            I accept the Terms and Conditions of the Checkout Service.
+            I agree to immediate processing of the Checkout Service, and am aware that this ends my right to revoke the Service.
           </span>
         </label>
-      </p>
-      <p
-        class="instruction"
-      >
-        then continue with PayPal
       </p>
       <p
         class="cost"
       >
         <span>
-          Total cost
+          Service fee
         </span>
         <span
           class="costValue"
         >
           EUR 4.00
         </span>
+        <span
+          class="costDetails"
+        >
+          or EUR equivalent, depending on your preferred PayPal currency
+        </span>
+      </p>
+      <p
+        class="instruction"
+      >
+        By clicking the button below, I also agree to the
+         
+        <a
+          class="termsLink"
+          href="#"
+        >
+          Terms and Conditions
+        </a>
+         
+        of the Checkout Service and to start the payment via Paypal.
+      </p>
+      <p
+        class="orderLine"
+      >
+        <button
+          class="order"
+          type="submit"
+        >
+          Chargeable order
+        </button>
       </p>
       <button>
         PayPal

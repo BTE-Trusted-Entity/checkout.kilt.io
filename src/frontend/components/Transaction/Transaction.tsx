@@ -5,7 +5,13 @@ import type {
   OnApproveActions,
 } from '@paypal/paypal-js';
 
-import { ChangeEvent, useCallback, useContext, useState } from 'react';
+import {
+  ChangeEvent,
+  FormEvent,
+  useCallback,
+  useContext,
+  useState,
+} from 'react';
 
 import ky, { HTTPError } from 'ky';
 
@@ -35,11 +41,26 @@ export function Transaction(): JSX.Element | null {
   const [flowError, setFlowError] = useState<FlowError>();
 
   const enabled = useBooleanState();
+  const bound = useBooleanState();
+
   const handleTermsClick = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
-      enabled.set(event.target.checked);
+      const { checked } = event.target;
+      enabled.set(checked);
+
+      if (!checked) {
+        bound.off();
+      }
     },
-    [enabled],
+    [bound, enabled],
+  );
+
+  const handleBindClick = useCallback(
+    (event: FormEvent<HTMLFormElement>) => {
+      event.preventDefault();
+      bound.on();
+    },
+    [bound],
   );
 
   const createOrder = useCallback(
@@ -124,15 +145,17 @@ export function Transaction(): JSX.Element | null {
     <TransactionTemplate
       status={status}
       enabled={enabled.current}
+      bound={bound.current}
       cost={getCostAsLocaleString(cost)}
       handleTermsClick={handleTermsClick}
+      handleBindClick={handleBindClick}
       handleRestart={handleRestart}
       flowError={flowError}
     >
       <div className={styles.paypal}>
         <PayPalButtons
           fundingSource="paypal"
-          disabled={!enabled.current}
+          disabled={!enabled.current || !bound.current}
           createOrder={createOrder}
           onApprove={onApprove}
           onError={handlePayPalError}

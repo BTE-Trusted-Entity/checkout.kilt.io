@@ -1,5 +1,6 @@
 import {
   ChangeEventHandler,
+  FormEventHandler,
   Fragment,
   MouseEventHandler,
   useContext,
@@ -11,6 +12,7 @@ import * as styles from './Transaction.module.css';
 
 import { TxContext } from '../../utilities/TxContext/TxContext';
 import { Avatar } from '../Avatar/Avatar';
+import { Progress } from '../Progress/Progress';
 
 function AccountAddress({ isOnChain }: { isOnChain: boolean }) {
   const { address } = useContext(TxContext);
@@ -20,12 +22,14 @@ function AccountAddress({ isOnChain }: { isOnChain: boolean }) {
       <Avatar address={address} isOnChain={isOnChain} />
 
       <p className={styles.address}>
-        <span className={styles.addressName}>For account address</span>
+        <span className={styles.addressName}>For account address:</span>
         <span className={styles.addressValue}>{address}</span>
       </p>
     </section>
   );
 }
+
+const progressStages = ['Prepare', 'Order', 'Pay', 'Success'];
 
 export type TransactionStatus =
   | 'prepared'
@@ -40,8 +44,10 @@ interface Props {
   children: JSX.Element;
   status: TransactionStatus;
   enabled: boolean;
+  bound: boolean;
   cost: string;
   handleTermsClick: ChangeEventHandler;
+  handleBindClick: FormEventHandler<HTMLFormElement>;
   handleRestart: MouseEventHandler;
   flowError?: FlowError;
 }
@@ -50,8 +56,10 @@ export function TransactionTemplate({
   children,
   status,
   enabled,
+  bound,
   cost,
   handleTermsClick,
+  handleBindClick,
   handleRestart,
   flowError,
 }: Props) {
@@ -77,23 +85,31 @@ export function TransactionTemplate({
     ref.current?.scrollIntoView({ behavior: 'smooth' });
   }, []);
 
+  const currentStage = (() => {
+    if (!enabled) return 'Prepare';
+    if (!bound) return 'Order';
+    if (status !== 'complete') return 'Pay';
+    return 'Success';
+  })();
+
   return (
-    <form className={styles.container} ref={ref}>
+    <form className={styles.container} ref={ref} onSubmit={handleBindClick}>
+      <Progress stages={progressStages} current={currentStage} />
+
       <h2 className={styles.heading}>Purchase Process</h2>
 
       {['prepared', 'authorizing', 'submitting'].includes(status) && (
         <Fragment>
-          <p className={styles.txPrepared}>Transaction prepared</p>
+          <p className={styles.txPrepared}>Sporran transaction signed</p>
 
           <AccountAddress isOnChain={false} />
 
           <section className={styles.incomplete}>
             <p className={styles.instruction}>
-              To complete your order, please first accept the{' '}
-              {/* TODO: Add link to terms and conditions */}
-              <a href="#" className={styles.termsLink}>
-                Terms and Conditions
-              </a>
+              The Checkout Service executes your transaction for a DID on the
+              KILT blockchain. This Service is provided by KILT partner B.T.E.
+              BOTLabs Trusted Entity GmbH. You can use PayPal to pay for this
+              service.
             </p>
 
             <p className={enabled ? styles.termsLineEnabled : styles.termsLine}>
@@ -106,16 +122,37 @@ export function TransactionTemplate({
                 />
                 <span className={styles.checkbox} />
                 <span className={styles.termsLabelText}>
-                  I accept the Terms and Conditions of the Checkout Service.
+                  I agree to immediate processing of the Checkout Service, and
+                  am aware that this ends my right to revoke the Service.
                 </span>
               </label>
             </p>
 
-            <p className={styles.instruction}>then continue with PayPal</p>
-
             <p className={styles.cost}>
-              <span>Total cost</span>
+              <span>Service fee</span>
               <span className={styles.costValue}>{cost}</span>
+              <span className={styles.costDetails}>
+                or EUR equivalent, depending on your preferred PayPal currency
+              </span>
+            </p>
+
+            <p className={styles.instruction}>
+              By clicking the button below, I also agree to the{' '}
+              {/* TODO: Add link to terms and conditions */}
+              <a href="#" className={styles.termsLink}>
+                Terms and Conditions
+              </a>{' '}
+              of the Checkout Service and to start the payment via Paypal.
+            </p>
+
+            <p className={styles.orderLine}>
+              <button
+                className={styles.order}
+                type="submit"
+                disabled={!enabled || bound}
+              >
+                Chargeable order
+              </button>
             </p>
 
             {children}
