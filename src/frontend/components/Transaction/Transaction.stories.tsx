@@ -26,6 +26,7 @@ function MockPaypalButtonDisabled() {
 
 const actions = {
   handleTermsClick: action('terms'),
+  handleBindClick: action('order'),
   handleRestart: action('restart'),
 };
 
@@ -43,6 +44,7 @@ export function Prepared(): JSX.Element {
       {...actions}
       cost={localeCost}
       enabled={false}
+      bound={false}
     >
       <MockPaypalButtonDisabled />
     </TransactionTemplate>
@@ -56,6 +58,7 @@ export function TermsAccepted(): JSX.Element {
       {...actions}
       cost={localeCost}
       enabled={true}
+      bound={false}
     >
       <MockPaypalButton />
     </TransactionTemplate>
@@ -69,6 +72,7 @@ export function Authorizing(): JSX.Element {
       {...actions}
       cost={localeCost}
       enabled={true}
+      bound={true}
     >
       <MockPaypalButton />
     </TransactionTemplate>
@@ -82,6 +86,7 @@ export function Submitting(): JSX.Element {
       {...actions}
       cost={localeCost}
       enabled={true}
+      bound={true}
     >
       <MockPaypalButton />
     </TransactionTemplate>
@@ -95,6 +100,7 @@ export function Complete(): JSX.Element {
       {...actions}
       cost={localeCost}
       enabled={true}
+      bound={true}
     >
       <MockPaypalButton />
     </TransactionTemplate>
@@ -109,6 +115,7 @@ export function PayPalError(): JSX.Element {
       {...actions}
       cost={localeCost}
       enabled={true}
+      bound={true}
     >
       <MockPaypalButton />
     </TransactionTemplate>
@@ -123,6 +130,7 @@ export function TXDError(): JSX.Element {
       {...actions}
       cost={localeCost}
       enabled={true}
+      bound={true}
     >
       <MockPaypalButton />
     </TransactionTemplate>
@@ -137,6 +145,7 @@ export function UnknownError(): JSX.Element {
       {...actions}
       cost={localeCost}
       enabled={true}
+      bound={true}
     >
       <MockPaypalButton />
     </TransactionTemplate>

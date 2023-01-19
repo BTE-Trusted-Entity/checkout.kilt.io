@@ -12,6 +12,7 @@ const localeCost = 'EUR 4.00';
 
 const actions = {
   handleTermsClick: jest.fn(),
+  handleBindClick: jest.fn(),
   handleRestart: jest.fn(),
 };
 
@@ -30,6 +31,7 @@ describe('TransactionTemplate', () => {
       <TransactionTemplate
         status="prepared"
         enabled={false}
+        bound={false}
         cost={localeCost}
         {...actions}
       >
@@ -45,6 +47,7 @@ describe('TransactionTemplate', () => {
       <TransactionTemplate
         status="prepared"
         enabled={true}
+        bound={false}
         cost={localeCost}
         {...actions}
       >
@@ -60,6 +63,7 @@ describe('TransactionTemplate', () => {
       <TransactionTemplate
         status="authorizing"
         enabled={true}
+        bound={true}
         cost={localeCost}
         {...actions}
       >
@@ -75,6 +79,7 @@ describe('TransactionTemplate', () => {
       <TransactionTemplate
         status="submitting"
         enabled={true}
+        bound={true}
         cost={localeCost}
         {...actions}
       >
@@ -90,6 +95,7 @@ describe('TransactionTemplate', () => {
       <TransactionTemplate
         status="complete"
         enabled={true}
+        bound={true}
         cost={localeCost}
         {...actions}
       >
@@ -106,6 +112,7 @@ describe('TransactionTemplate', () => {
         status="error"
         flowError="paypal"
         enabled={true}
+        bound={true}
         cost={localeCost}
         {...actions}
       >
@@ -122,6 +129,7 @@ describe('TransactionTemplate', () => {
         status="error"
         flowError="txd"
         enabled={true}
+        bound={true}
         cost={localeCost}
         {...actions}
       >
@@ -138,6 +146,7 @@ describe('TransactionTemplate', () => {
         status="error"
         flowError="unknown"
         enabled={true}
+        bound={true}
         cost={localeCost}
         {...actions}
       >
