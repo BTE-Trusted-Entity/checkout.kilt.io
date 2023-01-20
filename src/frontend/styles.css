@@ -18,7 +18,13 @@ body {
   flex-direction: column;
   width: 100%;
   min-height: 100vh;
-  background: var(--color-primary);
+  background: url('./components/Theme/splash.jpg') var(--color-primary) no-repeat top left / 1600px;
+}
+
+@media screen and (min-width: 1600px) {
+  body {
+    background-size: contain;
+  }
 }
 
 main {
