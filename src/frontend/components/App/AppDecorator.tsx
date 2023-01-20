@@ -12,7 +12,9 @@ export function AppDecorator(Story: () => JSX.Element) {
         <h2 className={globalStyles.title}>Checkout Service</h2>
         <nav className={globalStyles.navLine}>
           back to{' '}
-          <a className={globalStyles.kiltLink} href="https://www.kilt.io/" />
+          <a className={globalStyles.kiltLink} href="https://www.kilt.io/">
+            kilt.io
+          </a>
         </nav>
       </header>
 
