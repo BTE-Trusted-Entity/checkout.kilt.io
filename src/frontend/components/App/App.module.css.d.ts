@@ -1,7 +1,4 @@
 export const __esModule: true;
-export const container: string;
-export const photoCitation: string;
-export const main: string;
 export const cover: string;
 export const heading: string;
 export const subline: string;

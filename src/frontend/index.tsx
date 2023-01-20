@@ -9,7 +9,7 @@ import { App } from './components/App/App';
 import { TxProvider } from './utilities/TxContext/TxContext';
 
 (async function renderApp() {
-  const container = document.getElementById('app');
+  const container = document.querySelector('main');
   if (!container) {
     return;
   }

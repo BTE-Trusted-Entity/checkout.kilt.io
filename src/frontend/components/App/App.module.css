@@ -1,29 +1,3 @@
-.container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  min-height: 100vh;
-  background: var(--color-primary);
-}
-
-.photoCitation {
-  font-size: calc(10rem / 16);
-  position: absolute;
-  font-style: inherit;
-  writing-mode: vertical-rl;
-  top: 4.5rem;
-  right: 0.5rem;
-  transform: rotate(180deg);
-}
-
-.main {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex: 1;
-}
-
 .cover {
   width: 100%;
   display: flex;
