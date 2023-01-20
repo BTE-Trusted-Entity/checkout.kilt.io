@@ -1,13 +1,16 @@
 import * as styles from './App.module.css';
 
-import { Header } from '../Header/Header';
-import { Footer } from '../Footer/Footer';
 import { Transaction } from '../Transaction/Transaction';
 
 export function App(): JSX.Element {
   return (
     <div className={styles.container}>
-      <Header />
+      <header className="header">
+        <h2 className="title">Checkout Service</h2>
+        <nav className="navLine">
+          back to <a className="kiltLink" href="https://www.kilt.io/" />
+        </nav>
+      </header>
 
       <main className={styles.main}>
         <div className={styles.cover}>
@@ -36,7 +39,27 @@ export function App(): JSX.Element {
         <Transaction />
       </main>
 
-      <Footer />
+      <footer className="footer">
+        {/* TODO: add links */}
+        <nav className="navMenu">
+          <h2 className="heading">Checkout Service:</h2>
+          <a href="#" className="navLink">
+            Imprint
+          </a>
+          <a href="#" className="navLink">
+            Terms and Conditions
+          </a>
+          <a href="#" className="navLink">
+            Privacy Policy
+          </a>
+
+          <a href="https://support.kilt.io/" className="navLink support">
+            Support
+          </a>
+        </nav>
+
+        <p className="copyright">© 2022 B.T.E. BOTLabs Trusted Entity GmbH</p>
+      </footer>
 
       <cite className={styles.photoCitation}>
         Photo by Clayton Cardinalli on Unsplash

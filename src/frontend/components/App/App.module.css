@@ -32,7 +32,7 @@
   padding-inline: calc((100% - min(90%, 1110rem / 16)) / 2);
   padding-block: calc(150rem / 16) calc(175rem / 16);
   box-sizing: border-box;
-  background: url('./splash.jpg') no-repeat bottom left / cover;
+  background: url('../Theme/splash.jpg') no-repeat bottom left / cover;
 }
 
 @media screen and (max-width: 500px) {

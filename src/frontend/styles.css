@@ -12,3 +12,132 @@ body {
   --color-primary: #440031;
   --color-primary-rgb: 249 105 67;
 }
+
+.header {
+  width: 100%;
+  height: 3.75rem;
+  background: rgb(51 0 37 / 40%);
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: calc((100% - min(90%, 1110rem / 16)) / 2);
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 500px) {
+  .header {
+    height: 2.5rem;
+  }
+}
+
+.header .title {
+  font-family: 'Overpass Light', sans-serif;
+  margin: 0;
+  font-size: 2.25rem;
+}
+
+@media screen and (max-width: 700px) {
+  .header .title {
+    font-size: 1.75rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .header .title {
+    font-size: 1.25rem;
+  }
+}
+
+.header .navLine {
+  letter-spacing: -0.1px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.header .kiltLink {
+  height: 2.25rem;
+  line-height: 2.25rem;
+  width: calc(150rem / 16);
+  border: none;
+  text-transform: uppercase;
+  font-size: 1rem;
+  cursor: pointer;
+  color: var(--color-white);
+  background: url('components/Theme/kilt-logo.svg') var(--color-orange) no-repeat center/3rem auto;
+  border-radius: calc(5rem / 16);
+}
+
+@media screen and (max-width: 500px) {
+  .header .navLine {
+    font-size: 0.75rem;
+  }
+
+  .header .kiltLink {
+    height: 1.25rem;
+    width: 2.5rem;
+    background-size: 1.75rem auto;
+  }
+}
+
+.footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-shrink: 0;
+  background: linear-gradient(180deg, var(--color-primary) 0%, #000 100%);
+  padding-inline: calc((100% - min(90%, 1110rem / 16)) / 2);
+  padding-block: 1.25rem calc(58rem / 16);
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 500px) {
+  .footer {
+    flex-direction: column;
+    align-items: center;
+    padding-block: 2rem 1.375rem;
+  }
+}
+
+.footer .heading {
+  font-size: 1rem;
+  margin: 0 0 0.25rem;
+}
+
+.footer .navMenu {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 500px) {
+  .footer .navMenu {
+    align-items: center;
+  }
+}
+
+.footer .navLink {
+  display: inline-block;
+  width: fit-content;
+  color: var(--color-white);
+  margin: 0.25rem 0;
+}
+
+.footer .support {
+  margin: 1.5rem 0 0;
+}
+
+.footer .copyright {
+  font-size: calc(10rem / 16);
+  align-self: flex-end;
+  margin: 0;
+}
+
+@media screen and (max-width: 500px) {
+  .footer .copyright {
+    align-self: center;
+    margin-top: 1.25rem;
+  }
+}

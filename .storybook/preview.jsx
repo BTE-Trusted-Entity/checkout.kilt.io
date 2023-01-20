@@ -5,7 +5,6 @@ import { init } from '@kiltprotocol/core';
 import { TxProviderMock } from '../src/frontend/utilities/TxContext/TxProvider.mock';
 import { AppDecorator } from '../src/frontend/components/App/AppDecorator';
 
-import '../src/frontend/styles.css';
 import { PayPalScriptProvider } from '@paypal/react-paypal-js';
 
 const paypal = {
