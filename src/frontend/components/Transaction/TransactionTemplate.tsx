@@ -138,8 +138,7 @@ export function TransactionTemplate({
 
             <p className={styles.instruction}>
               By clicking the button below, I also agree to the{' '}
-              {/* TODO: Add link to terms and conditions */}
-              <a href="#" className={styles.termsLink}>
+              <a href="/terms.html" className={styles.termsLink}>
                 Terms and Conditions
               </a>{' '}
               of the Checkout Service and to start the payment via Paypal.

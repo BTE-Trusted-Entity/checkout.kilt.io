@@ -3,13 +3,12 @@ import * as styles from './Footer.module.css';
 export function Footer(): JSX.Element {
   return (
     <footer className={styles.footer}>
-      {/* TODO: add links */}
       <nav className={styles.navMenu}>
         <h2 className={styles.heading}>Checkout Service:</h2>
-        <a href="#" className={styles.navLink}>
+        <a href="/imprint.html" className={styles.navLink}>
           Imprint
         </a>
-        <a href="#" className={styles.navLink}>
+        <a href="/terms.html" className={styles.navLink}>
           Terms and Conditions
         </a>
         <a href="#" className={styles.navLink}>
