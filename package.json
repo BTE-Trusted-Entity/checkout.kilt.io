@@ -98,6 +98,7 @@
       },
       "source": [
         "src/frontend/index.html",
+        "src/frontend/terms.html",
         "src/frontend/imprint.html"
       ],
       "distDir": "dist/frontend"
