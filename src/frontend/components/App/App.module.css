@@ -3,7 +3,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-inline: calc((100% - min(90%, 1110rem / 16)) / 2);
   padding-block: calc(150rem / 16) calc(175rem / 16);
   box-sizing: border-box;
 }

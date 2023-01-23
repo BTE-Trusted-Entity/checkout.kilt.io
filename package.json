@@ -96,7 +96,8 @@
         "browsers": "> 0.5%, last 2 versions, not dead"
       },
       "source": [
-        "src/frontend/index.html"
+        "src/frontend/index.html",
+        "src/frontend/imprint.html"
       ],
       "distDir": "dist/frontend"
     },

@@ -1,6 +1,4 @@
 .container {
-  box-sizing: border-box;
-  width: 90%;
   max-width: calc(1200rem / 16);
   background: rgb(var(--color-primary-rgb) / 10%);
   border: 1px solid rgb(var(--color-primary-rgb) / 50%);
