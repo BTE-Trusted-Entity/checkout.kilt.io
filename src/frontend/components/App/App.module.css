@@ -76,7 +76,17 @@
 
 .info {
   font-size: calc(21rem / 16);
-  margin: 0;
+  line-height: 1.5rem;
+  margin-block: 0.75rem;
+}
+
+.infoPoints {
+  composes: info;
+  padding-left: 2rem;
+}
+
+.infoPoint {
+  line-height: 1.75rem;
 }
 
 @media screen and (max-width: 700px) {

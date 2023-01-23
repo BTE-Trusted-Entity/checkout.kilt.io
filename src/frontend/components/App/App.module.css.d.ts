@@ -9,3 +9,5 @@ export const infoContainer: string;
 export const infoHeading: string;
 export const infoTagline: string;
 export const info: string;
+export const infoPoints: string;
+export const infoPoint: string;
