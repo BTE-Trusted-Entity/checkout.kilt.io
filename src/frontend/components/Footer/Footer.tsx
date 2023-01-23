@@ -11,7 +11,7 @@ export function Footer(): JSX.Element {
         <a href="/terms.html" className={styles.navLink}>
           Terms and Conditions
         </a>
-        <a href="#" className={styles.navLink}>
+        <a href="/privacy.html" className={styles.navLink}>
           Privacy Policy
         </a>
 
