@@ -418,7 +418,7 @@ exports[`TransactionTemplate should match snapshot with status=authorizing 1`] =
          
         <a
           class="termsLink"
-          href="#"
+          href="/terms.html"
         >
           Terms and Conditions
         </a>
@@ -929,7 +929,7 @@ exports[`TransactionTemplate should match snapshot with status=prepared 1`] = `
          
         <a
           class="termsLink"
-          href="#"
+          href="/terms.html"
         >
           Terms and Conditions
         </a>
@@ -1201,7 +1201,7 @@ exports[`TransactionTemplate should match snapshot with status=submitting 1`] = 
          
         <a
           class="termsLink"
-          href="#"
+          href="/terms.html"
         >
           Terms and Conditions
         </a>
@@ -1474,7 +1474,7 @@ exports[`TransactionTemplate should match snapshot with terms accepted 1`] = `
          
         <a
           class="termsLink"
-          href="#"
+          href="/terms.html"
         >
           Terms and Conditions
         </a>
