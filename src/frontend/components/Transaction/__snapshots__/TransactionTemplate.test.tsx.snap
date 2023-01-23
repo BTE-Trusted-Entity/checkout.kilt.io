@@ -398,7 +398,7 @@ exports[`TransactionTemplate should match snapshot with status=authorizing 1`] =
         class="cost"
       >
         <span>
-          Service fee
+          Service fee (including VAT)
         </span>
         <span
           class="costValue"
@@ -423,7 +423,7 @@ exports[`TransactionTemplate should match snapshot with status=authorizing 1`] =
           Terms and Conditions
         </a>
          
-        of the Checkout Service and to start the payment via Paypal.
+        of the Checkout Service.
       </p>
       <p
         class="orderLine"
@@ -435,6 +435,9 @@ exports[`TransactionTemplate should match snapshot with status=authorizing 1`] =
         >
           Chargeable order
         </button>
+      </p>
+      <p>
+        Start the payment via Paypal:
       </p>
       <button>
         PayPal
@@ -909,7 +912,7 @@ exports[`TransactionTemplate should match snapshot with status=prepared 1`] = `
         class="cost"
       >
         <span>
-          Service fee
+          Service fee (including VAT)
         </span>
         <span
           class="costValue"
@@ -934,7 +937,7 @@ exports[`TransactionTemplate should match snapshot with status=prepared 1`] = `
           Terms and Conditions
         </a>
          
-        of the Checkout Service and to start the payment via Paypal.
+        of the Checkout Service.
       </p>
       <p
         class="orderLine"
@@ -947,9 +950,6 @@ exports[`TransactionTemplate should match snapshot with status=prepared 1`] = `
           Chargeable order
         </button>
       </p>
-      <button>
-        PayPal
-      </button>
     </section>
     <dialog
       class="dialog"
@@ -1181,7 +1181,7 @@ exports[`TransactionTemplate should match snapshot with status=submitting 1`] = 
         class="cost"
       >
         <span>
-          Service fee
+          Service fee (including VAT)
         </span>
         <span
           class="costValue"
@@ -1206,7 +1206,7 @@ exports[`TransactionTemplate should match snapshot with status=submitting 1`] = 
           Terms and Conditions
         </a>
          
-        of the Checkout Service and to start the payment via Paypal.
+        of the Checkout Service.
       </p>
       <p
         class="orderLine"
@@ -1218,6 +1218,9 @@ exports[`TransactionTemplate should match snapshot with status=submitting 1`] = 
         >
           Chargeable order
         </button>
+      </p>
+      <p>
+        Start the payment via Paypal:
       </p>
       <button>
         PayPal
@@ -1454,7 +1457,7 @@ exports[`TransactionTemplate should match snapshot with terms accepted 1`] = `
         class="cost"
       >
         <span>
-          Service fee
+          Service fee (including VAT)
         </span>
         <span
           class="costValue"
@@ -1479,7 +1482,7 @@ exports[`TransactionTemplate should match snapshot with terms accepted 1`] = `
           Terms and Conditions
         </a>
          
-        of the Checkout Service and to start the payment via Paypal.
+        of the Checkout Service.
       </p>
       <p
         class="orderLine"
@@ -1491,9 +1494,6 @@ exports[`TransactionTemplate should match snapshot with terms accepted 1`] = `
           Chargeable order
         </button>
       </p>
-      <button>
-        PayPal
-      </button>
     </section>
     <dialog
       class="dialog"
