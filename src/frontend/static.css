@@ -65,13 +65,24 @@ body {
 }
 
 .header .navLine {
+  flex: 1;
   letter-spacing: -0.1px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   gap: 0.5rem;
 }
 
+.header .navLink {
+  text-decoration: none;
+}
+
+.header .navLink img {
+  vertical-align: bottom;
+}
+
 .header .kiltLink {
+  margin-left: 3rem;
   height: 2.25rem;
   line-height: 2.25rem;
   width: calc(150rem / 16);
@@ -79,8 +90,10 @@ body {
   text-transform: uppercase;
   font-size: 1rem;
   cursor: pointer;
-  color: transparent;
-  background: url('./components/Header/kilt-logo.svg') var(--color-orange) no-repeat center/3rem auto;
+  color: white;
+  text-decoration: none;
+  background: var(--color-orange) no-repeat center/3rem auto;
+  text-align: center;
   border-radius: calc(5rem / 16);
 }
 
@@ -151,18 +164,56 @@ body {
   }
 }
 
+.infoContainer {
+  margin: calc(148rem / 16) 0 0;
+}
+
+@media screen and (max-width: 500px) {
+  .infoContainer {
+    margin: 1rem 0 0;
+  }
+}
+
+.infoHeading {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.infoTagline {
+  font-family: 'Overpass Thin', sans-serif;
+  font-size: 3rem;
+  margin: 0 0 1rem;
+}
+
+.info {
+  font-size: calc(21rem / 16);
+  line-height: 1.5rem;
+  margin-block: 0.75rem;
+}
+
+.infoPoints {
+  font-size: calc(21rem / 16);
+  line-height: 1.5rem;
+  margin-block: 0.75rem;
+  padding-left: 2rem;
+}
+
+.infoPoint {
+  line-height: 1.75rem;
+}
+
 .container {
   box-sizing: border-box;
   width: 120%;
   max-width: calc(1200rem / 16);
   background: rgb(var(--color-primary-rgb) / 10%);
   border: 1px solid rgb(var(--color-primary-rgb) / 50%);
-  padding: 2.25rem 3.125rem;
+  padding: 2.25rem 3.125rem 1.5rem;
   margin-top: calc(108rem / 16);
   display: flex;
   flex-direction: column;
-  font-family: 'Overpass Light', sans-serif;
-  font-size: 21px;
+  font-family: 'Overpass Regular', sans-serif;
+  font-size: 1rem;
 }
 
 @media screen and (max-width: 500px) {
@@ -171,23 +222,28 @@ body {
   }
 }
 
+.container:not(:first-of-type) {
+  margin-top: 0.75rem;
+}
+
+.step {
+  margin: 0;
+}
+
 .containerTitle {
   font-family: 'Overpass Thin', sans-serif;
-  font-size: 3rem;
-  margin-top: 0;
-  margin-bottom: 1rem;
+  font-size: 2.25rem;
+  margin-block: 0;
 }
 
 .container h3 {
-  font-size: 2.25rem;
-  margin-top: 0;
-  margin-bottom: 1rem;
-}
-
-.container h4 {
-  font-size: 1.875rem;
-  margin-top: 0;
-  margin-bottom: 1rem;
+  font-family: 'Overpass Thin', sans-serif;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 0;
+  padding-inline: 0.25rem;
+  display: inline-block;
+  background: rgb(249 105 67 / 50%);
 }
 
 address {
@@ -196,6 +252,25 @@ address {
 
 a {
   color: white;
+}
+
+hr {
+  width: 100%;
+  border: 0;
+  border-top: 2px solid rgb(223 134 1 / 50%);
+}
+
+.imageLink {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-right: 1rem;
+}
+
+.checkoutLink {
+  display: block;
+  font-size: 1rem;
 }
 
 .photoCitation {
@@ -214,7 +289,7 @@ a {
   justify-content: space-between;
   align-items: flex-end;
   flex-shrink: 0;
-  background: linear-gradient(180deg, var(--color-primary) 0%, #000 100%);
+  background: url('./footer.png') no-repeat center bottom/cover;
   padding-inline: calc((100% - min(90%, 1110rem / 16)) / 2);
   padding-block: 1.25rem calc(58rem / 16);
   box-sizing: border-box;
@@ -236,6 +311,7 @@ a {
 .footer .navMenu {
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
 }
 
 @media screen and (max-width: 500px) {
@@ -249,6 +325,7 @@ a {
   width: fit-content;
   color: var(--color-white);
   margin: 0.25rem 0;
+  text-decoration: none;
 }
 
 .footer .support {
@@ -256,9 +333,11 @@ a {
 }
 
 .footer .copyright {
-  font-size: calc(10rem / 16);
+  font-size: 0.75rem;
   align-self: flex-end;
   margin: 0;
+  text-align: right;
+  flex-grow: 2;
 }
 
 @media screen and (max-width: 500px) {

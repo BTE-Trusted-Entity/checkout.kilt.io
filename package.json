@@ -97,18 +97,9 @@
         "browsers": "> 0.5%, last 2 versions, not dead"
       },
       "source": [
-        "src/frontend/index.html",
-        "src/frontend/terms.html",
-        "src/frontend/privacy.html",
-        "src/frontend/imprint.html"
+        "src/frontend/preconditions.html"
       ],
       "distDir": "dist/frontend"
-    },
-    "backend": {
-      "context": "node",
-      "source": "src/backend/server.ts",
-      "distDir": "dist/backend",
-      "outputFormat": "esmodule"
     }
   }
 }
