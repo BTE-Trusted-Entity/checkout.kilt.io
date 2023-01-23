@@ -65,6 +65,20 @@ export function TermsAccepted(): JSX.Element {
   );
 }
 
+export function Bound(): JSX.Element {
+  return (
+    <TransactionTemplate
+      status="prepared"
+      {...actions}
+      cost={localeCost}
+      enabled={true}
+      bound={true}
+    >
+      <MockPaypalButton />
+    </TransactionTemplate>
+  );
+}
+
 export function Authorizing(): JSX.Element {
   return (
     <TransactionTemplate

@@ -129,7 +129,7 @@ export function TransactionTemplate({
             </p>
 
             <p className={styles.cost}>
-              <span>Service fee</span>
+              <span>Service fee (including VAT)</span>
               <span className={styles.costValue}>{cost}</span>
               <span className={styles.costDetails}>
                 or EUR equivalent, depending on your preferred PayPal currency
@@ -141,7 +141,7 @@ export function TransactionTemplate({
               <a href="/terms.html" className={styles.termsLink}>
                 Terms and Conditions
               </a>{' '}
-              of the Checkout Service and to start the payment via Paypal.
+              of the Checkout Service.
             </p>
 
             <p className={styles.orderLine}>
@@ -154,7 +154,12 @@ export function TransactionTemplate({
               </button>
             </p>
 
-            {children}
+            {enabled && bound && (
+              <Fragment>
+                <p>Start the payment via Paypal:</p>
+                {children}
+              </Fragment>
+            )}
           </section>
         </Fragment>
       )}
