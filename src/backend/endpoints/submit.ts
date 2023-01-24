@@ -25,10 +25,7 @@ import { exceptionToError } from '../utilities/exceptionToError';
 
 import { paths } from './paths';
 
-const subject = 'Your DID buy succeeded!';
-const content = 'You have successfully buyed a DID.';
-
-export async function sendEmail(
+async function sendBuyedEmail(
   targetEmail: string,
   subject: string,
   content: string,
@@ -49,7 +46,7 @@ export async function sendEmail(
       Destination: {
         ToAddresses: [targetEmail],
       },
-      Source: '"Transaction Daemon" <txd-notification@socialkyc.io>',
+      Source: '"Checkout Service" <txd-notification@socialkyc.io>',
       Message: {
         Subject: { Charset: charSet, Data: subject },
         Body: { Text: { Charset: charSet, Data: content } },
@@ -120,6 +117,9 @@ async function handler(
   h: ResponseToolkit,
 ): Promise<ResponseObject> {
   const { logger } = request;
+  const subject = 'Your DID buy succeeded!';
+  const content = 'You have successfully buyed a DID.';
+
   logger.debug('Submit transaction started');
 
   const { orderID, authorizationID, tx } = request.payload as z.infer<
@@ -145,10 +145,8 @@ async function handler(
   await capture(authorizationID, accessToken);
   logger.debug('Successfully captured payment');
 
-  if (payer.email_address) {
-    await sendEmail(payer.email_address, subject, content);
-    logger.debug('Successfully send e-mail.');
-  }
+  if (payer.email_address)
+    await sendBuyedEmail(payer.email_address, subject, content);
 
   return h.response().code(204);
 }
