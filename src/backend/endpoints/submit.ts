@@ -1,5 +1,6 @@
 import { randomUUID } from 'node:crypto';
 
+import { SendEmailCommand, SESClient } from '@aws-sdk/client-ses';
 import { z } from 'zod';
 import {
   Request,
@@ -14,11 +15,58 @@ import { OrderResponseBody } from '@paypal/paypal-js';
 
 import Boom from '@hapi/boom';
 
+import { logger } from '../utilities/logger';
+
 import { configuration } from '../utilities/configuration';
 
 import { submitTx } from '../utilities/submitTx';
 
+import { exceptionToError } from '../utilities/exceptionToError';
+
 import { paths } from './paths';
+
+const subject = 'Your DID buy succeeded!';
+const content = 'You have successfully buyed a DID.';
+
+export async function sendEmail(
+  targetEmail: string,
+  subject: string,
+  content: string,
+) {
+  const { region, accessKeyId, secretAccessKey } = configuration.aws;
+  const charSet = 'UTF-8';
+
+  const sesClient = new SESClient({
+    region,
+    credentials: {
+      accessKeyId,
+      secretAccessKey,
+    },
+  });
+
+  try {
+    const command = new SendEmailCommand({
+      Destination: {
+        ToAddresses: [targetEmail],
+      },
+      Source: '"Transaction Daemon" <txd-notification@trusted-entity.io>',
+      Message: {
+        Subject: { Charset: charSet, Data: subject },
+        Body: { Text: { Charset: charSet, Data: content } },
+      },
+    });
+
+    const { MessageId = 'unknown' } = await sesClient.send(command);
+    logger.info(`Email sent to ${targetEmail} with id ${MessageId}`);
+  } catch (exception) {
+    const error = exceptionToError(exception);
+    if (error.name === 'InvalidParameterValue') {
+      logger.error(exception);
+    } else {
+      logger.error(error, 'Error connecting to AWS SES');
+    }
+  }
+}
 
 export async function getAccessToken() {
   const { baseUrl, clientId, secret } = configuration.paypal;
@@ -83,7 +131,7 @@ async function handler(
 
   logger.debug('Generated PayPal access token');
 
-  const { intent, status } = await getOrderDetails(orderID, accessToken);
+  const { intent, status, payer } = await getOrderDetails(orderID, accessToken);
 
   if (intent !== 'AUTHORIZE' || status !== 'COMPLETED') {
     throw Boom.badRequest();
@@ -98,6 +146,11 @@ async function handler(
   await capture(authorizationID, accessToken);
 
   logger.debug('Successfully captured payment');
+
+  if (payer.email_address) {
+    await sendEmail(payer.email_address, subject, content);
+    logger.debug('Successfully send e-mail.');
+  }
 
   return h.response().code(204);
 }
