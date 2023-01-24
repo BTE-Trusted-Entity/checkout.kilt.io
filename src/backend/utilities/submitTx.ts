@@ -70,7 +70,6 @@ async function pollTxStatus(id: string) {
 
 export async function submitTx(tx: string) {
   const { TXDBaseUrl } = configuration;
-
   const endpoint = '/api/v1/submission';
   const headers = makeHeaders(endpoint, tx);
 

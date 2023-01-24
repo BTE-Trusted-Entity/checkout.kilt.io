@@ -49,13 +49,12 @@ export async function sendEmail(
       Destination: {
         ToAddresses: [targetEmail],
       },
-      Source: '"Transaction Daemon" <txd-notification@trusted-entity.io>',
+      Source: '"Transaction Daemon" <txd-notification@socialkyc.io>',
       Message: {
         Subject: { Charset: charSet, Data: subject },
         Body: { Text: { Charset: charSet, Data: content } },
       },
     });
-
     const { MessageId = 'unknown' } = await sesClient.send(command);
     logger.info(`Email sent to ${targetEmail} with id ${MessageId}`);
   } catch (exception) {
@@ -144,7 +143,6 @@ async function handler(
   logger.debug('Capturing payment');
 
   await capture(authorizationID, accessToken);
-
   logger.debug('Successfully captured payment');
 
   if (payer.email_address) {
