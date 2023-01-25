@@ -11,11 +11,10 @@ const mailer = nodemailer.createTransport({
 });
 
 const sender = 'KILT Checkout <checkout@kilt.io>';
-const subject = 'Thanks for using the Checkout Service to get your KILT DID';
 
 export async function sendConfirmationEmail(recipient: string, name: string) {
   const { didCost } = configuration;
-
+  const subject = 'Thanks for using the Checkout Service to get your KILT DID';
   const content = `Dear ${name},
 
 Thank you for using the Checkout Service for anchoring your DID on the 
