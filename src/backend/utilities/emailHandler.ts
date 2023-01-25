@@ -1,8 +1,13 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+/* eslint-disable import/no-unresolved */
 import { cwd } from 'node:process';
 import path from 'node:path';
 
 import AWS from 'aws-sdk';
 import nodemailer from 'nodemailer';
+
+// @ts-ignore
+import LegalPdf from 'url:../resources/Terms_and_Conditions_Checkout_Service.pdf';
 
 import { configuration } from './configuration';
 
@@ -46,13 +51,7 @@ Requirements according to § 5 TMG (Germany)`;
     text,
     attachments: [
       {
-        path: path.join(
-          cwd(),
-          'src',
-          'backend',
-          'resources',
-          'Terms_and_Conditions_Checkout_Service.pdf',
-        ),
+        path: path.join(cwd(), 'dist', 'backend', LegalPdf.replace(/\?.*/, '')),
       },
     ],
   });
