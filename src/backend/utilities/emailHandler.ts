@@ -7,6 +7,7 @@ const subjectBuyEmail =
   'Thanks for using the Checkout Service to get your KILT DID';
 
 const contentBuyEmail = `Dear [name],
+
 Thank you for using the Checkout Service for anchoring your DID on the 
 KILT blockchain for which we charged you [didCost] Euro (including VAT) 
 through PayPal. Attached Terms and Conditions are applicable for your 
