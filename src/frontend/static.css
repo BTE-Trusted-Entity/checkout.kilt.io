@@ -113,6 +113,12 @@ body {
   }
 }
 
+@media screen and (min-width: 1500px) {
+  .cover {
+    background-size: 100%;
+  }
+}
+
 .heading {
   font-family: 'Overpass Light', sans-serif;
   font-size: calc(94rem / 16);
