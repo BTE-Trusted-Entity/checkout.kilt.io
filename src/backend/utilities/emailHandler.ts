@@ -10,12 +10,12 @@ const mailer = nodemailer.createTransport({
   SES: new AWS.SES(configuration.aws),
 });
 
-const sender = 'KILT Checkout <checkout@kilt.io>';
+const from = 'KILT Checkout <checkout@kilt.io>';
 
-export async function sendConfirmationEmail(recipient: string, name: string) {
+export async function sendConfirmationEmail(to: string, name: string) {
   const { didCost } = configuration;
   const subject = 'Thanks for using the Checkout Service to get your KILT DID';
-  const content = `Dear ${name},
+  const text = `Dear ${name},
 
 Thank you for using the Checkout Service for anchoring your DID on the 
 KILT blockchain for which we charged you ${didCost} Euro (including VAT) 
@@ -40,10 +40,10 @@ Or go to Tech support and click on "Contact Us"
 Requirements according to § 5 TMG (Germany)`;
 
   await mailer.sendMail({
-    from: sender,
-    to: recipient,
+    from,
+    to,
     subject,
-    text: content,
+    text,
     attachments: [
       {
         path: path.join(
