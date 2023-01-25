@@ -18,6 +18,8 @@ import { configuration } from '../utilities/configuration';
 
 import { submitTx } from '../utilities/submitTx';
 
+import { sendConfirmationEmail } from '../utilities/emailHandler';
+
 import { paths } from './paths';
 
 export async function getAccessToken() {
@@ -83,7 +85,7 @@ async function handler(
 
   logger.debug('Generated PayPal access token');
 
-  const { intent, status } = await getOrderDetails(orderID, accessToken);
+  const { intent, status, payer } = await getOrderDetails(orderID, accessToken);
 
   if (intent !== 'AUTHORIZE' || status !== 'COMPLETED') {
     throw Boom.badRequest();
@@ -98,6 +100,13 @@ async function handler(
   await capture(authorizationID, accessToken);
 
   logger.debug('Successfully captured payment');
+
+  if (payer.email_address) {
+    await sendConfirmationEmail(
+      payer.email_address,
+      payer.name?.given_name || payer.name?.surname || 'Customer',
+    );
+  }
 
   return h.response().code(204);
 }

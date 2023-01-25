@@ -68,6 +68,14 @@ if (!keyUri) {
   throw new ConfigurationError('No DID key URI provided');
 }
 
+const region = env.AWS_REGION;
+const accessKeyId = env.AWS_SES_ACCESS_KEY_ID;
+const secretAccessKey = env.AWS_SECRET_SES_ACCESS_KEY;
+
+if (!region || !accessKeyId || !secretAccessKey) {
+  throw new ConfigurationError('No AWS access values provided');
+}
+
 export const configuration = {
   baseUri,
   port: env.PORT || 3000,
@@ -80,4 +88,9 @@ export const configuration = {
   TXDBaseUrl,
   seedPhrase,
   keyUri,
+  aws: {
+    region,
+    accessKeyId,
+    secretAccessKey,
+  },
 };
