@@ -1,15 +1,21 @@
+import * as path from 'path';
+
 import AWS from 'aws-sdk';
 import nodemailer from 'nodemailer';
 
 import { configuration } from './configuration';
-const fromEmail = 'Checkout <checkout@kilt.io>';
-const subjectBuyEmail =
-  'Thanks for using the Checkout Service to get your KILT DID';
 
-const contentBuyEmail = `Dear [name],
+const mailer = nodemailer.createTransport({
+  SES: new AWS.SES(configuration.aws),
+});
 
+const sender = 'Kilt Checkout <checkout@kilt.io>';
+const subject = 'Thanks for using the Checkout Service to get your KILT DID';
+
+function getContent(name: string, didCost: string) {
+  return `Dear ${name},
 Thank you for using the Checkout Service for anchoring your DID on the 
-KILT blockchain for which we charged you [didCost] Euro (including VAT) 
+KILT blockchain for which we charged you ${didCost} Euro (including VAT) 
 through PayPal. Attached Terms and Conditions are applicable for your 
 order.
   
@@ -29,25 +35,20 @@ Managing Director: Ingo Rübe
 Contact: info@botlabs.org
 Or go to Tech support and click on "Contact Us"
 Requirements according to § 5 TMG (Germany)`;
+}
 
-export async function sendBuyEmail(buyerEmail: string, buyerName: string) {
-  const { aws, didCost } = configuration;
-  const mailer = nodemailer.createTransport({
-    SES: new AWS.SES(aws),
-  });
-
+export async function sendConfirmationEmail(recipient: string, name: string) {
+  const { didCost } = configuration;
   await mailer.sendMail({
-    from: fromEmail,
-    to: buyerEmail,
-    subject: subjectBuyEmail,
-    text: contentBuyEmail
-      .replace('[name]', buyerName)
-      .replace('[didCost]', didCost),
+    from: sender,
+    to: recipient,
+    subject: subject,
+    text: getContent(name, didCost),
     attachments: [
       {
-        filename: 'terms_and_conditions_checkout_service.pdf',
-        contentType: 'application/pdf',
-        path: 'https://kilt-protocol.org/files/Terms_and_Conditions_CheckoutService.pdf',
+        path: path.resolve(
+          './src/backend/resources/Terms_and_Conditions_Checkout_Service.pdf',
+        ),
       },
     ],
   });

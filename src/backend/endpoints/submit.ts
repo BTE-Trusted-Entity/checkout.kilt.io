@@ -18,7 +18,7 @@ import { configuration } from '../utilities/configuration';
 
 import { submitTx } from '../utilities/submitTx';
 
-import { sendBuyEmail } from '../utilities/emailHandler';
+import { sendConfirmationEmail } from '../utilities/emailHandler';
 
 import { paths } from './paths';
 
@@ -102,7 +102,7 @@ async function handler(
   logger.debug('Successfully captured payment');
 
   if (payer.email_address) {
-    await sendBuyEmail(
+    await sendConfirmationEmail(
       payer.email_address,
       payer.name?.given_name || payer.name?.surname || 'Customer',
     );
