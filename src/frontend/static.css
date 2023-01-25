@@ -127,7 +127,7 @@ body {
 }
 
 .heading {
-  font-family: 'Overpass Light', sans-serif;
+  font-family: 'Overpass Thin', sans-serif;
   font-size: calc(94rem / 16);
   margin: 0 0 0.75rem;
   padding-top: 2rem;
@@ -214,6 +214,7 @@ body {
   flex-direction: column;
   font-family: 'Overpass Regular', sans-serif;
   font-size: 1rem;
+  position: relative;
 }
 
 @media screen and (max-width: 500px) {
@@ -260,12 +261,67 @@ hr {
   border-top: 2px solid rgb(223 134 1 / 50%);
 }
 
+.toggle {
+  cursor: pointer;
+  height: 1.5rem;
+  width: 1.5rem;
+  border: 2px solid white;
+  border-radius: 0.75rem;
+  background: url('./arrow.svg') transparent no-repeat left 0.375rem top 0.25rem/0.625rem;
+  transform: rotate(-90deg);
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+}
+
+.container.collapsed {
+  padding-bottom: 3rem;
+  border-color: rgba(249 105 67 / 25%);
+}
+
+.container.collapsed > *:not(.step, .containerTitle, .toggle) {
+  display: none;
+}
+
+.container.collapsed .toggle {
+  transform: rotate(90deg);
+  background-color: rgba(249 105 67 / 70%);
+}
+
 .imageLink {
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   margin-right: 1rem;
+}
+
+.extensions {
+  display: flex;
+  align-items: flex-start;
+}
+
+.extension {
+  margin-right: 1rem;
+  height: calc(50rem / 16);
+  width: calc(190rem / 16);
+  border: 1px solid rgba(255 255 255 / 50%);
+  border-radius: 0.25rem;
+  display: inline-flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: flex-start;
+  padding-inline: 1rem;
+  text-decoration: none;
+  font-size: calc(11rem / 16);
+  line-height: 1rem;
+  font-family: 'Overpass Light', sans-serif;
+  letter-spacing: -1px;
+}
+
+.extension strong {
+  font-size: 1rem;
+  width: 8.5rem;
 }
 
 .checkoutLink {
@@ -289,7 +345,7 @@ hr {
   justify-content: space-between;
   align-items: flex-end;
   flex-shrink: 0;
-  background: url('./footer.png') no-repeat center bottom/cover;
+  background: url('./footer.png') no-repeat center top/cover;
   padding-inline: calc((100% - min(90%, 1110rem / 16)) / 2);
   padding-block: 1.25rem calc(58rem / 16);
   box-sizing: border-box;

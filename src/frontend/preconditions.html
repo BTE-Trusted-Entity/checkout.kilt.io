@@ -5,20 +5,21 @@
   <title>Get your DID guide</title>
   <link rel="stylesheet" href="static.css" />
   <meta name="viewport" content="width=device-width, viewport-fit=cover" />
+  <script>window.kilt = {};</script>
 </head>
 
 <body>
 <header class="header">
   <nav class="navLine">
-    <a href="/" class="navLink"><img src="./components/Header/kilt-logo.svg" alt="KILT logo" width="100" /></a>
-    <a href="/developers" class="navLink">Developers</a>
-    <a href="/identity" class="navLink">Identity</a>
-    <a href="/enterprise" class="navLink">Enterprise</a>
-    <a href="/ecosystem" class="navLink">Ecosystem</a>
-    <a href="/protocol" class="navLink">Protocol</a>
-    <a href="/services" class="navLink">Services</a>
-    <a href="/about-us" class="navLink">About Us</a>
-    <a class="kiltLink" href="/build-your-identity">Get your DID</a>
+    <a href="https://kilt.io/" class="navLink"><img src="./components/Header/kilt-logo.svg" alt="KILT logo" width="100" /></a>
+    <a href="https://kilt.io/developers" class="navLink">Developers</a>
+    <a href="https://kilt.io/identity" class="navLink">Identity</a>
+    <a href="https://kilt.io/enterprise" class="navLink">Enterprise</a>
+    <a href="https://kilt.io/ecosystem" class="navLink">Ecosystem</a>
+    <a href="https://kilt.io/protocol" class="navLink">Protocol</a>
+    <a href="https://kilt.io/services" class="navLink">Services</a>
+    <a href="https://kilt.io/about-us" class="navLink">About Us</a>
+    <a href="https://kilt.io/build-your-identity" class="kiltLink">Get your DID</a>
   </nav>
 </header>
 
@@ -80,28 +81,44 @@
           <img src="arrow.svg" role="presentation" alt="" />
         </a>
       </p>
+
+      <button type="button" class="toggle" aria-label="Toggle section visibility"></button>
     </section>
 
     <section class="container">
       <p class="step">Step 2</p>
       <h2 class="containerTitle">Download Sporran</h2>
-      <p>Generating a DID requires a Sporran wallet which interacts with the KILT blockchain. Sporran is available as a
-        desktop browser extension on Google Chrome or Mozilla Firefox. Download the wallet for your preferred browser
-        via the links below.</p>
-      <p>
-        <a href="https://chrome.google.com/webstore/detail/djdnajgjcbjhhbdblkegbcgodlkkfhcl" class="imageLink">
+      <p>Generating a DID requires a <a href="https://www.sporran.org/">Sporran wallet</a> which interacts with the KILT blockchain. Sporran is available as a desktop browser extension on Google Chrome or Mozilla Firefox. Download the wallet for your preferred browser via the links below.</p>
+      <p class="extensions">
+        <a href="https://chrome.google.com/webstore/detail/djdnajgjcbjhhbdblkegbcgodlkkfhcl" class="extension">
           <img
-            src="./chrome-web-store.png"
-            width="250"
-            alt="Sporran available in the Chrome Web Store" />
+            src="./chrome.svg"
+            width="36"
+            height="36"
+            role="presentation"
+            alt="" />
+          <span>Download for</span>
+          <strong>Google Chrome</strong>
         </a>
-        <a href="https://addons.mozilla.org/firefox/addon/sporran/" class="imageLink">
+        <a href="https://addons.mozilla.org/firefox/addon/sporran/" class="extension">
           <img
-            src="./firefox-web-store.png"
-            width="250"
-            alt="Sporran available as Firefox Add-On" />
+            src="./firefox.svg"
+            width="36"
+            height="36"
+            role="presentation"
+            alt="" />
+          <span>Download for</span>
+          <strong>Mozilla Firefox</strong>
+        </a>
+        <a href="https://www.sporran.org/" class="imageLink">
+          <img
+            src="./sporran.png"
+            width="90"
+            alt="Sporran logo" />
         </a>
       </p>
+
+      <button type="button" class="toggle" aria-label="Toggle section visibility"></button>
     </section>
 
     <section class="container">
@@ -115,6 +132,8 @@
         <img src="./sporran-password.png" alt="Sporran screenshot: choose password" width="302">
         <img src="./sporran-created.png" alt="Sporran screenshot: identity created" width="302">
       </p>
+
+      <button type="button" class="toggle" aria-label="Toggle section visibility"></button>
     </section>
 
     <section class="container">
@@ -142,7 +161,7 @@
         <h3>Pay with PayPal</h3>
         <p>If you prefer not to pay with KILT, the Checkout Service provided by KILT partner B.T.E. BOTLabs Trusted
           Entity GmbH manages everything for you. You can use PayPal to pay for this service.</p>
-        <p><strong>Total cost: EUR 4.</strong><br />(or EUR equivalent, depending on your preferred PayPal currency)</p>
+        <p><strong>Total cost: EUR 4.00</strong><br />(or EUR equivalent, depending on your preferred PayPal currency)</p>
         <p>In Sporran, click “Get your DID” then use the Checkout Service and pay with PayPal. Click “CONTINUE” and sign
           with your password to begin the transaction process.</p>
         <p>
@@ -164,43 +183,45 @@
           Privacy Policy
         </a>
       </section>
+
+      <button type="button" class="toggle" aria-label="Toggle section visibility"></button>
     </section>
   </div>
 </main>
 
 <footer class="footer">
   <nav class="navMenu">
-    <a href="/contact-us" class="navLink">Contact Us</a>
-    <a href="/newsletter" class="navLink">Newsletter</a>
+    <a href="https://kilt.io/contact-us" class="navLink">Contact Us</a>
+    <a href="https://kilt.io/newsletter" class="navLink">Newsletter</a>
     <a href="https://support.kilt.io/" class="navLink">Support</a>
     <a href="https://github.com/KILTprotocol" class="navLink">GitHub</a>
-    <a href="/legal/disclaimer" class="navLink">Disclaimer</a>
-    <a href="/legal/privacy-policy" class="navLink">Privacy Policy</a>
-    <a href="/legal/imprint" class="navLink">Imprint</a>
+    <a href="https://kilt.io/legal/disclaimer" class="navLink">Disclaimer</a>
+    <a href="https://kilt.io/legal/privacy-policy" class="navLink">Privacy Policy</a>
+    <a href="https://kilt.io/legal/imprint" class="navLink">Imprint</a>
   </nav>
 
   <nav class="navMenu">
-    <a href="/developers" class="navLink">Developers</a>
-    <a href="/identity" class="navLink">Identity</a>
-    <a href="/enterprise" class="navLink">Enterprise</a>
-    <a href="/ecosystem" class="navLink">Ecosystem</a>
-    <a href="/protocol" class="navLink">Protocol</a>
-    <a href="/services" class="navLink">Services</a>
-    <a href="/about-us" class="navLink">About Us</a>
+    <a href="https://kilt.io/developers" class="navLink">Developers</a>
+    <a href="https://kilt.io/identity" class="navLink">Identity</a>
+    <a href="https://kilt.io/enterprise" class="navLink">Enterprise</a>
+    <a href="https://kilt.io/ecosystem" class="navLink">Ecosystem</a>
+    <a href="https://kilt.io/protocol" class="navLink">Protocol</a>
+    <a href="https://kilt.io/services" class="navLink">Services</a>
+    <a href="https://kilt.io/about-us" class="navLink">About Us</a>
   </nav>
 
   <nav class="navMenu">
-    <a href="/developers" class="navLink">Twitter</a>
-    <a href="/identity" class="navLink">Telegram</a>
-    <a href="/enterprise" class="navLink">Medium</a>
-    <a href="/ecosystem" class="navLink">YouTube</a>
-    <a href="/protocol" class="navLink">LinkedIn</a>
-    <a href="/services" class="navLink">Discord</a>
-    <a href="/about-us" class="navLink">Element</a>
+    <a href="https://kilt.io/developers" class="navLink">Twitter</a>
+    <a href="https://kilt.io/identity" class="navLink">Telegram</a>
+    <a href="https://kilt.io/enterprise" class="navLink">Medium</a>
+    <a href="https://kilt.io/ecosystem" class="navLink">YouTube</a>
+    <a href="https://kilt.io/protocol" class="navLink">LinkedIn</a>
+    <a href="https://kilt.io/services" class="navLink">Discord</a>
+    <a href="https://kilt.io/about-us" class="navLink">Element</a>
   </nav>
 
   <p class="copyright">
-    <a href="/"><img src="./components/Header/kilt-logo.svg" alt="KILT logo" width="100" /></a><br />
+    <a href="https://kilt.io/"><img src="./components/Header/kilt-logo.svg" alt="KILT logo" width="100" /></a><br />
     © 2023 BOTLabs GmbH
   </p>
 </footer>
@@ -214,6 +235,40 @@ var _mtm = window._mtm = window._mtm || [];
 _mtm.push({'mtm.startTime': (new Date().getTime()), 'event': 'mtm.Start'});
 var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
 g.async=true; g.src='https://cdn.matomo.cloud/kilt-protocol.matomo.cloud/container_7liRbL7L.js'; s.parentNode.insertBefore(g,s);
+</script>
+
+<script type="module">
+  (async () => {
+    document.querySelectorAll('.toggle').forEach((button) => {
+      button.addEventListener('click', (event) => {
+        event.target.closest('.container').classList.toggle('collapsed')
+      })
+    })
+
+    const { userAgent } = navigator
+    const isFirefox = /Firefox/.test(userAgent)
+    const isChrome = navigator.userAgentData?.brands.find(({ brand }) => brand === 'Google Chrome')
+    if (!isFirefox && !isChrome) {
+      return
+    }
+
+    document.querySelector('.container').remove()
+    document.querySelectorAll('.step').forEach((step, index) => {
+      step.textContent = `Step ${index + 1}`
+    })
+
+    while (true) {
+      await new Promise((resolve) => setTimeout(resolve, 100))
+      if (!window.kilt.sporran) {
+        continue
+      }
+      break
+    }
+
+    document.querySelector('.container').remove()
+    document.querySelector('.container').remove()
+    document.querySelector('.step').remove()
+  })()
 </script>
 
 </body>
