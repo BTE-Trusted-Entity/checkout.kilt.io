@@ -154,12 +154,8 @@ export function TransactionTemplate({
               </button>
             </p>
 
-            {enabled && bound && (
-              <Fragment>
-                <p>Start the payment via Paypal:</p>
-                {children}
-              </Fragment>
-            )}
+            <p>Start the payment via Paypal:</p>
+            {children}
           </section>
         </Fragment>
       )}

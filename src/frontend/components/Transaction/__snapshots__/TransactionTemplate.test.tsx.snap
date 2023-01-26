@@ -950,6 +950,12 @@ exports[`TransactionTemplate should match snapshot with status=prepared 1`] = `
           Chargeable order
         </button>
       </p>
+      <p>
+        Start the payment via Paypal:
+      </p>
+      <button>
+        PayPal
+      </button>
     </section>
     <dialog
       class="dialog"
@@ -1494,6 +1500,12 @@ exports[`TransactionTemplate should match snapshot with terms accepted 1`] = `
           Chargeable order
         </button>
       </p>
+      <p>
+        Start the payment via Paypal:
+      </p>
+      <button>
+        PayPal
+      </button>
     </section>
     <dialog
       class="dialog"
