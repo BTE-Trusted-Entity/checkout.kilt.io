@@ -61,7 +61,7 @@
     "@testing-library/react-hooks": "^8.0.1",
     "@types/hapi__basic": "^5.1.2",
     "@types/hapi__hapi": "^20.0.13",
-    "@types/hapi__inert": "^5.2.3",
+    "@types/hapi__inert": "^5.2.4",
     "@types/jest": "^29.2.3",
     "@types/nodemailer": "^6.4.7",
     "@types/react": "^18.0.27",
