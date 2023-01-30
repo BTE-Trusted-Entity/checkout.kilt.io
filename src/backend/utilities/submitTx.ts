@@ -2,7 +2,7 @@ import { setInterval } from 'timers/promises';
 
 import { Crypto } from '@kiltprotocol/utils';
 import got from 'got';
-import Boom from '@hapi/boom';
+import * as Boom from '@hapi/boom';
 
 import { configuration } from './configuration';
 import { logger } from './logger';
