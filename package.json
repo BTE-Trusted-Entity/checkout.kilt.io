@@ -34,7 +34,7 @@
     "exiting": "^6.1.0",
     "got": "^11.8.5",
     "hapi-dev-errors": "^4.0.0",
-    "hapi-pino": "^10.2.0",
+    "hapi-pino": "^11.0.1",
     "ky": "^0.32.2",
     "nodemailer": "^6.9.0",
     "pino": "^8.7.0",
