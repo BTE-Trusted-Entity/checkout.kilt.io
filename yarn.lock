@@ -1295,7 +1295,7 @@
   resolved "https://registry.yarnpkg.com/@hapi/file/-/file-3.0.0.tgz#f1fd824493ac89a6fceaf89c824afc5ae2121c09"
   integrity sha512-w+lKW+yRrLhJu620jT3y+5g2mHqnKfepreykvdOcl9/6up8GrQQn+l3FRTsjHTKbkbfQFkuksHpdv2EcpKcJ4Q==
 
-"@hapi/hapi@^21.2.1":
+"@hapi/hapi@^21.1.0", "@hapi/hapi@^21.2.1":
   version "21.2.1"
   resolved "https://registry.yarnpkg.com/@hapi/hapi/-/hapi-21.2.1.tgz#0a729e4a6dd60a7277252ea82bfe6671df379953"
   integrity sha512-mDBhIi/zIYhWPaZF4Z8h7jUtWC3bz7xYuUyI5riXZV9DabFnNOKpQfOob6V5ZcDwEJfmnWHgJO37BVCn31BStQ==
@@ -4018,13 +4018,13 @@
   dependencies:
     "@types/node" "*"
 
-"@types/hapi__basic@^5.1.2":
-  version "5.1.2"
-  resolved "https://registry.yarnpkg.com/@types/hapi__basic/-/hapi__basic-5.1.2.tgz#5809c0bfa04facf2b5f18eae770c59d23cf20dcc"
-  integrity sha512-sqoQ34nwmRlNgQ5fdHHnghyVzs23aC2d30l9G1sKvdrh4PDV22bnQ+8fBCjoItT+0gGSuXIoG4qdoVZGBjH5EQ==
+"@types/hapi__basic@^5.1.3":
+  version "5.1.3"
+  resolved "https://registry.yarnpkg.com/@types/hapi__basic/-/hapi__basic-5.1.3.tgz#fcc2866d9d1f837ab7d8a5e1d730fd45c46d2f53"
+  integrity sha512-YXyzRVrfvDKg52gjCjpypshJzOR9Nq1wApI6M52xsgHUnce6J5Y2W5gYFvgaAylpGQYOF5yhJ/QDGm3exaxSmw==
   dependencies:
-    "@types/hapi__hapi" "*"
-    joi "^17.3.0"
+    "@hapi/hapi" "^21.1.0"
+    joi "^17.7.0"
 
 "@types/hapi__catbox@*":
   version "10.2.4"
@@ -9714,10 +9714,10 @@ jmespath@0.16.0:
   resolved "https://registry.yarnpkg.com/jmespath/-/jmespath-0.16.0.tgz#b15b0a85dfd4d930d43e69ed605943c802785076"
   integrity sha512-9FzQjJ7MATs1tSpnco1K6ayiYE3figslrXA72G2HQ/n76RzvYlofyi5QM+iX4YRs/pu3yzxlVQSST23+dMDknw==
 
-joi@^17.3.0:
-  version "17.6.3"
-  resolved "https://registry.yarnpkg.com/joi/-/joi-17.6.3.tgz#b8e9e143f0188884563e6de50f8b23ddcd3cb2f5"
-  integrity sha512-YlQsIaS9MHYekzf1Qe11LjTkNzx9qhYluK3172z38RxYoAUf82XMX1p1DG1H4Wtk2ED/vPdSn9OggqtDu+aTow==
+joi@^17.3.0, joi@^17.7.0:
+  version "17.7.0"
+  resolved "https://registry.yarnpkg.com/joi/-/joi-17.7.0.tgz#591a33b1fe1aca2bc27f290bcad9b9c1c570a6b3"
+  integrity sha512-1/ugc8djfn93rTE3WRKdCzGGt/EtiYKxITMO4Wiv6q5JL1gl9ePt4kBsl1S499nbosspfctIQTpYIhSmHA3WAg==
   dependencies:
     "@hapi/hoek" "^9.0.0"
     "@hapi/topo" "^5.0.0"
