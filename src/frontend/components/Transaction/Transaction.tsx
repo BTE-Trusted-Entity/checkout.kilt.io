@@ -27,7 +27,7 @@ import {
 } from './TransactionTemplate';
 
 export function Transaction(): JSX.Element | null {
-  const { tx, web3name } = useTxParams();
+  const { tx } = useTxParams();
 
   const cost = useCosts()?.did;
 
@@ -135,10 +135,8 @@ export function Transaction(): JSX.Element | null {
     return null;
   }
 
-  const Template = web3name ? TransactionTemplate : TransactionTemplate;
-
   return (
-    <Template
+    <TransactionTemplate
       status={status}
       enabled={enabled.current}
       bound={bound.current}
@@ -157,6 +155,6 @@ export function Transaction(): JSX.Element | null {
           onError={handlePayPalError}
         />
       </div>
-    </Template>
+    </TransactionTemplate>
   );
 }
