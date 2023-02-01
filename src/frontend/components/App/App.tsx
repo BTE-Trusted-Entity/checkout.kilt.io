@@ -4,13 +4,13 @@ import { Header } from '../Header/Header';
 import { Footer } from '../Footer/Footer';
 import { Transaction } from '../Transaction/Transaction';
 import { CoverDid } from '../CoverDid/CoverDid';
+import { CoverWeb3Name } from '../CoverWeb3Name/CoverWeb3Name';
 import { useTxParams } from '../../utilities/TxContext/TxContext';
 
 export function App(): JSX.Element {
   const { web3name } = useTxParams();
 
-  // TODO:
-  const Cover = web3name ? CoverDid : CoverDid;
+  const Cover = web3name ? CoverWeb3Name : CoverDid;
 
   return (
     <div className={styles.container}>

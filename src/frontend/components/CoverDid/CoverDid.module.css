@@ -17,6 +17,7 @@
 
 .heading {
   composes: coverText from '../Typography/Typography.module.css';
+  font-family: 'Overpass Thin', sans-serif;
   margin: 0 0 0.75rem;
   padding-top: 2rem;
   background: url('./did_logo.svg') no-repeat top;
