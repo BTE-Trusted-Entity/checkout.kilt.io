@@ -26,6 +26,7 @@ export const orderLine: string;
 export const order: string;
 export const paypal: string;
 export const servicesHeading: string;
+export const servicesSubline: string;
 export const services: string;
 export const serviceLink: string;
 export const restart: string;

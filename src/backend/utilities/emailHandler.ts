@@ -1,13 +1,14 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-/* eslint-disable import/no-unresolved */
 import { cwd } from 'node:process';
 import path from 'node:path';
 
 import AWS from 'aws-sdk';
 import { createTransport } from 'nodemailer';
 
+/* eslint-disable import/no-unresolved */
+/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
 // @ts-ignore
 import LegalPdf from 'url:../resources/Terms_and_Conditions_Checkout_Service.pdf';
+/* eslint-enable import/no-unresolved */
 
 import { configuration } from './configuration';
 

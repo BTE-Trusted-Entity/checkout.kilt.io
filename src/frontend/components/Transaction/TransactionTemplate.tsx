@@ -204,18 +204,40 @@ export function TransactionTemplate({
 
           <AccountAddress isOnChain />
 
-          <h2 className={styles.servicesHeading}>
-            Congratulations! Now you can start building and using your digital
-            identity with KILT services:
-          </h2>
+          <DidLine did={did} />
+
+          <Web3NameLine web3name={web3name} />
+
+          {web3name && (
+            <Fragment>
+              <h2 className={styles.servicesHeading}>
+                Congratulations! You can see your web3name in Sporran under
+                “Manage web3name:{web3name}”
+              </h2>
+
+              <p className={styles.servicesSubline}>
+                Now you can continue building and using your digital identity
+                with KILT services:
+              </p>
+            </Fragment>
+          )}
+
+          {!web3name && (
+            <h2 className={styles.servicesHeading}>
+              Congratulations! Now you can start building and using your digital
+              identity with KILT services:
+            </h2>
+          )}
 
           <ul className={styles.services}>
-            <li>
-              Give your DID a custom name using{' '}
-              <a className={styles.serviceLink} href="https://w3n.id/">
-                web3name
-              </a>
-            </li>
+            {!web3name && (
+              <li>
+                Give your DID a custom name using{' '}
+                <a className={styles.serviceLink} href="https://w3n.id/">
+                  web3name
+                </a>
+              </li>
+            )}
             <li>
               Add credentials to your DID such as social media accounts, GitHub
               and email address using{' '}
