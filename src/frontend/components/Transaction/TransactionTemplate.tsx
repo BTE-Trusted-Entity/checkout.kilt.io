@@ -3,19 +3,21 @@ import {
   FormEventHandler,
   Fragment,
   MouseEventHandler,
-  useContext,
   useEffect,
   useRef,
 } from 'react';
 
 import * as styles from './Transaction.module.css';
 
-import { TxContext } from '../../utilities/TxContext/TxContext';
+import { useTxParams } from '../../utilities/TxContext/TxContext';
 import { Avatar } from '../Avatar/Avatar';
 import { Progress } from '../Progress/Progress';
 
 function AccountAddress({ isOnChain }: { isOnChain: boolean }) {
-  const { address } = useContext(TxContext);
+  const { address } = useTxParams();
+  if (!address) {
+    return null;
+  }
 
   return (
     <section className={styles.addressContainer}>

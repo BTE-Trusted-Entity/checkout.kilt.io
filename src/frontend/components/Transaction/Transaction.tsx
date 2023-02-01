@@ -1,17 +1,11 @@
 import type {
-  CreateOrderData,
   CreateOrderActions,
-  OnApproveData,
+  CreateOrderData,
   OnApproveActions,
+  OnApproveData,
 } from '@paypal/paypal-js';
 
-import {
-  ChangeEvent,
-  FormEvent,
-  useCallback,
-  useContext,
-  useState,
-} from 'react';
+import { ChangeEvent, FormEvent, useCallback, useState } from 'react';
 
 import ky, { HTTPError } from 'ky';
 
@@ -19,7 +13,7 @@ import { PayPalButtons } from '@paypal/react-paypal-js';
 
 import * as styles from './Transaction.module.css';
 
-import { TxContext } from '../../utilities/TxContext/TxContext';
+import { useTxParams } from '../../utilities/TxContext/TxContext';
 import { paths } from '../../../backend/endpoints/paths';
 import { useCosts } from '../../../backend/endpoints/costsApi';
 import { useBooleanState } from '../../utilities/useBooleanState/useBooleanState';
@@ -33,7 +27,7 @@ import {
 } from './TransactionTemplate';
 
 export function Transaction(): JSX.Element | null {
-  const { tx } = useContext(TxContext);
+  const { tx, web3name } = useTxParams();
 
   const cost = useCosts()?.did;
 
@@ -141,8 +135,10 @@ export function Transaction(): JSX.Element | null {
     return null;
   }
 
+  const Template = web3name ? TransactionTemplate : TransactionTemplate;
+
   return (
-    <TransactionTemplate
+    <Template
       status={status}
       enabled={enabled.current}
       bound={bound.current}
@@ -161,6 +157,6 @@ export function Transaction(): JSX.Element | null {
           onError={handlePayPalError}
         />
       </div>
-    </TransactionTemplate>
+    </Template>
   );
 }

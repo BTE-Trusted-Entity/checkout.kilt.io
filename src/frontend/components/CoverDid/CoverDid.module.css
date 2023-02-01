@@ -1,0 +1,80 @@
+.cover {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-inline: calc((100% - min(90%, 1110rem / 16)) / 2);
+  padding-block: calc(150rem / 16) calc(175rem / 16);
+  box-sizing: border-box;
+  background: url('./splash.jpg') no-repeat bottom left / cover;
+}
+
+@media screen and (max-width: 500px) {
+  .cover {
+    padding-block: 4rem calc(150rem / 16);
+  }
+}
+
+.heading {
+  composes: coverText from '../Typography/Typography.module.css';
+  margin: 0 0 0.75rem;
+  padding-top: 2rem;
+  background: url('./did_logo.svg') no-repeat top;
+}
+
+.subline {
+  composes: subText from '../Typography/Typography.module.css';
+  margin: 0;
+}
+
+.infoContainer {
+  margin: calc(148rem / 16) 0 0;
+}
+
+@media screen and (max-width: 500px) {
+  .infoContainer {
+    margin: 1rem 0 0;
+  }
+}
+
+.infoHeading {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.infoTagline {
+  font-family: 'Overpass Thin', sans-serif;
+  font-size: 3rem;
+  margin: 0 0 1rem;
+}
+
+.info {
+  font-size: calc(21rem / 16);
+  line-height: 1.5rem;
+  margin-block: 0.75rem;
+}
+
+.infoPoints {
+  composes: info;
+  padding-left: 2rem;
+}
+
+.infoPoint {
+  line-height: 1.75rem;
+}
+
+@media screen and (max-width: 700px) {
+  .infoTagline {
+    font-size: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .infoTagline {
+    font-size: 2rem;
+  }
+
+  .info {
+    font-size: calc(18rem / 16);
+  }
+}
