@@ -51,7 +51,7 @@ export function Web3Name(): JSX.Element {
       <TransactionTemplate
         status="prepared"
         {...actions}
-        cost={localeCost}
+        cost="EUR 1.20"
         enabled={false}
         bound={false}
       >

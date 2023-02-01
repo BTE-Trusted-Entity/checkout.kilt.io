@@ -27,9 +27,10 @@ import {
 } from './TransactionTemplate';
 
 export function Transaction(): JSX.Element | null {
-  const { tx } = useTxParams();
+  const { tx, web3name } = useTxParams();
 
-  const cost = useCosts()?.did;
+  const costs = useCosts();
+  const cost = web3name ? costs?.w3n : costs?.did;
 
   const [status, setStatus] = useState<TransactionStatus>('prepared');
   const [flowError, setFlowError] = useState<FlowError>();
