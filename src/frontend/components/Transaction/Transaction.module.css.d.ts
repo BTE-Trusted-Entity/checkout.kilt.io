@@ -9,6 +9,7 @@ export const addressContainer: string;
 export const address: string;
 export const addressName: string;
 export const addressValue: string;
+export const web3Name: string;
 export const termsLine: string;
 export const termsLineEnabled: string;
 export const termsLabel: string;

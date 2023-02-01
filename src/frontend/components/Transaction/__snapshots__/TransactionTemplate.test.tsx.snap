@@ -371,7 +371,10 @@ exports[`TransactionTemplate should match snapshot with status=authorizing 1`] =
       <p
         class="instruction"
       >
-        The Checkout Service executes your transaction for a DID on the KILT blockchain. This Service is provided by KILT partner B.T.E. BOTLabs Trusted Entity GmbH. You can use PayPal to pay for this service.
+        The Checkout Service executes your transaction for a
+         
+        DID
+         on the KILT blockchain. This Service is provided by KILT partner B.T.E. BOTLabs Trusted Entity GmbH. You can use PayPal to pay for this service.
       </p>
       <p
         class="termsLineEnabled"
@@ -886,7 +889,175 @@ exports[`TransactionTemplate should match snapshot with status=prepared 1`] = `
       <p
         class="instruction"
       >
-        The Checkout Service executes your transaction for a DID on the KILT blockchain. This Service is provided by KILT partner B.T.E. BOTLabs Trusted Entity GmbH. You can use PayPal to pay for this service.
+        The Checkout Service executes your transaction for a
+         
+        DID
+         on the KILT blockchain. This Service is provided by KILT partner B.T.E. BOTLabs Trusted Entity GmbH. You can use PayPal to pay for this service.
+      </p>
+      <p
+        class="termsLine"
+      >
+        <label
+          class="termsLabel"
+        >
+          <input
+            class="accept"
+            type="checkbox"
+          />
+          <span
+            class="checkbox"
+          />
+          <span
+            class="termsLabelText"
+          >
+            I agree to immediate processing of the Checkout Service, and am aware that this ends my right to revoke the Service.
+          </span>
+        </label>
+      </p>
+      <p
+        class="cost"
+      >
+        <span>
+          Service fee (including VAT)
+        </span>
+        <span
+          class="costValue"
+        >
+          EUR 4.00
+        </span>
+        <span
+          class="costDetails"
+        >
+          or EUR equivalent, depending on your preferred PayPal currency
+        </span>
+      </p>
+      <p
+        class="instruction"
+      >
+        By clicking the button below, I also agree to the
+         
+        <a
+          class="termsLink"
+          href="/terms.html"
+        >
+          Terms and Conditions
+        </a>
+         
+        of the Checkout Service.
+      </p>
+      <p
+        class="orderLine"
+      >
+        <button
+          class="order"
+          disabled=""
+          type="submit"
+        >
+          Chargeable order
+        </button>
+      </p>
+      <p>
+        Start the payment via Paypal:
+      </p>
+      <button>
+        PayPal
+      </button>
+    </section>
+    <dialog
+      class="dialog"
+    >
+      Please wait while your transaction is being processed
+    </dialog>
+  </form>
+</div>
+`;
+
+exports[`TransactionTemplate should match snapshot with status=prepared for web3name 1`] = `
+<div>
+  <form
+    class="container"
+  >
+    <ul
+      class="container"
+    >
+      <li
+        class="current"
+      >
+        Prepare
+      </li>
+      <li
+        class="step"
+      >
+        Order
+      </li>
+      <li
+        class="step"
+      >
+        Pay
+      </li>
+      <li
+        class="step"
+      >
+        Success
+      </li>
+    </ul>
+    <h2
+      class="heading"
+    >
+      Purchase Process
+    </h2>
+    <p
+      class="txPrepared"
+    >
+      Sporran transaction signed
+    </p>
+    <section
+      class="addressContainer"
+    >
+      <p
+        class="address"
+      >
+        <span
+          class="addressName"
+        >
+          DID:
+        </span>
+        <span
+          class="addressValue"
+        >
+          did:kilt:4rMVzpAj8m5Fj9aGcRSTg2uFqZTVUxJF5UVKueVyi8C5GAZC
+        </span>
+      </p>
+    </section>
+    <section
+      class="addressContainer"
+    >
+      <p
+        class="address"
+      >
+        <span
+          class="addressName"
+        >
+          web3name:
+        </span>
+        <span
+          class="web3Name"
+        >
+          w3n:
+          artemis
+        </span>
+      </p>
+    </section>
+    <section
+      class="incomplete"
+    >
+      <p
+        class="instruction"
+      >
+        The Checkout Service executes your transaction for a
+         
+        web3name
+         on the KILT blockchain. This Service is provided by KILT partner B.T.E. BOTLabs Trusted Entity GmbH. You can use PayPal to pay for this service.
       </p>
       <p
         class="termsLine"
@@ -1160,7 +1331,10 @@ exports[`TransactionTemplate should match snapshot with status=submitting 1`] = 
       <p
         class="instruction"
       >
-        The Checkout Service executes your transaction for a DID on the KILT blockchain. This Service is provided by KILT partner B.T.E. BOTLabs Trusted Entity GmbH. You can use PayPal to pay for this service.
+        The Checkout Service executes your transaction for a
+         
+        DID
+         on the KILT blockchain. This Service is provided by KILT partner B.T.E. BOTLabs Trusted Entity GmbH. You can use PayPal to pay for this service.
       </p>
       <p
         class="termsLineEnabled"
@@ -1436,7 +1610,10 @@ exports[`TransactionTemplate should match snapshot with terms accepted 1`] = `
       <p
         class="instruction"
       >
-        The Checkout Service executes your transaction for a DID on the KILT blockchain. This Service is provided by KILT partner B.T.E. BOTLabs Trusted Entity GmbH. You can use PayPal to pay for this service.
+        The Checkout Service executes your transaction for a
+         
+        DID
+         on the KILT blockchain. This Service is provided by KILT partner B.T.E. BOTLabs Trusted Entity GmbH. You can use PayPal to pay for this service.
       </p>
       <p
         class="termsLineEnabled"

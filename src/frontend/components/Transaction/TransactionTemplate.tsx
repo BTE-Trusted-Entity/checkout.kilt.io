@@ -14,18 +14,48 @@ import { Avatar } from '../Avatar/Avatar';
 import { Progress } from '../Progress/Progress';
 
 function AccountAddress({ isOnChain }: { isOnChain: boolean }) {
-  const { address } = useTxParams();
+  const { address, did } = useTxParams();
   if (!address) {
     return null;
   }
 
   return (
     <section className={styles.addressContainer}>
-      <Avatar address={address} isOnChain={isOnChain} />
+      {!did && <Avatar address={address} isOnChain={isOnChain} />}
 
       <p className={styles.address}>
         <span className={styles.addressName}>For account address:</span>
         <span className={styles.addressValue}>{address}</span>
+      </p>
+    </section>
+  );
+}
+
+function DidLine({ did }: { did?: string }) {
+  if (!did) {
+    return null;
+  }
+
+  return (
+    <section className={styles.addressContainer}>
+      <p className={styles.address}>
+        <span className={styles.addressName}>DID:</span>
+        <span className={styles.addressValue}>{did}</span>
+      </p>
+    </section>
+  );
+}
+
+function Web3NameLine({ web3name }: { web3name?: string }) {
+  if (!web3name) {
+    return null;
+  }
+
+  return (
+    <section className={styles.addressContainer}>
+      <p className={styles.address}>
+        <span className={styles.addressName}>web3name:</span>
+        <span className={styles.web3Name}>w3n:{web3name}</span>
       </p>
     </section>
   );
@@ -94,6 +124,8 @@ export function TransactionTemplate({
     return 'Success';
   })();
 
+  const { did, web3name } = useTxParams();
+
   return (
     <form className={styles.container} ref={ref} onSubmit={handleBindClick}>
       <Progress stages={progressStages} current={currentStage} />
@@ -106,12 +138,16 @@ export function TransactionTemplate({
 
           <AccountAddress isOnChain={false} />
 
+          <DidLine did={did} />
+
+          <Web3NameLine web3name={web3name} />
+
           <section className={styles.incomplete}>
             <p className={styles.instruction}>
-              The Checkout Service executes your transaction for a DID on the
-              KILT blockchain. This Service is provided by KILT partner B.T.E.
-              BOTLabs Trusted Entity GmbH. You can use PayPal to pay for this
-              service.
+              The Checkout Service executes your transaction for a{' '}
+              {web3name ? 'web3name' : 'DID'} on the KILT blockchain. This
+              Service is provided by KILT partner B.T.E. BOTLabs Trusted Entity
+              GmbH. You can use PayPal to pay for this service.
             </p>
 
             <p className={enabled ? styles.termsLineEnabled : styles.termsLine}>

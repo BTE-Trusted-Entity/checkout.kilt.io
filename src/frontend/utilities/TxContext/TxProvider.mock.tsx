@@ -6,11 +6,11 @@ const txMock: TxContextType = {
 };
 
 export function TxProviderMock({
-  tx = txMock,
+  value = txMock,
   children,
 }: {
-  tx?: TxContextType;
+  value?: TxContextType;
   children: JSX.Element;
 }) {
-  return <TxContext.Provider value={tx}>{children}</TxContext.Provider>;
+  return <TxContext.Provider value={value}>{children}</TxContext.Provider>;
 }
