@@ -1,0 +1,33 @@
+.cover {
+  composes: cover from '../CoverDid/CoverDid.module.css';
+  background-image: url('./splash.jpg');
+}
+
+.heading {
+  composes: heading from '../CoverDid/CoverDid.module.css';
+  background-image: url('./w3n_logo.svg');
+}
+
+.subline {
+  composes: subline from '../CoverDid/CoverDid.module.css';
+}
+
+.infoContainer {
+  composes: infoContainer from '../CoverDid/CoverDid.module.css';
+}
+
+.infoHeading {
+  composes: infoHeading from '../CoverDid/CoverDid.module.css';
+}
+
+.infoTagline {
+  composes: infoTagline from '../CoverDid/CoverDid.module.css';
+}
+
+.info {
+  composes: info from '../CoverDid/CoverDid.module.css';
+}
+
+.info a {
+  color: var(--color-white);
+}

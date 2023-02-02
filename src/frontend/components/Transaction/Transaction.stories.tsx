@@ -6,6 +6,8 @@ import { PayPalButtons } from '@paypal/react-paypal-js';
 
 import * as styles from './Transaction.module.css';
 
+import { TxProviderMock } from '../../utilities/TxContext/TxProvider.mock';
+
 import { TransactionTemplate } from './TransactionTemplate';
 
 function MockPaypalButton() {
@@ -36,6 +38,28 @@ export default {
   title: 'Components/Transaction',
   component: TransactionTemplate,
 } as Meta;
+
+export function Web3Name(): JSX.Element {
+  return (
+    <TxProviderMock
+      value={{
+        tx: '0xCAFE',
+        web3name: 'artemis',
+        did: 'did:kilt:4rMVzpAj8m5Fj9aGcRSTg2uFqZTVUxJF5UVKueVyi8C5GAZC',
+      }}
+    >
+      <TransactionTemplate
+        status="prepared"
+        {...actions}
+        cost="EUR 1.20"
+        enabled={false}
+        bound={false}
+      >
+        <MockPaypalButtonDisabled />
+      </TransactionTemplate>
+    </TxProviderMock>
+  );
+}
 
 export function Prepared(): JSX.Element {
   return (

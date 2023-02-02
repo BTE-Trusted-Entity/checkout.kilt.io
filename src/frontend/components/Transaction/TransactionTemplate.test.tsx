@@ -5,6 +5,7 @@ import {
   mockScrollIntoView,
   render,
 } from '../../../testing/testing';
+import { TxProviderMock } from '../../utilities/TxContext/TxProvider.mock';
 
 import { TransactionTemplate } from './TransactionTemplate';
 
@@ -37,6 +38,30 @@ describe('TransactionTemplate', () => {
       >
         <MockPayPalButton />
       </TransactionTemplate>,
+    );
+
+    expect(container).toMatchSnapshot();
+  });
+
+  it('should match snapshot with status=prepared for web3name', () => {
+    const { container } = render(
+      <TxProviderMock
+        value={{
+          tx: '0xCAFE',
+          web3name: 'artemis',
+          did: 'did:kilt:4rMVzpAj8m5Fj9aGcRSTg2uFqZTVUxJF5UVKueVyi8C5GAZC',
+        }}
+      >
+        <TransactionTemplate
+          status="prepared"
+          enabled={false}
+          bound={false}
+          cost={localeCost}
+          {...actions}
+        >
+          <MockPayPalButton />
+        </TransactionTemplate>
+      </TxProviderMock>,
     );
 
     expect(container).toMatchSnapshot();
