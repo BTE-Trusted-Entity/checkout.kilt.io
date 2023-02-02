@@ -17,6 +17,12 @@ const actions = {
   handleRestart: jest.fn(),
 };
 
+const web3NameParameters = {
+  tx: '0xCAFE',
+  web3name: 'artemis',
+  did: 'did:kilt:4rMVzpAj8m5Fj9aGcRSTg2uFqZTVUxJF5UVKueVyi8C5GAZC',
+};
+
 function MockPayPalButton() {
   return <button>PayPal</button>;
 }
@@ -45,13 +51,7 @@ describe('TransactionTemplate', () => {
 
   it('should match snapshot with status=prepared for web3name', () => {
     const { container } = render(
-      <TxProviderMock
-        value={{
-          tx: '0xCAFE',
-          web3name: 'artemis',
-          did: 'did:kilt:4rMVzpAj8m5Fj9aGcRSTg2uFqZTVUxJF5UVKueVyi8C5GAZC',
-        }}
-      >
+      <TxProviderMock value={web3NameParameters}>
         <TransactionTemplate
           status="prepared"
           enabled={false}
@@ -126,6 +126,24 @@ describe('TransactionTemplate', () => {
       >
         <MockPayPalButton />
       </TransactionTemplate>,
+    );
+
+    expect(container).toMatchSnapshot();
+  });
+
+  it('should match snapshot with status=complete for web3name', () => {
+    const { container } = render(
+      <TxProviderMock value={web3NameParameters}>
+        <TransactionTemplate
+          status="complete"
+          enabled={true}
+          bound={true}
+          cost={localeCost}
+          {...actions}
+        >
+          <MockPayPalButton />
+        </TransactionTemplate>
+      </TxProviderMock>,
     );
 
     expect(container).toMatchSnapshot();

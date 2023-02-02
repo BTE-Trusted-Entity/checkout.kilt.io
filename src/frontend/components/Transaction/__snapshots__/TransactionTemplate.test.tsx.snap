@@ -695,6 +695,130 @@ exports[`TransactionTemplate should match snapshot with status=complete 1`] = `
 </div>
 `;
 
+exports[`TransactionTemplate should match snapshot with status=complete for web3name 1`] = `
+<div>
+  <form
+    class="container"
+  >
+    <ul
+      class="container"
+    >
+      <li
+        class="completed"
+      >
+        Prepare
+      </li>
+      <li
+        class="completed"
+      >
+        Order
+      </li>
+      <li
+        class="completed"
+      >
+        Pay
+      </li>
+      <li
+        class="current"
+      >
+        Success
+      </li>
+    </ul>
+    <h2
+      class="heading"
+    >
+      Purchase Process
+    </h2>
+    <p
+      class="txComplete"
+    >
+      Order complete
+    </p>
+    <section
+      class="addressContainer"
+    >
+      <p
+        class="address"
+      >
+        <span
+          class="addressName"
+        >
+          DID:
+        </span>
+        <span
+          class="addressValue"
+        >
+          did:kilt:4rMVzpAj8m5Fj9aGcRSTg2uFqZTVUxJF5UVKueVyi8C5GAZC
+        </span>
+      </p>
+    </section>
+    <section
+      class="addressContainer"
+    >
+      <p
+        class="address"
+      >
+        <span
+          class="addressName"
+        >
+          web3name:
+        </span>
+        <span
+          class="web3Name"
+        >
+          w3n:
+          artemis
+        </span>
+      </p>
+    </section>
+    <h2
+      class="servicesHeading"
+    >
+      Congratulations! You can see your web3name in Sporran under “Manage web3name:
+      artemis
+      ”
+    </h2>
+    <p
+      class="servicesSubline"
+    >
+      Now you can continue building and using your digital identity with KILT services:
+    </p>
+    <ul
+      class="services"
+    >
+      <li>
+        Add credentials to your DID such as social media accounts, GitHub and email address using
+         
+        <a
+          class="serviceLink"
+          href="https://socialkyc.io/"
+        >
+          SocialKYC
+        </a>
+      </li>
+      <li>
+        Sign digital files with your DID in a secure, decentralized way using
+         
+        <a
+          class="serviceLink"
+          href="https://didsign.io/"
+        >
+          DIDsign
+        </a>
+      </li>
+      <li>
+        Link your DID to your Polkadot ecosystem addresses (and soon, Ethereum)
+      </li>
+    </ul>
+    <dialog
+      class="dialog"
+    >
+      Please wait while your transaction is being processed
+    </dialog>
+  </form>
+</div>
+`;
+
 exports[`TransactionTemplate should match snapshot with status=prepared 1`] = `
 <div>
   <form

@@ -39,15 +39,15 @@ export default {
   component: TransactionTemplate,
 } as Meta;
 
+const web3NameParameters = {
+  tx: '0xCAFE',
+  web3name: 'artemis',
+  did: 'did:kilt:4rMVzpAj8m5Fj9aGcRSTg2uFqZTVUxJF5UVKueVyi8C5GAZC',
+};
+
 export function Web3Name(): JSX.Element {
   return (
-    <TxProviderMock
-      value={{
-        tx: '0xCAFE',
-        web3name: 'artemis',
-        did: 'did:kilt:4rMVzpAj8m5Fj9aGcRSTg2uFqZTVUxJF5UVKueVyi8C5GAZC',
-      }}
-    >
+    <TxProviderMock value={web3NameParameters}>
       <TransactionTemplate
         status="prepared"
         {...actions}
@@ -142,6 +142,22 @@ export function Complete(): JSX.Element {
     >
       <MockPaypalButton />
     </TransactionTemplate>
+  );
+}
+
+export function CompleteWeb3Name(): JSX.Element {
+  return (
+    <TxProviderMock value={web3NameParameters}>
+      <TransactionTemplate
+        status="complete"
+        {...actions}
+        cost={localeCost}
+        enabled={true}
+        bound={true}
+      >
+        <MockPaypalButton />
+      </TransactionTemplate>
+    </TxProviderMock>
   );
 }
 
