@@ -97,14 +97,14 @@ async function handler(
 
   const { didCost, w3nCost } = configuration;
 
-  const paidAmount = purchase_units[0].amount.value;
+  const paidAmount = purchase_units[0].amount;
 
   const isExpectedAmount =
     type === 'did'
-      ? parseFloat(paidAmount) === parseFloat(didCost)
-      : parseFloat(paidAmount) === parseFloat(w3nCost);
+      ? parseFloat(paidAmount.value) === parseFloat(didCost)
+      : parseFloat(paidAmount.value) === parseFloat(w3nCost);
 
-  if (!isExpectedAmount) {
+  if (!isExpectedAmount || paidAmount.currency_code !== 'EUR') {
     throw Boom.badRequest();
   }
 
