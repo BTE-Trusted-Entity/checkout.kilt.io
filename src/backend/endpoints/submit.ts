@@ -68,6 +68,7 @@ const zodPayload = z.object({
   orderID: z.string(),
   authorizationID: z.string(),
   tx: z.string(),
+  type: z.string(),
 });
 
 async function handler(
@@ -77,7 +78,7 @@ async function handler(
   const { logger } = request;
   logger.debug('Submit transaction started');
 
-  const { orderID, authorizationID, tx } = request.payload as z.infer<
+  const { orderID, authorizationID, tx, type } = request.payload as z.infer<
     typeof zodPayload
   >;
 
@@ -85,9 +86,25 @@ async function handler(
 
   logger.debug('Generated PayPal access token');
 
-  const { intent, status, payer } = await getOrderDetails(orderID, accessToken);
+  const { intent, status, payer, purchase_units } = await getOrderDetails(
+    orderID,
+    accessToken,
+  );
 
   if (intent !== 'AUTHORIZE' || status !== 'COMPLETED') {
+    throw Boom.badRequest();
+  }
+
+  const { didCost, w3nCost } = configuration;
+
+  const paidAmount = purchase_units[0].amount.value;
+
+  const isExpectedAmount =
+    type === 'did'
+      ? parseFloat(paidAmount) === parseFloat(didCost)
+      : parseFloat(paidAmount) === parseFloat(w3nCost);
+
+  if (!isExpectedAmount) {
     throw Boom.badRequest();
   }
 

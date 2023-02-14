@@ -99,8 +99,10 @@ export function Transaction(): JSX.Element | null {
 
           setStatus('submitting');
 
+          const type = web3name ? 'w3n' : 'did';
+
           await ky.post(paths.submit, {
-            json: { orderID, authorizationID, tx },
+            json: { orderID, authorizationID, tx, type },
             timeout: false,
           });
 
@@ -118,7 +120,7 @@ export function Transaction(): JSX.Element | null {
         }
       })();
     },
-    [tx],
+    [tx, web3name],
   );
 
   const handlePayPalError = useCallback((error: Record<string, unknown>) => {
