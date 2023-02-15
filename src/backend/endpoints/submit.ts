@@ -28,7 +28,7 @@ const ACCEPTED_TRANSACTIONS = ['did.create', 'web3Names.claim'] as const;
 
 type AcceptedTx = (typeof ACCEPTED_TRANSACTIONS)[number];
 
-function isAcceptedTxType(tx: string): tx is AcceptedTx {
+function isAcceptedTx(tx: string): tx is AcceptedTx {
   return ACCEPTED_TRANSACTIONS.includes(tx as AcceptedTx);
 }
 
@@ -114,7 +114,7 @@ async function handler(
   const { section, method } = api.registry.findMetaCall(decoded.callIndex);
   const txType = `${section}.${method}`;
 
-  if (!isAcceptedTxType(txType)) {
+  if (!isAcceptedTx(txType)) {
     throw Boom.badRequest();
   }
 
