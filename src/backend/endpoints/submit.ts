@@ -115,16 +115,20 @@ async function handler(
   const txType = `${section}.${method}`;
 
   if (!isAcceptedTx(txType)) {
-    throw Boom.badRequest();
+    const error = 'Unsupported transaction';
+    logger.error(error);
+    throw Boom.badRequest(error);
   }
 
+  const expectedAmount = txType === 'did.create' ? didCost : w3nCost;
+
   const isExpectedAmount =
-    txType === 'did.create'
-      ? parseFloat(paidAmount.value) === parseFloat(didCost)
-      : parseFloat(paidAmount.value) === parseFloat(w3nCost);
+    parseFloat(paidAmount.value) === parseFloat(expectedAmount);
 
   if (!isExpectedAmount || paidAmount.currency_code !== 'EUR') {
-    throw Boom.badRequest();
+    const error = 'Unexpected payment amount';
+    logger.error(error);
+    throw Boom.badRequest(error);
   }
 
   logger.debug('Fetched PayPal order details, sending transaction to TXD');
