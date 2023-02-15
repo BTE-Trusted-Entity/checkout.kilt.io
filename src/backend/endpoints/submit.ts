@@ -104,10 +104,6 @@ async function handler(
     throw Boom.badRequest();
   }
 
-  const { didCost, w3nCost } = configuration;
-
-  const paidAmount = purchase_units[0].amount;
-
   const api = ConfigService.get('api');
 
   const decoded = api.tx(api.createType('Call', tx));
@@ -120,12 +116,16 @@ async function handler(
     throw Boom.badRequest(error);
   }
 
+  const { didCost, w3nCost } = configuration;
+
+  const paidAmount = purchase_units[0].amount;
   const expectedAmount = txType === 'did.create' ? didCost : w3nCost;
 
   const isExpectedAmount =
     parseFloat(paidAmount.value) === parseFloat(expectedAmount);
+  const isExpectedCurrency = paidAmount.currency_code === 'EUR';
 
-  if (!isExpectedAmount || paidAmount.currency_code !== 'EUR') {
+  if (!isExpectedAmount || !isExpectedCurrency) {
     const error = 'Unexpected payment amount';
     logger.error(error);
     throw Boom.badRequest(error);
