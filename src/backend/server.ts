@@ -43,11 +43,11 @@ const logger = {
   await configureDevErrors(server);
   server.logger.info('Server configured');
 
-  await testLiveness();
-  server.logger.info('Liveness tests passed');
-
   await initKilt();
   server.logger.info('Blockchain connection initialized');
+
+  await testLiveness();
+  server.logger.info('Liveness tests passed');
 
   server.route(paypalClientID);
   server.route(cost);

@@ -6,7 +6,7 @@ import { trackConnectionState } from '../utilities/trackConnectionState';
 
 import { configuration } from '../utilities/configuration';
 
-import { blockchainConnectionState, initKilt } from '../utilities/initKilt';
+import { blockchainConnectionState } from '../utilities/initKilt';
 
 import { getAccessToken } from './submit';
 
@@ -59,8 +59,6 @@ export async function testLiveness() {
 
   await canAccessTXD();
   checkTXDConnection();
-
-  await initKilt();
 }
 
 export const liveness: ServerRoute = {
