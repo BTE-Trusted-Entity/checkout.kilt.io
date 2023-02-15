@@ -14,6 +14,8 @@ import { OrderResponseBody } from '@paypal/paypal-js';
 
 import * as Boom from '@hapi/boom';
 
+import { ConfigService } from '@kiltprotocol/config';
+
 import { configuration } from '../utilities/configuration';
 
 import { submitTx } from '../utilities/submitTx';
@@ -21,6 +23,14 @@ import { submitTx } from '../utilities/submitTx';
 import { sendConfirmationEmail } from '../utilities/emailHandler';
 
 import { paths } from './paths';
+
+const ACCEPTED_TRANSACTIONS = ['did.create', 'web3Names.claim'] as const;
+
+type AcceptedTx = (typeof ACCEPTED_TRANSACTIONS)[number];
+
+function isAcceptedTxType(tx: string): tx is AcceptedTx {
+  return ACCEPTED_TRANSACTIONS.includes(tx as AcceptedTx);
+}
 
 export async function getAccessToken() {
   const { baseUrl, clientId, secret } = configuration.paypal;
@@ -68,7 +78,6 @@ const zodPayload = z.object({
   orderID: z.string(),
   authorizationID: z.string(),
   tx: z.string(),
-  type: z.string(),
 });
 
 async function handler(
@@ -78,7 +87,7 @@ async function handler(
   const { logger } = request;
   logger.debug('Submit transaction started');
 
-  const { orderID, authorizationID, tx, type } = request.payload as z.infer<
+  const { orderID, authorizationID, tx } = request.payload as z.infer<
     typeof zodPayload
   >;
 
@@ -99,8 +108,18 @@ async function handler(
 
   const paidAmount = purchase_units[0].amount;
 
+  const api = ConfigService.get('api');
+
+  const decoded = api.tx(api.createType('Call', tx));
+  const { section, method } = api.registry.findMetaCall(decoded.callIndex);
+  const txType = `${section}.${method}`;
+
+  if (!isAcceptedTxType(txType)) {
+    throw Boom.badRequest();
+  }
+
   const isExpectedAmount =
-    type === 'did'
+    txType === 'did.create'
       ? parseFloat(paidAmount.value) === parseFloat(didCost)
       : parseFloat(paidAmount.value) === parseFloat(w3nCost);
 

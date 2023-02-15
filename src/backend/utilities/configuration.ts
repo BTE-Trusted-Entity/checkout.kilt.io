@@ -76,6 +76,11 @@ if (!region || !accessKeyId || !secretAccessKey) {
   throw new ConfigurationError('No AWS access values provided');
 }
 
+const blockchainEndpoint = env.BLOCKCHAIN_ENDPOINT;
+if (!blockchainEndpoint) {
+  throw new ConfigurationError('No blockchain endpoint provided');
+}
+
 export const configuration = {
   baseUri,
   port: env.PORT || 3000,
@@ -93,4 +98,5 @@ export const configuration = {
     accessKeyId,
     secretAccessKey,
   },
+  blockchainEndpoint,
 };

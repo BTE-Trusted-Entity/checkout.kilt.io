@@ -1,6 +1,5 @@
 import inert from '@hapi/inert';
 import pino from 'hapi-pino';
-import { init } from '@kiltprotocol/core';
 
 import { cost } from './endpoints/cost';
 import { costs } from './endpoints/costs';
@@ -15,6 +14,7 @@ import { exitOnError } from './utilities/exitOnError';
 import { manager, server } from './utilities/manager';
 import { submit } from './endpoints/submit';
 import { liveness, testLiveness } from './endpoints/liveness';
+import { initKilt } from './utilities/initKilt';
 
 const { isProduction } = configuration;
 
@@ -43,9 +43,11 @@ const logger = {
   await configureDevErrors(server);
   server.logger.info('Server configured');
 
-  await init();
   await testLiveness();
   server.logger.info('Liveness tests passed');
+
+  await initKilt();
+  server.logger.info('Blockchain connection initialized');
 
   server.route(paypalClientID);
   server.route(cost);
