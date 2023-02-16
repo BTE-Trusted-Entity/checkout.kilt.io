@@ -14,6 +14,8 @@ import { OrderResponseBody } from '@paypal/paypal-js';
 
 import * as Boom from '@hapi/boom';
 
+import { ConfigService } from '@kiltprotocol/config';
+
 import { configuration } from '../utilities/configuration';
 
 import { submitTx } from '../utilities/submitTx';
@@ -21,6 +23,14 @@ import { submitTx } from '../utilities/submitTx';
 import { sendConfirmationEmail } from '../utilities/emailHandler';
 
 import { paths } from './paths';
+
+const ACCEPTED_TRANSACTIONS = ['did.create', 'web3Names.claim'] as const;
+
+type AcceptedTx = (typeof ACCEPTED_TRANSACTIONS)[number];
+
+function isAcceptedTx(tx: string): tx is AcceptedTx {
+  return ACCEPTED_TRANSACTIONS.includes(tx as AcceptedTx);
+}
 
 export async function getAccessToken() {
   const { baseUrl, clientId, secret } = configuration.paypal;
@@ -85,10 +95,40 @@ async function handler(
 
   logger.debug('Generated PayPal access token');
 
-  const { intent, status, payer } = await getOrderDetails(orderID, accessToken);
+  const { intent, status, payer, purchase_units } = await getOrderDetails(
+    orderID,
+    accessToken,
+  );
 
   if (intent !== 'AUTHORIZE' || status !== 'COMPLETED') {
     throw Boom.badRequest();
+  }
+
+  const api = ConfigService.get('api');
+
+  const decoded = api.tx(api.createType('Call', tx));
+  const { section, method } = api.registry.findMetaCall(decoded.callIndex);
+  const txType = `${section}.${method}`;
+
+  if (!isAcceptedTx(txType)) {
+    const error = 'Unsupported transaction';
+    logger.error(error);
+    throw Boom.badRequest(error);
+  }
+
+  const { didCost, w3nCost } = configuration;
+
+  const paidAmount = purchase_units[0].amount;
+  const expectedAmount = txType === 'did.create' ? didCost : w3nCost;
+
+  const isExpectedAmount =
+    parseFloat(paidAmount.value) === parseFloat(expectedAmount);
+  const isExpectedCurrency = paidAmount.currency_code === 'EUR';
+
+  if (!isExpectedAmount || !isExpectedCurrency) {
+    const error = 'Unexpected payment amount';
+    logger.error(error);
+    throw Boom.badRequest(error);
   }
 
   logger.debug('Fetched PayPal order details, sending transaction to TXD');

@@ -6,6 +6,8 @@ import { trackConnectionState } from '../utilities/trackConnectionState';
 
 import { configuration } from '../utilities/configuration';
 
+import { blockchainConnectionState } from '../utilities/initKilt';
+
 import { getAccessToken } from './submit';
 
 import { paths } from './paths';
@@ -66,7 +68,8 @@ export const liveness: ServerRoute = {
   handler: () => {
     return (
       !payPalConnectionState.isOffForTooLong() &&
-      !TXDConnectionState.isOffForTooLong()
+      !TXDConnectionState.isOffForTooLong() &&
+      !blockchainConnectionState.isOffForTooLong()
     );
   },
 };
