@@ -107,8 +107,13 @@ async function handler(
   const api = ConfigService.get('api');
 
   const decoded = api.tx(api.createType('Call', tx));
-  const { section, method } = api.registry.findMetaCall(decoded.callIndex);
-  const txType = `${section}.${method}`;
+
+  const authorized = api.createType(
+    'DidDidDetailsDidAuthorizedCallOperation',
+    decoded.args[0],
+  );
+
+  const txType = `${authorized.call.section}.${authorized.call.method}`;
 
   if (!isAcceptedTx(txType)) {
     const error = 'Unsupported transaction';
