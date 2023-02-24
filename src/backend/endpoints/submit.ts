@@ -116,7 +116,7 @@ async function handler(
   const txType = `${authorized.call.section}.${authorized.call.method}`;
 
   if (!isAcceptedTx(txType)) {
-    const error = 'Unsupported transaction';
+    const error = `Unsupported transaction ${txType}`;
     logger.error(error);
     throw Boom.badRequest(error);
   }
@@ -131,7 +131,7 @@ async function handler(
   const isExpectedCurrency = paidAmount.currency_code === 'EUR';
 
   if (!isExpectedAmount || !isExpectedCurrency) {
-    const error = 'Unexpected payment amount';
+    const error = `Unexpected payment amount: ${paidAmount.value} ${paidAmount.currency_code}`;
     logger.error(error);
     throw Boom.badRequest(error);
   }
