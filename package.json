@@ -82,7 +82,7 @@
     "os-browserify": "^0.3.0",
     "parcel": "^2.7.0",
     "path-browserify": "^1.0.1",
-    "pino-pretty": "^9.3.0",
+    "pino-pretty": "^9.4.0",
     "prettier": "^2.8.4",
     "stream-browserify": "^3.0.0",
     "stylelint": "^15.2.0",
