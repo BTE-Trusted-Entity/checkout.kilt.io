@@ -25,15 +25,15 @@ export function CoverWeb3Name() {
         </p>
 
         <p className={styles.info}>
-          You can then link this name with your{' '}
+          Your web3name will then be linked with your{' '}
           <a
             href="https://www.kilt.io/services/socialkyc"
             target="_blank"
             rel="noreferrer"
           >
-            SocialKYC credentials
+            credentials
           </a>{' '}
-          and use it to sign with{' '}
+          and visible when you sign with{' '}
           <a
             href="https://www.kilt.io/services/didsign"
             target="_blank"

@@ -233,28 +233,40 @@ export function TransactionTemplate({
             {!web3name && (
               <li>
                 Give your DID a custom name using{' '}
-                <a className={styles.serviceLink} href="https://w3n.id/">
+                <a
+                  className={styles.serviceLink}
+                  href="https://www.kilt.io/services/web3name"
+                >
                   web3name
                 </a>
               </li>
             )}
             <li>
-              Add credentials to your DID such as social media accounts, GitHub
-              and email address using{' '}
-              <a className={styles.serviceLink} href="https://socialkyc.io/">
+              Add credentials such as social media accounts and your email
+              address to your DID and web3name using{' '}
+              <a
+                className={styles.serviceLink}
+                href="https://www.kilt.io/services/socialkyc"
+              >
                 SocialKYC
               </a>
             </li>
             <li>
               Sign digital files with your DID in a secure, decentralized way
               using{' '}
-              <a className={styles.serviceLink} href="https://didsign.io/">
+              <a
+                className={styles.serviceLink}
+                href="https://www.kilt.io/services/didsign"
+              >
                 DIDsign
               </a>
             </li>
             <li>
-              Link your DID to your Polkadot ecosystem addresses (and soon,
-              Ethereum)
+              <a
+                className={styles.serviceLink}
+                href="https://www.kilt.io/services/account-linking"
+              >{`Link your ${web3name ? 'web3name' : 'DID'}`}</a>{' '}
+              to your Polkadot ecosystem addresses (and soon, Ethereum)
             </li>
           </ul>
         </Fragment>
