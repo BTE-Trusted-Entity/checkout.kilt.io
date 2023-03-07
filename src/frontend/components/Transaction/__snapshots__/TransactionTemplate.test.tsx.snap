@@ -657,17 +657,17 @@ exports[`TransactionTemplate should match snapshot with status=complete 1`] = `
          
         <a
           class="serviceLink"
-          href="https://w3n.id/"
+          href="https://www.kilt.io/services/web3name"
         >
           web3name
         </a>
       </li>
       <li>
-        Add credentials to your DID such as social media accounts, GitHub and email address using
+        Add credentials such as social media accounts and your email address to your DID and web3name using
          
         <a
           class="serviceLink"
-          href="https://socialkyc.io/"
+          href="https://www.kilt.io/services/socialkyc"
         >
           SocialKYC
         </a>
@@ -677,13 +677,20 @@ exports[`TransactionTemplate should match snapshot with status=complete 1`] = `
          
         <a
           class="serviceLink"
-          href="https://didsign.io/"
+          href="https://www.kilt.io/services/didsign"
         >
           DIDsign
         </a>
       </li>
       <li>
-        Link your DID to your Polkadot ecosystem addresses (and soon, Ethereum)
+        <a
+          class="serviceLink"
+          href="https://www.kilt.io/services/account-linking"
+        >
+          Link your DID
+        </a>
+         
+        to your Polkadot ecosystem addresses (and soon, Ethereum)
       </li>
     </ul>
     <dialog
@@ -787,11 +794,11 @@ exports[`TransactionTemplate should match snapshot with status=complete for web3
       class="services"
     >
       <li>
-        Add credentials to your DID such as social media accounts, GitHub and email address using
+        Add credentials such as social media accounts and your email address to your DID and web3name using
          
         <a
           class="serviceLink"
-          href="https://socialkyc.io/"
+          href="https://www.kilt.io/services/socialkyc"
         >
           SocialKYC
         </a>
@@ -801,13 +808,20 @@ exports[`TransactionTemplate should match snapshot with status=complete for web3
          
         <a
           class="serviceLink"
-          href="https://didsign.io/"
+          href="https://www.kilt.io/services/didsign"
         >
           DIDsign
         </a>
       </li>
       <li>
-        Link your DID to your Polkadot ecosystem addresses (and soon, Ethereum)
+        <a
+          class="serviceLink"
+          href="https://www.kilt.io/services/account-linking"
+        >
+          Link your web3name
+        </a>
+         
+        to your Polkadot ecosystem addresses (and soon, Ethereum)
       </li>
     </ul>
     <dialog
