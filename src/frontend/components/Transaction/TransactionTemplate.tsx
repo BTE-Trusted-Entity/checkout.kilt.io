@@ -147,7 +147,7 @@ export function TransactionTemplate({
               The Checkout Service executes your transaction for a{' '}
               {web3name ? 'web3name' : 'DID'} on the KILT blockchain. This
               Service is provided by KILT partner B.T.E. BOTLabs Trusted Entity
-              GmbH. You can use PayPal to pay for this service.
+              GmbH. You can use PayPal to pay for this Service.
             </p>
 
             <p className={enabled ? styles.termsLineEnabled : styles.termsLine}>

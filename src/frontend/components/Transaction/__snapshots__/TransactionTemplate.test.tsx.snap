@@ -374,7 +374,7 @@ exports[`TransactionTemplate should match snapshot with status=authorizing 1`] =
         The Checkout Service executes your transaction for a
          
         DID
-         on the KILT blockchain. This Service is provided by KILT partner B.T.E. BOTLabs Trusted Entity GmbH. You can use PayPal to pay for this service.
+         on the KILT blockchain. This Service is provided by KILT partner B.T.E. BOTLabs Trusted Entity GmbH. You can use PayPal to pay for this Service.
       </p>
       <p
         class="termsLineEnabled"
@@ -1030,7 +1030,7 @@ exports[`TransactionTemplate should match snapshot with status=prepared 1`] = `
         The Checkout Service executes your transaction for a
          
         DID
-         on the KILT blockchain. This Service is provided by KILT partner B.T.E. BOTLabs Trusted Entity GmbH. You can use PayPal to pay for this service.
+         on the KILT blockchain. This Service is provided by KILT partner B.T.E. BOTLabs Trusted Entity GmbH. You can use PayPal to pay for this Service.
       </p>
       <p
         class="termsLine"
@@ -1195,7 +1195,7 @@ exports[`TransactionTemplate should match snapshot with status=prepared for web3
         The Checkout Service executes your transaction for a
          
         web3name
-         on the KILT blockchain. This Service is provided by KILT partner B.T.E. BOTLabs Trusted Entity GmbH. You can use PayPal to pay for this service.
+         on the KILT blockchain. This Service is provided by KILT partner B.T.E. BOTLabs Trusted Entity GmbH. You can use PayPal to pay for this Service.
       </p>
       <p
         class="termsLine"
@@ -1472,7 +1472,7 @@ exports[`TransactionTemplate should match snapshot with status=submitting 1`] = 
         The Checkout Service executes your transaction for a
          
         DID
-         on the KILT blockchain. This Service is provided by KILT partner B.T.E. BOTLabs Trusted Entity GmbH. You can use PayPal to pay for this service.
+         on the KILT blockchain. This Service is provided by KILT partner B.T.E. BOTLabs Trusted Entity GmbH. You can use PayPal to pay for this Service.
       </p>
       <p
         class="termsLineEnabled"
@@ -1751,7 +1751,7 @@ exports[`TransactionTemplate should match snapshot with terms accepted 1`] = `
         The Checkout Service executes your transaction for a
          
         DID
-         on the KILT blockchain. This Service is provided by KILT partner B.T.E. BOTLabs Trusted Entity GmbH. You can use PayPal to pay for this service.
+         on the KILT blockchain. This Service is provided by KILT partner B.T.E. BOTLabs Trusted Entity GmbH. You can use PayPal to pay for this Service.
       </p>
       <p
         class="termsLineEnabled"
