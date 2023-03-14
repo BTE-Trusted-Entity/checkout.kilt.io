@@ -14,13 +14,13 @@ import { OrderResponseBody } from '@paypal/paypal-js';
 
 import * as Boom from '@hapi/boom';
 
-import { ConfigService } from '@kiltprotocol/config';
-
 import { configuration } from '../utilities/configuration';
 
 import { submitTx } from '../utilities/submitTx';
 
 import { sendConfirmationEmail } from '../utilities/emailHandler';
+
+import { getExtrinsicType } from '../utilities/getExtrinsicType';
 
 import { paths } from './paths';
 
@@ -104,16 +104,7 @@ async function handler(
     throw Boom.badRequest();
   }
 
-  const api = ConfigService.get('api');
-
-  const decoded = api.tx(api.createType('Call', tx));
-
-  const authorized = api.createType(
-    'DidDidDetailsDidAuthorizedCallOperation',
-    decoded.args[0],
-  );
-
-  const txType = `${authorized.call.section}.${authorized.call.method}`;
+  const txType = await getExtrinsicType(tx);
 
   if (!isAcceptedTx(txType)) {
     const error = `Unsupported transaction ${txType}`;
