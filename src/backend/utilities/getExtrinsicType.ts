@@ -5,12 +5,12 @@ export async function getExtrinsicType(tx: string): Promise<string> {
 
   const call = api.tx(api.createType('Call', tx));
   const { method, section } = api.registry.findMetaCall(call.callIndex);
-  if (section === 'did' && method === 'submitDidCall') {
-    const inner = api.createType(
-      'DidDidDetailsDidAuthorizedCallOperation',
-      call.args[0],
-    );
-    return `${inner.call.section}.${inner.call.method}`;
+  if (method !== 'submitDidCall') {
+    return `${section}.${method}`;
   }
-  return `${section}.${method}`;
+  const inner = api.createType(
+    'DidDidDetailsDidAuthorizedCallOperation',
+    call.args[0],
+  );
+  return `${inner.call.section}.${inner.call.method}`;
 }
