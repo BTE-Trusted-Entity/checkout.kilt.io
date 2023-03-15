@@ -22,15 +22,9 @@ import { sendConfirmationEmail } from '../utilities/emailHandler';
 
 import { getExtrinsicType } from '../utilities/getExtrinsicType';
 
+import { isAcceptedTx } from '../utilities/isAcceptedTx';
+
 import { paths } from './paths';
-
-const ACCEPTED_TRANSACTIONS = ['did.create', 'web3Names.claim'] as const;
-
-type AcceptedTx = (typeof ACCEPTED_TRANSACTIONS)[number];
-
-function isAcceptedTx(tx: string): tx is AcceptedTx {
-  return ACCEPTED_TRANSACTIONS.includes(tx as AcceptedTx);
-}
 
 export async function getAccessToken() {
   const { baseUrl, clientId, secret } = configuration.paypal;
@@ -141,6 +135,7 @@ async function handler(
     await sendConfirmationEmail(
       payer.email_address,
       payer.name?.given_name || payer.name?.surname || 'Customer',
+      txType,
     );
   }
 

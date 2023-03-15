@@ -11,6 +11,7 @@ import LegalPdf from 'url:../resources/Terms_and_Conditions_Checkout_Service.pdf
 /* eslint-enable import/no-unresolved */
 
 import { configuration } from './configuration';
+import { AcceptedTx } from './isAcceptedTx';
 
 const mailer = createTransport({
   SES: new AWS.SES(configuration.aws),
@@ -18,12 +19,27 @@ const mailer = createTransport({
 
 const from = 'KILT Checkout <checkout@kilt.io>';
 
-export async function sendConfirmationEmail(to: string, name: string) {
+const txText: Record<AcceptedTx, { subject: string; purchase: string }> = {
+  'did.create': {
+    subject: 'KILT DID',
+    purchase: 'DID',
+  },
+  'web3Names.claim': {
+    subject: 'web3name on KILT',
+    purchase: 'web3name',
+  },
+};
+
+export async function sendConfirmationEmail(
+  to: string,
+  name: string,
+  txType: 'did.create' | 'web3Names.claim',
+) {
   const { didCost } = configuration;
-  const subject = 'Thanks for using the Checkout Service to get your KILT DID';
+  const subject = `Thanks for using the Checkout Service to get your ${txText[txType].subject}`;
   const text = `Dear ${name},
 
-Thank you for using the Checkout Service for anchoring your DID on the
+Thank you for using the Checkout Service for anchoring your ${txText[txType].purchase} on the
 KILT blockchain for which we charged you ${didCost} Euro (including VAT)
 through PayPal. Attached Terms and Conditions are applicable for your
 order.
