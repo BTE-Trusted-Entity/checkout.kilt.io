@@ -10,9 +10,8 @@ import { createTransport } from 'nodemailer';
 import LegalPdf from 'url:../resources/Terms_and_Conditions_Checkout_Service.pdf';
 /* eslint-enable import/no-unresolved */
 
-import { AcceptedTx } from '../endpoints/submit';
-
 import { configuration } from './configuration';
+import { AcceptedTx } from './isAcceptedTx';
 
 const mailer = createTransport({
   SES: new AWS.SES(configuration.aws),
