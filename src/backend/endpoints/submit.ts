@@ -141,6 +141,7 @@ async function handler(
     await sendConfirmationEmail(
       payer.email_address,
       payer.name?.given_name || payer.name?.surname || 'Customer',
+      txType,
     );
   }
 
