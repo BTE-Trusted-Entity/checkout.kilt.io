@@ -174,7 +174,7 @@ export function TransactionTemplate({
               </span>
             </p>
 
-            <p className={styles.instruction}>
+            <p>
               By clicking the button below, I also agree to the{' '}
               <a href="/terms.html" className={styles.termsLink}>
                 Terms and Conditions
@@ -192,7 +192,7 @@ export function TransactionTemplate({
               </button>
             </p>
 
-            <p>Start the payment via Paypal:</p>
+            <p className={styles.instruction}>Start the payment via Paypal:</p>
             {children}
           </section>
         </Fragment>
