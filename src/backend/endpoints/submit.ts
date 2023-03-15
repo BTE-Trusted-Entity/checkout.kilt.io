@@ -26,7 +26,7 @@ import { paths } from './paths';
 
 const ACCEPTED_TRANSACTIONS = ['did.create', 'web3Names.claim'] as const;
 
-type AcceptedTx = (typeof ACCEPTED_TRANSACTIONS)[number];
+export type AcceptedTx = (typeof ACCEPTED_TRANSACTIONS)[number];
 
 function isAcceptedTx(tx: string): tx is AcceptedTx {
   return ACCEPTED_TRANSACTIONS.includes(tx as AcceptedTx);
