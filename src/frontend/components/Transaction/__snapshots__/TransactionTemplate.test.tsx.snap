@@ -414,9 +414,7 @@ exports[`TransactionTemplate should match snapshot with status=authorizing 1`] =
           or EUR equivalent, depending on your preferred PayPal currency
         </span>
       </p>
-      <p
-        class="instruction"
-      >
+      <p>
         By clicking the button below, I also agree to the
          
         <a
@@ -439,7 +437,9 @@ exports[`TransactionTemplate should match snapshot with status=authorizing 1`] =
           Chargeable order
         </button>
       </p>
-      <p>
+      <p
+        class="instruction"
+      >
         Start the payment via Paypal:
       </p>
       <button>
@@ -1069,9 +1069,7 @@ exports[`TransactionTemplate should match snapshot with status=prepared 1`] = `
           or EUR equivalent, depending on your preferred PayPal currency
         </span>
       </p>
-      <p
-        class="instruction"
-      >
+      <p>
         By clicking the button below, I also agree to the
          
         <a
@@ -1094,7 +1092,9 @@ exports[`TransactionTemplate should match snapshot with status=prepared 1`] = `
           Chargeable order
         </button>
       </p>
-      <p>
+      <p
+        class="instruction"
+      >
         Start the payment via Paypal:
       </p>
       <button>
@@ -1234,9 +1234,7 @@ exports[`TransactionTemplate should match snapshot with status=prepared for web3
           or EUR equivalent, depending on your preferred PayPal currency
         </span>
       </p>
-      <p
-        class="instruction"
-      >
+      <p>
         By clicking the button below, I also agree to the
          
         <a
@@ -1259,7 +1257,9 @@ exports[`TransactionTemplate should match snapshot with status=prepared for web3
           Chargeable order
         </button>
       </p>
-      <p>
+      <p
+        class="instruction"
+      >
         Start the payment via Paypal:
       </p>
       <button>
@@ -1512,9 +1512,7 @@ exports[`TransactionTemplate should match snapshot with status=submitting 1`] = 
           or EUR equivalent, depending on your preferred PayPal currency
         </span>
       </p>
-      <p
-        class="instruction"
-      >
+      <p>
         By clicking the button below, I also agree to the
          
         <a
@@ -1537,7 +1535,9 @@ exports[`TransactionTemplate should match snapshot with status=submitting 1`] = 
           Chargeable order
         </button>
       </p>
-      <p>
+      <p
+        class="instruction"
+      >
         Start the payment via Paypal:
       </p>
       <button>
@@ -1791,9 +1791,7 @@ exports[`TransactionTemplate should match snapshot with terms accepted 1`] = `
           or EUR equivalent, depending on your preferred PayPal currency
         </span>
       </p>
-      <p
-        class="instruction"
-      >
+      <p>
         By clicking the button below, I also agree to the
          
         <a
@@ -1815,7 +1813,9 @@ exports[`TransactionTemplate should match snapshot with terms accepted 1`] = `
           Chargeable order
         </button>
       </p>
-      <p>
+      <p
+        class="instruction"
+      >
         Start the payment via Paypal:
       </p>
       <button>
