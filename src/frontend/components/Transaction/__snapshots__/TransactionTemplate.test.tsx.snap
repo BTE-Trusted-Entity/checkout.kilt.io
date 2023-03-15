@@ -161,7 +161,9 @@ exports[`TransactionTemplate should match snapshot with flowError=unknown 1`] = 
       Some unexpected error happened.
     </p>
     <p>
-      It’s possible that the transaction was still successful. Please wait a moment before checking your Sporran wallet and PayPal balance. After you have confirmed that your account does not have a DID and your payment method was not charged, please check your internet connection and try again.
+      It’s possible that the transaction was still successful. Please wait a moment before checking your Sporran wallet and PayPal balance. After you have confirmed that your account does not have a 
+      DID
+       and your payment method was not charged, please check your internet connection and try again.
     </p>
     <button
       class="restart"
@@ -414,7 +416,9 @@ exports[`TransactionTemplate should match snapshot with status=authorizing 1`] =
           or EUR equivalent, depending on your preferred PayPal currency
         </span>
       </p>
-      <p>
+      <p
+        class="instruction"
+      >
         By clicking the button below, I also agree to the
          
         <a
@@ -437,9 +441,7 @@ exports[`TransactionTemplate should match snapshot with status=authorizing 1`] =
           Chargeable order
         </button>
       </p>
-      <p
-        class="instruction"
-      >
+      <p>
         Start the payment via Paypal:
       </p>
       <button>
@@ -1069,7 +1071,9 @@ exports[`TransactionTemplate should match snapshot with status=prepared 1`] = `
           or EUR equivalent, depending on your preferred PayPal currency
         </span>
       </p>
-      <p>
+      <p
+        class="instruction"
+      >
         By clicking the button below, I also agree to the
          
         <a
@@ -1092,9 +1096,7 @@ exports[`TransactionTemplate should match snapshot with status=prepared 1`] = `
           Chargeable order
         </button>
       </p>
-      <p
-        class="instruction"
-      >
+      <p>
         Start the payment via Paypal:
       </p>
       <button>
@@ -1234,7 +1236,9 @@ exports[`TransactionTemplate should match snapshot with status=prepared for web3
           or EUR equivalent, depending on your preferred PayPal currency
         </span>
       </p>
-      <p>
+      <p
+        class="instruction"
+      >
         By clicking the button below, I also agree to the
          
         <a
@@ -1257,9 +1261,7 @@ exports[`TransactionTemplate should match snapshot with status=prepared for web3
           Chargeable order
         </button>
       </p>
-      <p
-        class="instruction"
-      >
+      <p>
         Start the payment via Paypal:
       </p>
       <button>
@@ -1512,7 +1514,9 @@ exports[`TransactionTemplate should match snapshot with status=submitting 1`] = 
           or EUR equivalent, depending on your preferred PayPal currency
         </span>
       </p>
-      <p>
+      <p
+        class="instruction"
+      >
         By clicking the button below, I also agree to the
          
         <a
@@ -1535,9 +1539,7 @@ exports[`TransactionTemplate should match snapshot with status=submitting 1`] = 
           Chargeable order
         </button>
       </p>
-      <p
-        class="instruction"
-      >
+      <p>
         Start the payment via Paypal:
       </p>
       <button>
@@ -1791,7 +1793,9 @@ exports[`TransactionTemplate should match snapshot with terms accepted 1`] = `
           or EUR equivalent, depending on your preferred PayPal currency
         </span>
       </p>
-      <p>
+      <p
+        class="instruction"
+      >
         By clicking the button below, I also agree to the
          
         <a
@@ -1813,9 +1817,7 @@ exports[`TransactionTemplate should match snapshot with terms accepted 1`] = `
           Chargeable order
         </button>
       </p>
-      <p
-        class="instruction"
-      >
+      <p>
         Start the payment via Paypal:
       </p>
       <button>

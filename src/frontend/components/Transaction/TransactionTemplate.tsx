@@ -174,7 +174,7 @@ export function TransactionTemplate({
               </span>
             </p>
 
-            <p>
+            <p className={styles.instruction}>
               By clicking the button below, I also agree to the{' '}
               <a href="/terms.html" className={styles.termsLink}>
                 Terms and Conditions
@@ -192,7 +192,7 @@ export function TransactionTemplate({
               </button>
             </p>
 
-            <p className={styles.instruction}>Start the payment via Paypal:</p>
+            <p>Start the payment via Paypal:</p>
             {children}
           </section>
         </Fragment>
@@ -302,8 +302,9 @@ export function TransactionTemplate({
                 It’s possible that the transaction was still successful. Please
                 wait a moment before checking your Sporran wallet and PayPal
                 balance. After you have confirmed that your account does not
-                have a DID and your payment method was not charged, please check
-                your internet connection and try again.
+                have a {web3name ? 'web3name' : 'DID'} and your payment method
+                was not charged, please check your internet connection and try
+                again.
               </p>
             </Fragment>
           )}
