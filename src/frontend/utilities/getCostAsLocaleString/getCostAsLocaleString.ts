@@ -1,7 +1,7 @@
-export function getCostAsLocaleString(cost: string, currencyDisplay = 'code') {
+export function getCostAsLocaleString(cost: string) {
   return parseFloat(cost).toLocaleString(undefined, {
     style: 'currency',
     currency: 'EUR',
-    currencyDisplay,
+    currencyDisplay: 'code',
   });
 }

@@ -28,12 +28,12 @@ const txText: Record<
   'did.create': {
     label: 'KILT DID',
     purchase: 'DID',
-    cost: getCostAsLocaleString(configuration.didCost, 'name'),
+    cost: getCostAsLocaleString(configuration.didCost),
   },
   'web3Names.claim': {
     label: 'web3name on KILT',
     purchase: 'web3name',
-    cost: getCostAsLocaleString(configuration.w3nCost, 'name'),
+    cost: getCostAsLocaleString(configuration.w3nCost),
   },
 };
 
@@ -48,7 +48,7 @@ export async function sendConfirmationEmail(
   const text = `Dear ${name},
 
 Thank you for using the Checkout Service for anchoring your ${purchase} on the
-KILT blockchain for which we charged you ${cost} (including VAT)
+KILT blockchain for which we charged you ${cost} Euro (including VAT)
 through PayPal. Attached Terms and Conditions are applicable for your
 order.
 
