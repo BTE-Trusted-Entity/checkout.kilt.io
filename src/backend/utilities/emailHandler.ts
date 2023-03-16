@@ -48,7 +48,7 @@ export async function sendConfirmationEmail(
   const text = `Dear ${name},
 
 Thank you for using the Checkout Service for anchoring your ${purchase} on the
-KILT blockchain for which we charged you ${cost} Euro (including VAT)
+KILT blockchain for which we charged you ${cost} (including VAT)
 through PayPal. Attached Terms and Conditions are applicable for your
 order.
 
