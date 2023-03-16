@@ -10,6 +10,8 @@ import { createTransport } from 'nodemailer';
 import LegalPdf from 'url:../resources/Terms_and_Conditions_Checkout_Service.pdf';
 /* eslint-enable import/no-unresolved */
 
+import { getCostAsLocaleString } from '../../frontend/utilities/getCostAsLocaleString/getCostAsLocaleString';
+
 import { configuration } from './configuration';
 import { AcceptedTx } from './isAcceptedTx';
 
@@ -26,12 +28,12 @@ const txText: Record<
   'did.create': {
     label: 'KILT DID',
     purchase: 'DID',
-    cost: configuration.didCost,
+    cost: getCostAsLocaleString(configuration.didCost, 'name'),
   },
   'web3Names.claim': {
     label: 'web3name on KILT',
     purchase: 'web3name',
-    cost: configuration.w3nCost,
+    cost: getCostAsLocaleString(configuration.w3nCost, 'name'),
   },
 };
 
@@ -46,7 +48,7 @@ export async function sendConfirmationEmail(
   const text = `Dear ${name},
 
 Thank you for using the Checkout Service for anchoring your ${purchase} on the
-KILT blockchain for which we charged you ${cost} Euro (including VAT)
+KILT blockchain for which we charged you ${cost} (including VAT)
 through PayPal. Attached Terms and Conditions are applicable for your
 order.
 
