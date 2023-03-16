@@ -10,6 +10,8 @@ import { createTransport } from 'nodemailer';
 import LegalPdf from 'url:../resources/Terms_and_Conditions_Checkout_Service.pdf';
 /* eslint-enable import/no-unresolved */
 
+import { getCostAsLocaleString } from '../../frontend/utilities/getCostAsLocaleString/getCostAsLocaleString';
+
 import { configuration } from './configuration';
 import { AcceptedTx } from './isAcceptedTx';
 
@@ -19,14 +21,19 @@ const mailer = createTransport({
 
 const from = 'KILT Checkout <checkout@kilt.io>';
 
-const txText: Record<AcceptedTx, { subject: string; purchase: string }> = {
+const txText: Record<
+  AcceptedTx,
+  { label: string; purchase: string; cost: string }
+> = {
   'did.create': {
-    subject: 'KILT DID',
+    label: 'KILT DID',
     purchase: 'DID',
+    cost: getCostAsLocaleString(configuration.didCost),
   },
   'web3Names.claim': {
-    subject: 'web3name on KILT',
+    label: 'web3name on KILT',
     purchase: 'web3name',
+    cost: getCostAsLocaleString(configuration.w3nCost),
   },
 };
 
@@ -35,18 +42,19 @@ export async function sendConfirmationEmail(
   name: string,
   txType: 'did.create' | 'web3Names.claim',
 ) {
-  const { didCost } = configuration;
-  const subject = `Thanks for using the Checkout Service to get your ${txText[txType].subject}`;
+  const { label, purchase, cost } = txText[txType];
+
+  const subject = `Thanks for using the Checkout Service to get your ${label}`;
   const text = `Dear ${name},
 
-Thank you for using the Checkout Service for anchoring your ${txText[txType].purchase} on the
-KILT blockchain for which we charged you ${didCost} Euro (including VAT)
+Thank you for using the Checkout Service for anchoring your ${purchase} on the
+KILT blockchain for which we charged you ${cost} (including VAT)
 through PayPal. Attached Terms and Conditions are applicable for your
 order.
 
 Best regards,
 
-The team of the B.T.E.
+The B.T.E. team
 
 B.T.E. BOTLabs Trusted Entity GmbH
 Keithstraße 2-4
