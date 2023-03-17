@@ -24,14 +24,13 @@
 
   --color-transparent: rgba(var(--color-white-rgb) / 0%);
 
-  background-image:
-    repeating-linear-gradient(
-      120deg,
-      var(--color-transparent),
-      var(--color-transparent) 5px,
-      var(--color-primary) 5px,
-      var(--color-primary) 10px
-    );
+  background-image: repeating-linear-gradient(
+    120deg,
+    var(--color-transparent),
+    var(--color-transparent) 5px,
+    var(--color-primary) 5px,
+    var(--color-primary) 10px
+  );
 }
 
 .completed {
