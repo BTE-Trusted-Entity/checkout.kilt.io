@@ -80,7 +80,8 @@ body {
   font-size: 1rem;
   cursor: pointer;
   color: transparent;
-  background: url('./components/Header/kilt-logo.svg') var(--color-orange) no-repeat center/3rem auto;
+  background: url('./components/Header/kilt-logo.svg') var(--color-orange)
+    no-repeat center/3rem auto;
   border-radius: calc(5rem / 16);
 }
 
@@ -104,7 +105,8 @@ body {
   padding-inline: calc((100% - min(90%, 1110rem / 16)) / 2);
   padding-top: calc(150rem / 16);
   box-sizing: border-box;
-  background: url('./components/CoverDid/splash.jpg') no-repeat top left / contain;
+  background: url('./components/CoverDid/splash.jpg') no-repeat top left /
+    contain;
 }
 
 @media screen and (max-width: 500px) {
