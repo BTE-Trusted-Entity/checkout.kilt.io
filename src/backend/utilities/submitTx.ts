@@ -1,6 +1,6 @@
 import { setInterval } from 'timers/promises';
 
-import { Crypto } from '@kiltprotocol/utils';
+import { Utils } from '@kiltprotocol/sdk-js';
 import got from 'got';
 import * as Boom from '@hapi/boom';
 
@@ -12,7 +12,7 @@ function createJWS(endpoint: string, body = ''): string {
   const keypair = makeKeypair();
   const { keyUri } = configuration;
 
-  const hash = Crypto.hash(endpoint + body, 256);
+  const hash = Utils.Crypto.hash(endpoint + body, 256);
 
   const sig = keypair.sign(hash);
   const header = Buffer.from(JSON.stringify({ kid: keyUri })).toString(

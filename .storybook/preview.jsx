@@ -1,6 +1,6 @@
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { withConsole, setConsoleOptions } from '@storybook/addon-console';
-import { init } from '@kiltprotocol/core';
+import { init } from '@kiltprotocol/sdk-js';
 
 import { TxProviderMock } from '../src/frontend/utilities/TxContext/TxProvider.mock';
 import { AppDecorator } from '../src/frontend/components/App/AppDecorator';
