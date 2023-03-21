@@ -1,8 +1,8 @@
-import { Crypto } from '@kiltprotocol/utils';
+import { Utils } from '@kiltprotocol/sdk-js';
 
 import { configuration } from './configuration';
 
 export function makeKeypair() {
   const { seedPhrase } = configuration;
-  return Crypto.makeKeypairFromUri(seedPhrase + '//did//0', 'sr25519');
+  return Utils.Crypto.makeKeypairFromUri(seedPhrase + '//did//0', 'sr25519');
 }

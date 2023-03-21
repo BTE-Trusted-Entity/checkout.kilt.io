@@ -1,4 +1,4 @@
-import { ConfigService } from '@kiltprotocol/config';
+import { ConfigService } from '@kiltprotocol/sdk-js';
 
 export async function getExtrinsicType(tx: string): Promise<string> {
   const api = ConfigService.get('api');
