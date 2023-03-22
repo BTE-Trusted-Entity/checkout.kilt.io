@@ -124,9 +124,7 @@ body {
 .heading {
   font-family: 'Overpass Light', sans-serif;
   font-size: calc(94rem / 16);
-  margin: 0 0 0.75rem;
-  padding-top: 2rem;
-  background: url('./components/CoverDid/did_logo.svg') no-repeat top;
+  margin: 2rem 0 0.75rem;
 }
 
 @media screen and (max-width: 700px) {
