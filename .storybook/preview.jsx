@@ -1,5 +1,4 @@
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
-import { withConsole, setConsoleOptions } from '@storybook/addon-console';
 import { init } from '@kiltprotocol/sdk-js';
 
 import { TxProviderMock } from '../src/frontend/utilities/TxContext/TxProvider.mock';
@@ -16,16 +15,8 @@ const paypal = {
 };
 
 init();
-// You'll start to receive all console messages, warnings, errors in your action logger panel - Everything except HMR logs.
-setConsoleOptions({
-  panelExclude: [],
-});
 
 export const decorators = [
-  // You'll receive console outputs as a console,
-  // warn and error actions in the panel. You might want to know from
-  // what stories they come. In this case, add withConsole decorator:
-  (storyFn, context) => withConsole()(storyFn)(context),
   AppDecorator,
   (Story) => (
     <TxProviderMock>
