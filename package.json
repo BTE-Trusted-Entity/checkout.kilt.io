@@ -60,7 +60,7 @@
     "@types/hapi__inert": "^5.2.6",
     "@types/jest": "^29.5.0",
     "@types/nodemailer": "^6.4.7",
-    "@types/react": "^18.0.34",
+    "@types/react": "^18.0.35",
     "@types/react-dom": "^18.0.11",
     "@types/styled-components": "^5.1.26",
     "@typescript-eslint/eslint-plugin": "^5.58.0",
