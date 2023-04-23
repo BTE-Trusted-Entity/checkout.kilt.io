@@ -85,7 +85,7 @@
     "prettier": "^2.8.7",
     "storybook": "^7.0.6",
     "stream-browserify": "^3.0.0",
-    "stylelint": "^15.5.0",
+    "stylelint": "^15.6.0",
     "stylelint-config-css-modules": "^4.2.0",
     "stylelint-config-standard": "^33.0.0",
     "supervisor": "^0.12.0",
