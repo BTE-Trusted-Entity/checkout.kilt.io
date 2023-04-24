@@ -26,7 +26,7 @@
     "@hapi/inert": "^7.1.0",
     "@kiltprotocol/sdk-js": "^0.32.0",
     "@paypal/react-paypal-js": "^7.8.3",
-    "@polkadot/ui-shared": "^3.1.4",
+    "@polkadot/ui-shared": "^3.2.1",
     "aws-sdk": "^2.1362.0",
     "dotenv": "^16.0.3",
     "exiting": "^6.1.0",
