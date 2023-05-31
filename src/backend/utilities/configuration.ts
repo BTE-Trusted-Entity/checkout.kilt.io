@@ -1,10 +1,10 @@
 import { cwd } from 'node:process';
 import path from 'node:path';
 
-import dotenv from 'dotenv';
+import { config } from 'dotenv';
 import { pino } from 'pino';
 
-dotenv.config();
+config();
 
 class ConfigurationError extends Error {
   constructor(message: string) {
