@@ -15,7 +15,7 @@ import { TxProvider } from './utilities/TxContext/TxContext';
   }
 
   const paypal = {
-    'client-id': await ky.get(paths.paypalClientID).text(),
+    clientId: await ky.get(paths.paypalClientID).text(),
     currency: 'EUR',
     intent: 'authorize',
   };

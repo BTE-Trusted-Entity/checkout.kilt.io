@@ -8,7 +8,7 @@ import '../src/frontend/styles.css';
 import { PayPalScriptProvider } from '@paypal/react-paypal-js';
 
 const paypal = {
-  'client-id':
+  clientId:
     'ASpR3O7gBYzlOSnwK2hnuSslMAoMwdWIUSnLZaM9O1zMaa4e7uPSDZCwyp7_nzvLO_qZOmQtVrNUmzrJ',
   currency: 'EUR',
   intent: 'authorize',
