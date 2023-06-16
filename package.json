@@ -27,7 +27,7 @@
     "@kiltprotocol/sdk-js": "^0.33.1",
     "@paypal/react-paypal-js": "^8.0.0",
     "@polkadot/ui-shared": "^3.5.1",
-    "aws-sdk": "^2.1397.0",
+    "aws-sdk": "^2.1398.0",
     "dotenv": "^16.2.0",
     "exiting": "^6.1.0",
     "got": "^11.8.6",
