@@ -28,7 +28,7 @@
     "@paypal/react-paypal-js": "^8.0.0",
     "@polkadot/ui-shared": "^3.5.1",
     "aws-sdk": "^2.1397.0",
-    "dotenv": "^16.1.4",
+    "dotenv": "^16.2.0",
     "exiting": "^6.1.0",
     "got": "^11.8.6",
     "hapi-dev-errors": "^4.0.0",
