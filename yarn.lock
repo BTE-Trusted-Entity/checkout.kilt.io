@@ -2979,10 +2979,10 @@
   dependencies:
     promise-polyfill "^8.3.0"
 
-"@paypal/react-paypal-js@^8.0.0":
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/@paypal/react-paypal-js/-/react-paypal-js-8.0.0.tgz#da7e256529348b056950a3622b98aa5e53f01de2"
-  integrity sha512-p0TTfWxpVOfqNCLoC/tVh490YOSaJUQc3pDOvdSz8giTLsJIZ3bRnNLPJFlZc6xu6DPD4ldZSfy++9dTlVmo7g==
+"@paypal/react-paypal-js@^8.1.0":
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/@paypal/react-paypal-js/-/react-paypal-js-8.1.0.tgz#c5ae713e718c88764056211ac076c25e05f1551e"
+  integrity sha512-YZNoI4G6h5YPj1z1ggrE4NSVl0D5P88YmDnmeZPIC4s44lVG9V3ELCHncCrDDyT3TWrnhncS5caEXAQxf6ABKg==
   dependencies:
     "@paypal/paypal-js" "^6.0.0"
     "@paypal/sdk-constants" "^1.0.122"
