@@ -27,11 +27,14 @@ async function canAccessPayPal() {
 }
 
 function checkPayPalConnection() {
-  setInterval(async () => {
-    try {
-      await canAccessPayPal();
-    } catch {}
-  }, 5 * 60 * 1000);
+  setInterval(
+    async () => {
+      try {
+        await canAccessPayPal();
+      } catch {}
+    },
+    5 * 60 * 1000,
+  );
 }
 
 async function canAccessTXD() {
@@ -46,11 +49,14 @@ async function canAccessTXD() {
 }
 
 function checkTXDConnection() {
-  setInterval(async () => {
-    try {
-      await canAccessTXD();
-    } catch {}
-  }, 5 * 60 * 1000);
+  setInterval(
+    async () => {
+      try {
+        await canAccessTXD();
+      } catch {}
+    },
+    5 * 60 * 1000,
+  );
 }
 
 export async function testLiveness() {
