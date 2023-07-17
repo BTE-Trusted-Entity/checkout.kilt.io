@@ -1,7 +1,6 @@
 import inert from '@hapi/inert';
 import pino from 'hapi-pino';
 
-import { cost } from './endpoints/cost';
 import { costs } from './endpoints/costs';
 import { paypalClientID } from './endpoints/paypalClientID';
 
@@ -50,7 +49,6 @@ const logger = {
   server.logger.info('Liveness tests passed');
 
   server.route(paypalClientID);
-  server.route(cost);
   server.route(costs);
   server.route(submit);
 
