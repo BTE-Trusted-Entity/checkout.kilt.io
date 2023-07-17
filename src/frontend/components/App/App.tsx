@@ -24,9 +24,8 @@ export function App(): JSX.Element {
       <Footer />
 
       <cite className={styles.photoCitation}>
-        {/*TODO:*/}
         {web3name
-          ? 'Photo by Clayton Cardinalli on Unsplash'
+          ? 'Photo by Julentto Photography on Unsplash'
           : 'Photo by Clayton Cardinalli on Unsplash'}
       </cite>
     </div>
