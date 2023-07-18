@@ -5,8 +5,8 @@ import { configuration } from '../utilities/configuration';
 import { paths } from './paths';
 
 export interface Output {
-  did: string;
-  w3n: string;
+  did: string; // property hardcoded in Sporran & w3n.id
+  w3n: string; // property hardcoded in Sporran & w3n.id
 }
 
 const response: Output = {

@@ -2,8 +2,8 @@ import inert from '@hapi/inert';
 import pino from 'hapi-pino';
 
 import { costs } from './endpoints/costs';
-import { paypalClientID } from './endpoints/paypalClientID';
 
+import { home } from './endpoints/home';
 import { staticFiles } from './endpoints/staticFiles';
 
 import { configuration } from './utilities/configuration';
@@ -48,12 +48,12 @@ const logger = {
   await testLiveness();
   server.logger.info('Liveness tests passed');
 
-  server.route(paypalClientID);
   server.route(costs);
   server.route(submit);
 
   server.route(liveness);
 
+  server.route(home);
   server.route(staticFiles);
 
   server.logger.info('Routes configured');

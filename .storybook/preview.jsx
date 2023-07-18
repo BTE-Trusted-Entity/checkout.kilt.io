@@ -2,6 +2,7 @@ import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { init } from '@kiltprotocol/sdk-js';
 
 import { TxProviderMock } from '../src/frontend/utilities/TxContext/TxProvider.mock';
+import { configurationMock, ConfigurationContext } from '../src/frontend/utilities/ConfigurationContext/ConfigurationContext.ts';
 import { AppDecorator } from '../src/frontend/components/App/AppDecorator';
 
 import '../src/frontend/styles.css';
@@ -21,7 +22,9 @@ export const decorators = [
   (Story) => (
     <TxProviderMock>
       <PayPalScriptProvider options={paypal}>
-        <Story />
+        <ConfigurationContext.Provider value={configurationMock}>
+          <Story />
+        </ConfigurationContext.Provider>
       </PayPalScriptProvider>
     </TxProviderMock>
   ),
