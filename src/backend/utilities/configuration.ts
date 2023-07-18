@@ -85,6 +85,7 @@ export const configuration = {
   baseUri,
   port: env.PORT || 3000,
   isProduction: env.NODE_ENV === 'production',
+  isTestEnvironment: env.IS_TEST_ENV === 'true',
   distFolder: path.join(cwd(), 'dist', 'frontend'),
   httpAuthPassword,
   didCost,

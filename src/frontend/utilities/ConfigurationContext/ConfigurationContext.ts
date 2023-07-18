@@ -20,4 +20,5 @@ export const configurationMock: Configuration = {
     w3n: '4',
   },
   paypalClientID: 'paypalClientID',
+  isTestEnvironment: false,
 };

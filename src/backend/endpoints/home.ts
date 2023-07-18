@@ -12,6 +12,7 @@ export interface Configuration {
     w3n: string;
   };
   paypalClientID: string;
+  isTestEnvironment: boolean;
 }
 
 const data: Configuration = {
@@ -20,6 +21,7 @@ const data: Configuration = {
     w3n: configuration.w3nCost,
   },
   paypalClientID: configuration.paypal.clientId,
+  isTestEnvironment: configuration.isTestEnvironment,
 };
 
 const script = '<script type="application/json" id="configuration">';

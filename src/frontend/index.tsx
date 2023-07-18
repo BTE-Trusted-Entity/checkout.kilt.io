@@ -7,6 +7,7 @@ import {
 } from './utilities/ConfigurationContext/ConfigurationContext';
 import { App } from './components/App/App';
 import { TxProvider } from './utilities/TxContext/TxContext';
+import { checkTestEnvironment } from './utilities/checkTestEnvironment/checkTestEnvironment';
 
 (async function renderApp() {
   const container = document.getElementById('app');
@@ -15,6 +16,7 @@ import { TxProvider } from './utilities/TxContext/TxContext';
   }
 
   const frontendConfiguration = loadConfiguration();
+  checkTestEnvironment(frontendConfiguration.isTestEnvironment);
   const paypal = {
     clientId: frontendConfiguration.paypalClientID,
     currency: 'EUR',
