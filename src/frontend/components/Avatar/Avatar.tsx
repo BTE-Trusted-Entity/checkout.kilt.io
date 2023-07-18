@@ -1,14 +1,13 @@
-import { polkadotIcon } from '@polkadot/ui-shared';
-
 import * as styles from './Avatar.module.css';
 
+import { useConfiguration } from '../../utilities/ConfigurationContext/ConfigurationContext';
+
 interface Props {
-  address: string;
   isOnChain: boolean;
 }
 
-export function Avatar({ address, isOnChain }: Props): JSX.Element {
-  const circles = polkadotIcon(address, { isAlternative: false });
+export function Avatar({ isOnChain }: Props): JSX.Element {
+  const circles = useConfiguration().polkadotIconCircles || [];
 
   return (
     <div className={isOnChain ? styles.avatar : styles.pending}>
