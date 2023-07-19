@@ -4,7 +4,7 @@ export function checkTestEnvironment(isTestEnvironment: boolean) {
   }
 
   const message =
-    'This is a testing page, do not use it with real KILT coins. Do you want to go to the real Checkout Service?';
+    'This is a testing page, do not use it with real KILT coins or PayPal accounts. Do you want to go to the real Checkout Service?';
 
   if (!confirm(message)) {
     return;
