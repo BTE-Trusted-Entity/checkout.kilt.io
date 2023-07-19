@@ -21,7 +21,7 @@ function AccountAddress({ isOnChain }: { isOnChain: boolean }) {
 
   return (
     <section className={styles.addressContainer}>
-      {!did && <Avatar address={address} isOnChain={isOnChain} />}
+      {!did && <Avatar isOnChain={isOnChain} />}
 
       <p className={styles.address}>
         <span className={styles.addressName}>For account address:</span>

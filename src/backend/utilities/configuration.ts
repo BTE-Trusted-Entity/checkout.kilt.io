@@ -48,9 +48,9 @@ if (Number.isNaN(parseFloat(w3nCost))) {
 }
 
 const paypal = {
-  baseUrl: env.BASE_URI_PAYPAL,
-  clientId: env.CLIENT_ID_PAYPAL,
-  secret: env.SECRET_PAYPAL,
+  baseUrl: env.BASE_URI_PAYPAL as string,
+  clientId: env.CLIENT_ID_PAYPAL as string,
+  secret: env.SECRET_PAYPAL as string,
 };
 
 if (!paypal.baseUrl || !paypal.clientId || !paypal.secret) {
@@ -85,6 +85,7 @@ export const configuration = {
   baseUri,
   port: env.PORT || 3000,
   isProduction: env.NODE_ENV === 'production',
+  isTestEnvironment: env.IS_TEST_ENV === 'true',
   distFolder: path.join(cwd(), 'dist', 'frontend'),
   httpAuthPassword,
   didCost,

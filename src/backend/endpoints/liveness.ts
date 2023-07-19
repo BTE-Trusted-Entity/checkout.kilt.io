@@ -40,11 +40,12 @@ function checkPayPalConnection() {
 async function canAccessTXD() {
   const { TXDBaseUrl } = configuration;
   try {
-    await got(`${TXDBaseUrl}/health`);
+    await got(`${TXDBaseUrl}/meta`);
     TXDConnectionState.on();
   } catch (error) {
     TXDConnectionState.off();
     logger.error(error, 'Error connecting to TXD');
+    throw error;
   }
 }
 

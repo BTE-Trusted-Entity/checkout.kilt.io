@@ -15,7 +15,7 @@ import * as styles from './Transaction.module.css';
 
 import { useTxParams } from '../../utilities/TxContext/TxContext';
 import { paths } from '../../../backend/endpoints/paths';
-import { useCosts } from '../../../backend/endpoints/costsApi';
+import { useConfiguration } from '../../utilities/ConfigurationContext/ConfigurationContext';
 import { useBooleanState } from '../../utilities/useBooleanState/useBooleanState';
 
 import { getCostAsLocaleString } from '../../utilities/getCostAsLocaleString/getCostAsLocaleString';
@@ -29,7 +29,7 @@ import {
 export function Transaction(): JSX.Element | null {
   const { tx, web3name } = useTxParams();
 
-  const costs = useCosts();
+  const { costs } = useConfiguration();
   const cost = web3name ? costs?.w3n : costs?.did;
 
   const [status, setStatus] = useState<TransactionStatus>('prepared');

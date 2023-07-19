@@ -18,11 +18,6 @@ export default {
     const cssLoaderOptions = cssRule.use[1].options;
     cssLoaderOptions.modules = { namedExport: true };
 
-    config.resolve.fallback = {
-      ...config.resolve.fallback,
-      stream: require.resolve('stream-browserify'),
-    };
-
     return config;
   },
 };

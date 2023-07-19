@@ -1,12 +1,13 @@
 import { createRoot } from 'react-dom/client';
 import { PayPalScriptProvider } from '@paypal/react-paypal-js';
 
-import ky from 'ky';
-
-import { paths } from '../backend/endpoints/paths';
-
+import {
+  ConfigurationContext,
+  loadConfiguration,
+} from './utilities/ConfigurationContext/ConfigurationContext';
 import { App } from './components/App/App';
 import { TxProvider } from './utilities/TxContext/TxContext';
+import { checkTestEnvironment } from './utilities/checkTestEnvironment/checkTestEnvironment';
 
 (async function renderApp() {
   const container = document.getElementById('app');
@@ -14,8 +15,10 @@ import { TxProvider } from './utilities/TxContext/TxContext';
     return;
   }
 
+  const frontendConfiguration = loadConfiguration();
+  checkTestEnvironment(frontendConfiguration.isTestEnvironment);
   const paypal = {
-    clientId: await ky.get(paths.paypalClientID).text(),
+    clientId: frontendConfiguration.paypalClientID,
     currency: 'EUR',
     intent: 'authorize',
   };
@@ -24,7 +27,9 @@ import { TxProvider } from './utilities/TxContext/TxContext';
   root.render(
     <TxProvider>
       <PayPalScriptProvider options={paypal}>
-        <App />
+        <ConfigurationContext.Provider value={frontendConfiguration}>
+          <App />
+        </ConfigurationContext.Provider>
       </PayPalScriptProvider>
     </TxProvider>,
   );
