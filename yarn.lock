@@ -2976,10 +2976,10 @@
     chrome-trace-event "^1.0.2"
     nullthrows "^1.1.1"
 
-"@paypal/paypal-js@^6.0.0":
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/@paypal/paypal-js/-/paypal-js-6.0.0.tgz#a5a9556af29e4a0124049bf9a093606f52b8a951"
-  integrity sha512-FYzjYby9F7tgg4tUxYNseZ6vkeDJcdcjoULsyNhfrWZZjicDpdj5932fZlyUlQXDSR9KlhjXH6H4nPIJ0Lq0Kw==
+"@paypal/paypal-js@^6.0.0", "@paypal/paypal-js@^6.0.1":
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/@paypal/paypal-js/-/paypal-js-6.0.1.tgz#5d68d5863a5176383fee9424bc944231668fcffd"
+  integrity sha512-bvYetmkg2GEC6onsUJQx1E9hdAJWff2bS3IPeiZ9Sh9U7h26/fIgMKm240cq/908sbSoDjHys75XXd8at9OpQA==
   dependencies:
     promise-polyfill "^8.3.0"
 
