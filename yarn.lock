@@ -3644,16 +3644,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@paypal/react-paypal-js@npm:^8.1.0":
-  version: 8.1.0
-  resolution: "@paypal/react-paypal-js@npm:8.1.0"
+"@paypal/react-paypal-js@npm:^8.1.1":
+  version: 8.1.1
+  resolution: "@paypal/react-paypal-js@npm:8.1.1"
   dependencies:
     "@paypal/paypal-js": ^6.0.0
     "@paypal/sdk-constants": ^1.0.122
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-  checksum: cf880921bccd31a665ff7a29c2c6e42851a893ae97632ca5343e668825a6de1c2446ac7b858b3b1f56abb2a41a6d66ac422febb763bad432b8585641e64ef5c1
+  checksum: 8dd483407ddd468bcc609c86aa96bd08d543b03d63b68bd7fd34beb42d4f6405d57da9fb36154838b0c99ceb55a62388c6f8b15e3f338072fb24de6491d32376
   languageName: node
   linkType: hard
 
@@ -14704,7 +14704,7 @@ __metadata:
     "@jest/globals": ^29.6.2
     "@kiltprotocol/sdk-js": ^0.33.1
     "@paypal/paypal-js": ^6.0.1
-    "@paypal/react-paypal-js": ^8.1.0
+    "@paypal/react-paypal-js": ^8.1.1
     "@polkadot/ui-shared": ^3.5.1
     "@storybook/addon-actions": ^7.1.1
     "@storybook/addon-controls": ^7.1.1
