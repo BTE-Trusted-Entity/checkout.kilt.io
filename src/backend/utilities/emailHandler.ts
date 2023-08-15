@@ -1,7 +1,7 @@
 import { cwd } from 'node:process';
 import path from 'node:path';
 
-import AWS from 'aws-sdk';
+import * as aws from '@aws-sdk/client-ses';
 import { createTransport } from 'nodemailer';
 
 /* eslint-disable import/no-unresolved */
@@ -15,9 +15,8 @@ import { getCostAsLocaleString } from '../../frontend/utilities/getCostAsLocaleS
 import { configuration } from './configuration';
 import { AcceptedTx } from './isAcceptedTx';
 
-const mailer = createTransport({
-  SES: new AWS.SES(configuration.aws),
-});
+const ses = new aws.SESClient(configuration.aws);
+const mailer = createTransport({ SES: { ses, aws } });
 
 const from = 'KILT Checkout <checkout@kilt.io>';
 
