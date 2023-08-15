@@ -20,6 +20,7 @@
     "storybook": "storybook dev --port 6007"
   },
   "dependencies": {
+    "@aws-sdk/client-ses": "^3.391.0",
     "@hapi/basic": "^7.0.2",
     "@hapi/boom": "^10.0.1",
     "@hapi/hapi": "^21.3.2",
@@ -27,7 +28,6 @@
     "@kiltprotocol/sdk-js": "^0.33.1",
     "@paypal/react-paypal-js": "^8.1.1",
     "@polkadot/ui-shared": "^3.5.1",
-    "aws-sdk": "^2.1435.0",
     "dotenv": "^16.3.1",
     "exiting": "^6.1.0",
     "got": "^11.8.6",

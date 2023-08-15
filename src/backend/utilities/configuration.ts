@@ -96,8 +96,10 @@ export const configuration = {
   keyUri,
   aws: {
     region,
-    accessKeyId,
-    secretAccessKey,
+    credentials: {
+      accessKeyId,
+      secretAccessKey,
+    },
   },
   blockchainEndpoint,
 };
