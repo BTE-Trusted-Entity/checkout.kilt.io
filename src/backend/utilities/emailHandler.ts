@@ -1,7 +1,7 @@
 import { cwd } from 'node:process';
 import path from 'node:path';
 
-import * as aws from '@aws-sdk/client-ses';
+import { SESClient, SendRawEmailCommand } from '@aws-sdk/client-ses';
 import { createTransport } from 'nodemailer';
 
 /* eslint-disable import/no-unresolved */
@@ -15,8 +15,8 @@ import { getCostAsLocaleString } from '../../frontend/utilities/getCostAsLocaleS
 import { configuration } from './configuration';
 import { AcceptedTx } from './isAcceptedTx';
 
-const ses = new aws.SESClient(configuration.aws);
-const mailer = createTransport({ SES: { ses, aws } });
+const ses = new SESClient(configuration.aws);
+const mailer = createTransport({ SES: { ses, aws: { SendRawEmailCommand } } });
 
 const from = 'KILT Checkout <checkout@kilt.io>';
 
