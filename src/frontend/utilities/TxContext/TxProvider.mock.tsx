@@ -1,3 +1,5 @@
+import type { PropsWithChildren } from 'react';
+
 import { TxContext, TxContextType } from './TxContext';
 
 const txMock: TxContextType = {
@@ -8,9 +10,8 @@ const txMock: TxContextType = {
 export function TxProviderMock({
   value = txMock,
   children,
-}: {
+}: PropsWithChildren<{
   value?: TxContextType;
-  children: JSX.Element;
-}) {
+}>) {
   return <TxContext.Provider value={value}>{children}</TxContext.Provider>;
 }

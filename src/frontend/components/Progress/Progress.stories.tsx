@@ -7,7 +7,7 @@ export default {
   component: Progress,
 } as Meta;
 
-export function Template(): JSX.Element {
+export function Template() {
   return (
     <Progress stages={['Prepare', 'Order', 'Pay', 'Success']} current="Order" />
   );
