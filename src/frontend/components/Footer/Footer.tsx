@@ -1,6 +1,6 @@
 import * as styles from './Footer.module.css';
 
-export function Footer(): JSX.Element {
+export function Footer() {
   return (
     <footer className={styles.footer}>
       <nav className={styles.navMenu}>

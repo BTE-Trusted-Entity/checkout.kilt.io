@@ -26,7 +26,7 @@ import {
   TransactionTemplate,
 } from './TransactionTemplate';
 
-export function Transaction(): JSX.Element | null {
+export function Transaction() {
   const { tx, web3name } = useTxParams();
 
   const { costs } = useConfiguration();

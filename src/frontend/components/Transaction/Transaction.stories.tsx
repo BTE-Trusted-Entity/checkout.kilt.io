@@ -45,7 +45,7 @@ const web3NameParameters = {
   did: 'did:kilt:4rMVzpAj8m5Fj9aGcRSTg2uFqZTVUxJF5UVKueVyi8C5GAZC',
 };
 
-export function Web3Name(): JSX.Element {
+export function Web3Name() {
   return (
     <TxProviderMock value={web3NameParameters}>
       <TransactionTemplate
@@ -61,7 +61,7 @@ export function Web3Name(): JSX.Element {
   );
 }
 
-export function Prepared(): JSX.Element {
+export function Prepared() {
   return (
     <TransactionTemplate
       status="prepared"
@@ -75,7 +75,7 @@ export function Prepared(): JSX.Element {
   );
 }
 
-export function TermsAccepted(): JSX.Element {
+export function TermsAccepted() {
   return (
     <TransactionTemplate
       status="prepared"
@@ -89,7 +89,7 @@ export function TermsAccepted(): JSX.Element {
   );
 }
 
-export function Bound(): JSX.Element {
+export function Bound() {
   return (
     <TransactionTemplate
       status="prepared"
@@ -103,7 +103,7 @@ export function Bound(): JSX.Element {
   );
 }
 
-export function Authorizing(): JSX.Element {
+export function Authorizing() {
   return (
     <TransactionTemplate
       status="authorizing"
@@ -117,7 +117,7 @@ export function Authorizing(): JSX.Element {
   );
 }
 
-export function Submitting(): JSX.Element {
+export function Submitting() {
   return (
     <TransactionTemplate
       status="submitting"
@@ -131,7 +131,7 @@ export function Submitting(): JSX.Element {
   );
 }
 
-export function Complete(): JSX.Element {
+export function Complete() {
   return (
     <TransactionTemplate
       status="complete"
@@ -145,7 +145,7 @@ export function Complete(): JSX.Element {
   );
 }
 
-export function CompleteWeb3Name(): JSX.Element {
+export function CompleteWeb3Name() {
   return (
     <TxProviderMock value={web3NameParameters}>
       <TransactionTemplate
@@ -161,7 +161,7 @@ export function CompleteWeb3Name(): JSX.Element {
   );
 }
 
-export function PayPalError(): JSX.Element {
+export function PayPalError() {
   return (
     <TransactionTemplate
       status="error"
@@ -176,7 +176,7 @@ export function PayPalError(): JSX.Element {
   );
 }
 
-export function TXDError(): JSX.Element {
+export function TXDError() {
   return (
     <TransactionTemplate
       status="error"
@@ -191,7 +191,7 @@ export function TXDError(): JSX.Element {
   );
 }
 
-export function UnknownError(): JSX.Element {
+export function UnknownError() {
   return (
     <TransactionTemplate
       status="error"

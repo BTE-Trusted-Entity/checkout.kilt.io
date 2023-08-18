@@ -7,7 +7,7 @@ import { CoverDid } from '../CoverDid/CoverDid';
 import { CoverWeb3Name } from '../CoverWeb3Name/CoverWeb3Name';
 import { useTxParams } from '../../utilities/TxContext/TxContext';
 
-export function App(): JSX.Element {
+export function App() {
   const { web3name } = useTxParams();
 
   const Cover = web3name ? CoverWeb3Name : CoverDid;

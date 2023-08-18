@@ -1,3 +1,5 @@
+import type { JSX } from 'react';
+
 import * as styles from './App.module.css';
 
 import { Header } from '../Header/Header';

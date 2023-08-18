@@ -3,6 +3,7 @@ import {
   FormEventHandler,
   Fragment,
   MouseEventHandler,
+  PropsWithChildren,
   useEffect,
   useRef,
 } from 'react';
@@ -73,7 +74,6 @@ export type TransactionStatus =
 export type FlowError = 'paypal' | 'txd' | 'unknown';
 
 interface Props {
-  children: JSX.Element;
   status: TransactionStatus;
   enabled: boolean;
   bound: boolean;
@@ -94,7 +94,7 @@ export function TransactionTemplate({
   handleBindClick,
   handleRestart,
   flowError,
-}: Props) {
+}: PropsWithChildren<Props>) {
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {

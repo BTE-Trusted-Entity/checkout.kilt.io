@@ -1,4 +1,4 @@
-import { createContext, useContext } from 'react';
+import { createContext, PropsWithChildren, useContext } from 'react';
 
 export interface TxContextType {
   tx: string;
@@ -11,7 +11,7 @@ export const TxContext = createContext<TxContextType>({
   tx: '',
 });
 
-export function TxProvider({ children }: { children: JSX.Element }) {
+export function TxProvider({ children }: PropsWithChildren) {
   const params = new URLSearchParams(window.location.search);
   const tx = params.get('tx');
   const address = params.get('address') || undefined;

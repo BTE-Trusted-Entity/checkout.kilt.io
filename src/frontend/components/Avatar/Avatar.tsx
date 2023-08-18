@@ -6,7 +6,7 @@ interface Props {
   isOnChain: boolean;
 }
 
-export function Avatar({ isOnChain }: Props): JSX.Element {
+export function Avatar({ isOnChain }: Props) {
   const circles = useConfiguration().polkadotIconCircles || [];
 
   return (
