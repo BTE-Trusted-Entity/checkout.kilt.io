@@ -59,7 +59,7 @@
     "@types/hapi__basic": "^5.1.3",
     "@types/hapi__hapi": "^20.0.13",
     "@types/hapi__inert": "^5.2.6",
-    "@types/jest": "^29.5.3",
+    "@types/jest": "^29.5.4",
     "@types/nodemailer": "^6.4.9",
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",
