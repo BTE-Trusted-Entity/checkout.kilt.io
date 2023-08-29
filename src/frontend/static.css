@@ -21,7 +21,7 @@ body {
   background: var(--color-primary);
 }
 
-@media screen and (min-width: 1600px) {
+@media screen and (width >= 1600px) {
   body {
     background-size: contain;
   }
@@ -40,7 +40,7 @@ body {
   box-sizing: border-box;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (width <= 500px) {
   .header {
     height: 2.5rem;
   }
@@ -52,13 +52,13 @@ body {
   font-size: 2.25rem;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (width <= 700px) {
   .header .title {
     font-size: 1.75rem;
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (width <= 500px) {
   .header .title {
     font-size: 1.25rem;
   }
@@ -85,7 +85,7 @@ body {
   border-radius: calc(5rem / 16);
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (width <= 500px) {
   .header .navLine {
     font-size: 0.75rem;
   }
@@ -109,13 +109,13 @@ body {
     contain;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (width <= 500px) {
   .cover {
     padding-block: 4rem calc(150rem / 16);
   }
 }
 
-@media screen and (min-width: 1500px) {
+@media screen and (width >= 1500px) {
   .cover {
     background-size: 100%;
   }
@@ -127,13 +127,13 @@ body {
   margin: 2rem 0 0.75rem;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (width <= 700px) {
   .heading {
     font-size: calc(70rem / 16);
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (width <= 500px) {
   .heading {
     font-size: calc(45rem / 16);
   }
@@ -145,13 +145,13 @@ body {
   margin: 0;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (width <= 700px) {
   .subline {
     font-size: 1.75rem;
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (width <= 500px) {
   .subline {
     font-size: 1.25rem;
   }
@@ -171,7 +171,7 @@ body {
   font-size: 21px;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (width <= 500px) {
   .container {
     padding: 1rem 0.75rem;
   }
@@ -226,7 +226,7 @@ a {
   box-sizing: border-box;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (width <= 500px) {
   .footer {
     flex-direction: column;
     align-items: center;
@@ -244,7 +244,7 @@ a {
   flex-direction: column;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (width <= 500px) {
   .footer .navMenu {
     align-items: center;
   }
@@ -267,7 +267,7 @@ a {
   margin: 0;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (width <= 500px) {
   .footer .copyright {
     align-self: center;
     margin-top: 1.25rem;
