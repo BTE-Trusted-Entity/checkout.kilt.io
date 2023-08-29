@@ -44,7 +44,7 @@
   font-family: 'Overpass ExtraBold', sans-serif;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (width <= 700px) {
   .coverText {
     font-size: calc(70rem / 16);
   }
@@ -54,7 +54,7 @@
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (width <= 500px) {
   .coverText {
     font-size: calc(45rem / 16);
   }

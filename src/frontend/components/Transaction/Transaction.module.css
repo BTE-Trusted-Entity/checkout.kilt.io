@@ -10,7 +10,7 @@
   flex-direction: column;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (width <= 500px) {
   .container {
     padding: 1rem 0.75rem;
   }
@@ -28,7 +28,7 @@
   background: no-repeat left center/auto;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (width <= 500px) {
   .txStatus {
     background-size: 1.5rem;
   }
@@ -58,7 +58,7 @@
   width: 100%;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (width <= 500px) {
   .addressContainer {
     flex-direction: column;
     align-items: center;
@@ -103,7 +103,7 @@
   background: rgb(var(--color-primary-rgb) / 50%);
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (width <= 500px) {
   .termsLine {
     width: calc(100% + 1.5rem);
     padding: 0.5rem 1.75rem;
@@ -209,7 +209,7 @@
   height: 2.25rem;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (width <= 500px) {
   .paypal {
     width: 100%;
     height: auto;

@@ -9,7 +9,7 @@
   background: url('./splash.jpg') no-repeat bottom left / cover;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (width <= 500px) {
   .cover {
     padding-block: 4rem calc(150rem / 16);
   }
@@ -32,7 +32,7 @@
   margin: calc(148rem / 16) 0 0;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (width <= 500px) {
   .infoContainer {
     margin: 1rem 0 0;
   }
@@ -64,13 +64,13 @@
   line-height: 1.75rem;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (width <= 700px) {
   .infoTagline {
     font-size: 2.5rem;
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (width <= 500px) {
   .infoTagline {
     font-size: 2rem;
   }
