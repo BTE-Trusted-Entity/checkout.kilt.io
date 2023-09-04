@@ -41,9 +41,9 @@
     "zod": "^3.22.2"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.22.14",
-    "@babel/preset-react": "^7.22.5",
-    "@babel/preset-typescript": "^7.22.11",
+    "@babel/preset-env": "^7.22.15",
+    "@babel/preset-react": "^7.22.15",
+    "@babel/preset-typescript": "^7.22.15",
     "@jest/globals": "^29.6.4",
     "@paypal/paypal-js": "^7.0.2",
     "@storybook/addon-actions": "^7.4.0",
