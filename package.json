@@ -58,7 +58,7 @@
     "@testing-library/react": "^14.0.0",
     "@types/hapi__basic": "^5.1.4",
     "@types/hapi__hapi": "^20.0.13",
-    "@types/hapi__inert": "^5.2.6",
+    "@types/hapi__inert": "^5.2.7",
     "@types/jest": "^29.5.4",
     "@types/nodemailer": "^6.4.10",
     "@types/react": "^18.2.21",
