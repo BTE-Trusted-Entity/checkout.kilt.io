@@ -7275,12 +7275,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/nodemailer@npm:^6.4.11":
-  version: 6.4.11
-  resolution: "@types/nodemailer@npm:6.4.11"
+"@types/nodemailer@npm:^6.4.13":
+  version: 6.4.13
+  resolution: "@types/nodemailer@npm:6.4.13"
   dependencies:
     "@types/node": "*"
-  checksum: 1069c30ad416add6035ee1437c93dccb846fc389bd6b31c36d094d90f4626f0db63f7ba88fddc3c4d448570dcbef59051e19b868f5f1038a472ef0e8dc169637
+  checksum: fd27d57d5801aaa7594d3bab748aedb1addc0c3a8ff9a21ea7675eec0e7e99cc477d05264b757b97691612fcfab37e52ded6c0725a700a90ad24fc7829dcc641
   languageName: node
   linkType: hard
 
@@ -16255,7 +16255,7 @@ __metadata:
     "@types/hapi__hapi": ^20.0.13
     "@types/hapi__inert": ^5.2.9
     "@types/jest": ^29.5.6
-    "@types/nodemailer": ^6.4.11
+    "@types/nodemailer": ^6.4.13
     "@types/react": ^18.2.28
     "@types/react-dom": ^18.2.13
     "@typescript-eslint/eslint-plugin": ^6.8.0
