@@ -385,6 +385,7 @@ exports[`TransactionTemplate should match snapshot with status=authorizing 1`] =
           class="termsLabel"
         >
           <input
+            autocomplete="off"
             checked=""
             class="accept"
             type="checkbox"
@@ -1041,6 +1042,7 @@ exports[`TransactionTemplate should match snapshot with status=prepared 1`] = `
           class="termsLabel"
         >
           <input
+            autocomplete="off"
             class="accept"
             type="checkbox"
           />
@@ -1206,6 +1208,7 @@ exports[`TransactionTemplate should match snapshot with status=prepared for web3
           class="termsLabel"
         >
           <input
+            autocomplete="off"
             class="accept"
             type="checkbox"
           />
@@ -1483,6 +1486,7 @@ exports[`TransactionTemplate should match snapshot with status=submitting 1`] = 
           class="termsLabel"
         >
           <input
+            autocomplete="off"
             checked=""
             class="accept"
             type="checkbox"
@@ -1762,6 +1766,7 @@ exports[`TransactionTemplate should match snapshot with terms accepted 1`] = `
           class="termsLabel"
         >
           <input
+            autocomplete="off"
             checked=""
             class="accept"
             type="checkbox"
