@@ -14,8 +14,10 @@ export interface Output {
 }
 
 const response: Promise<Output> = (async () => {
-  const { TXDBaseUrl } = configuration;
-  const { paymentAddress } = await got(`${TXDBaseUrl}/meta`).json<{
+  const { TXDBaseUrl, externalHttpTimeout } = configuration;
+  const { paymentAddress } = await got(`${TXDBaseUrl}/meta`, {
+    timeout: externalHttpTimeout,
+  }).json<{
     paymentAddress: KiltAddress;
   }>();
 
