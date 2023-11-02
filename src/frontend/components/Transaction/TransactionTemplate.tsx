@@ -157,6 +157,7 @@ export function TransactionTemplate({
                   type="checkbox"
                   onChange={handleTermsClick}
                   checked={enabled}
+                  autoComplete="off"
                 />
                 <span className={styles.checkbox} />
                 <span className={styles.termsLabelText}>
