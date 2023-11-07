@@ -38,9 +38,9 @@ function checkPayPalConnection() {
 }
 
 async function canAccessTXD() {
-  const { TXDBaseUrl } = configuration;
+  const { TXDBaseUrl, externalHttpTimeout } = configuration;
   try {
-    await got(`${TXDBaseUrl}/meta`);
+    await got(`${TXDBaseUrl}/meta`, { timeout: externalHttpTimeout });
     TXDConnectionState.on();
   } catch (error) {
     TXDConnectionState.off();

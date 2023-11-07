@@ -31,7 +31,7 @@ function makeHeaders(endpoint: string, body?: string) {
 }
 
 async function pollTxStatus(id: string) {
-  const { TXDBaseUrl } = configuration;
+  const { TXDBaseUrl, externalHttpTimeout } = configuration;
 
   const endpoint = `/api/v1/submission/${id}`;
   const headers = makeHeaders(endpoint);
@@ -39,7 +39,10 @@ async function pollTxStatus(id: string) {
   const timeout = 2 * 60 * 1000;
 
   for await (const startTime of setInterval(1000, Date.now())) {
-    const data = await got(`${TXDBaseUrl}${endpoint}`, { headers }).json<{
+    const data = await got(`${TXDBaseUrl}${endpoint}`, {
+      headers,
+      timeout: externalHttpTimeout,
+    }).json<{
       status: 'Pending' | 'InBlock' | 'Finalized' | 'Failed';
     }>();
 
@@ -69,7 +72,7 @@ async function pollTxStatus(id: string) {
 }
 
 export async function submitTx(tx: string) {
-  const { TXDBaseUrl } = configuration;
+  const { TXDBaseUrl, externalHttpTimeout } = configuration;
 
   const endpoint = '/api/v1/submission';
   const headers = makeHeaders(endpoint, tx);
@@ -78,6 +81,7 @@ export async function submitTx(tx: string) {
     .post(`${TXDBaseUrl}${endpoint}`, {
       body: tx,
       headers,
+      timeout: externalHttpTimeout,
     })
     .json<{ id: string }>();
 

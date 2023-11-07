@@ -81,6 +81,8 @@ if (!blockchainEndpoint) {
   throw new ConfigurationError('No blockchain endpoint provided');
 }
 
+const externalHttpTimeout = 30 * 1000;
+
 export const configuration = {
   baseUri,
   port: env.PORT || 3000,
@@ -102,4 +104,5 @@ export const configuration = {
     },
   },
   blockchainEndpoint,
+  externalHttpTimeout,
 };

@@ -27,7 +27,10 @@ import { isAcceptedTx } from '../utilities/isAcceptedTx';
 import { paths } from './paths';
 
 export async function getAccessToken() {
-  const { baseUrl, clientId, secret } = configuration.paypal;
+  const {
+    externalHttpTimeout,
+    paypal: { baseUrl, clientId, secret },
+  } = configuration;
 
   const auth = Buffer.from(`${clientId}:${secret}`).toString('base64');
   const { access_token } = await got
@@ -36,6 +39,7 @@ export async function getAccessToken() {
       headers: {
         Authorization: `Basic ${auth}`,
       },
+      timeout: externalHttpTimeout,
     })
     .json<{ access_token: string }>();
 
@@ -43,15 +47,23 @@ export async function getAccessToken() {
 }
 
 async function getOrderDetails(orderID: string, accessToken: string) {
-  const { baseUrl } = configuration.paypal;
+  const {
+    externalHttpTimeout,
+    paypal: { baseUrl },
+  } = configuration;
 
   return await got(`${baseUrl}/v2/checkout/orders/${orderID}`, {
     headers: { Authorization: `Bearer ${accessToken}` },
+    timeout: externalHttpTimeout,
   }).json<OrderResponseBody>();
 }
 
 async function capture(authorizationID: string, accessToken: string) {
-  const { baseUrl } = configuration.paypal;
+  const {
+    externalHttpTimeout,
+    paypal: { baseUrl },
+  } = configuration;
+
   const uuid = randomUUID();
 
   await got.post(
@@ -64,6 +76,7 @@ async function capture(authorizationID: string, accessToken: string) {
       json: {
         soft_descriptor: 'KILT DID',
       },
+      timeout: externalHttpTimeout,
     },
   );
 }
