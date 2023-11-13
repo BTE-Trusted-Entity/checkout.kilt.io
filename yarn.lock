@@ -4166,12 +4166,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@paypal/paypal-js@npm:^7.0.0, @paypal/paypal-js@npm:^7.0.3":
-  version: 7.0.3
-  resolution: "@paypal/paypal-js@npm:7.0.3"
+"@paypal/paypal-js@npm:^7.0.0, @paypal/paypal-js@npm:^7.1.0":
+  version: 7.1.0
+  resolution: "@paypal/paypal-js@npm:7.1.0"
   dependencies:
     promise-polyfill: ^8.3.0
-  checksum: 847bbdaaf77be91532a1889f5c4f1ab3ef28e91f3f4619591425b87d85c5e933f966fb6df2de904cdea0cb136fcec43f024f5327ea2dd12543e5f646fc864fcf
+  checksum: faf97cb69f4855c244373a6a9eeffb66b858fdbcf58a106104fb9b9064842fedb77c9269095a46307720cd5906ece3d2c1f0125aea6d1d0c1bf8351c9edcba39
   languageName: node
   linkType: hard
 
@@ -16310,7 +16310,7 @@ __metadata:
     "@hapi/inert": ^7.1.0
     "@jest/globals": ^29.7.0
     "@kiltprotocol/sdk-js": ^0.34.0
-    "@paypal/paypal-js": ^7.0.3
+    "@paypal/paypal-js": ^7.1.0
     "@paypal/react-paypal-js": ^8.1.3
     "@polkadot/ui-shared": ^3.6.3
     "@storybook/addon-actions": ^7.5.3
