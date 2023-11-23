@@ -2,6 +2,9 @@ FROM node:20.9.0-alpine AS base
 
 WORKDIR /app
 
+# enable corepack
+RUN corepack enable
+
 FROM base AS builder
 
 # one of dependencies uses node-gyp which requires build tools
@@ -9,7 +12,6 @@ RUN apk add --update --no-cache python3 g++ make && ln -sf python3 /usr/bin/pyth
 
 # get the dependencies and sources
 COPY package.json yarn.lock .yarnrc.yml ./
-COPY .yarn ./.yarn
 COPY src ./src
 COPY tsconfig.json ./
 
@@ -30,7 +32,6 @@ ENV NODE_ENV production
 
 # get the dependencies and sources
 COPY package.json yarn.lock .yarnrc.yml ./
-COPY .yarn ./.yarn
 # install the production dependencies only (depends on NODE_ENV)
 RUN yarn install --immutable && yarn cache clean --all
 
