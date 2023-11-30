@@ -107,13 +107,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-sdk/client-ses@npm:^3.461.0":
-  version: 3.461.0
-  resolution: "@aws-sdk/client-ses@npm:3.461.0"
+"@aws-sdk/client-ses@npm:^3.462.0":
+  version: 3.462.0
+  resolution: "@aws-sdk/client-ses@npm:3.462.0"
   dependencies:
     "@aws-crypto/sha256-browser": 3.0.0
     "@aws-crypto/sha256-js": 3.0.0
-    "@aws-sdk/client-sts": 3.461.0
+    "@aws-sdk/client-sts": 3.462.0
     "@aws-sdk/core": 3.451.0
     "@aws-sdk/credential-provider-node": 3.460.0
     "@aws-sdk/middleware-host-header": 3.460.0
@@ -152,7 +152,7 @@ __metadata:
     "@smithy/util-waiter": ^2.0.13
     fast-xml-parser: 4.2.5
     tslib: ^2.5.0
-  checksum: ca81930daec0817454e0c3539f0a3b632c31421fedde083d0e6b47ea5c0156f3e47e94d94ee0c5982ac18b98d799a99f57b6682349c558ea263053b0e89d7bf9
+  checksum: bb285efe91ed3c7a2c07345c3fe961fe84a64f10077d35b5412c9b922c49efcfa9d05fd85a22a319cff34a813b65da289aa126cd40ed41626c4386600207eb4b
   languageName: node
   linkType: hard
 
@@ -200,9 +200,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-sdk/client-sts@npm:3.461.0":
-  version: 3.461.0
-  resolution: "@aws-sdk/client-sts@npm:3.461.0"
+"@aws-sdk/client-sts@npm:3.462.0":
+  version: 3.462.0
+  resolution: "@aws-sdk/client-sts@npm:3.462.0"
   dependencies:
     "@aws-crypto/sha256-browser": 3.0.0
     "@aws-crypto/sha256-js": 3.0.0
@@ -244,7 +244,7 @@ __metadata:
     "@smithy/util-utf8": ^2.0.2
     fast-xml-parser: 4.2.5
     tslib: ^2.5.0
-  checksum: c5a665212815ae606c48b11b38cea41bfbc7f6c422f44eb51d71bf748cd8275ac4ac7e03207b992e58e43c46f7f4070d551dcd4dd3cbe704a72fa7d7b3efe613
+  checksum: 7e1882a815b90c406b5104cb9f38edffd215af1bf092848531a9bf0b623461e53da36736b04de35e8582a68cb3641ec8f7dbecd364a699426bf32f235a08b5b0
   languageName: node
   linkType: hard
 
@@ -16124,7 +16124,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
-    "@aws-sdk/client-ses": ^3.461.0
+    "@aws-sdk/client-ses": ^3.462.0
     "@babel/preset-env": ^7.23.5
     "@babel/preset-react": ^7.23.3
     "@babel/preset-typescript": ^7.23.3
