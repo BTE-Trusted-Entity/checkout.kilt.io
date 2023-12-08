@@ -16029,7 +16029,7 @@ __metadata:
     react: ^18.2.0
     react-dom: ^18.2.0
     storybook: ^7.6.4
-    stylelint: ^16.0.0
+    stylelint: ^16.0.1
     stylelint-config-css-modules: ^4.3.0
     stylelint-config-standard: ^35.0.0
     supervisor: ^0.12.0
@@ -16852,9 +16852,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stylelint@npm:^16.0.0":
-  version: 16.0.0
-  resolution: "stylelint@npm:16.0.0"
+"stylelint@npm:^16.0.1":
+  version: 16.0.1
+  resolution: "stylelint@npm:16.0.1"
   dependencies:
     "@csstools/css-parser-algorithms": ^2.3.2
     "@csstools/css-tokenizer": ^2.2.1
@@ -16896,7 +16896,7 @@ __metadata:
     write-file-atomic: ^5.0.1
   bin:
     stylelint: bin/stylelint.mjs
-  checksum: c6eb68c0cc8d61dc23909d581c34e0d2a3a7da1f741dca320b63e429cb7c7a29a05bf6065b51fef0c5596e2548c6cdf9b4f68d69e507b2627faa60317b077b5a
+  checksum: 813100f2e24adc11c3b2920ea51b4e89825cbbdd02605aa1d0c140a912585357645f64bf497ce09843164c5d1cbd9ec70c5887904a66ed05b88c4065e0054677
   languageName: node
   linkType: hard
 
