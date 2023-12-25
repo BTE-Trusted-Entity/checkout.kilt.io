@@ -81,7 +81,7 @@
     "pino-pretty": "^10.3.0",
     "prettier": "^3.1.1",
     "storybook": "^7.6.6",
-    "stylelint": "^16.0.2",
+    "stylelint": "^16.1.0",
     "stylelint-config-css-modules": "^4.4.0",
     "stylelint-config-standard": "^35.0.0",
     "supervisor": "^0.12.0",
