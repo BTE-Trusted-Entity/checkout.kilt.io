@@ -16195,7 +16195,7 @@ __metadata:
     stylelint-config-standard: ^36.0.0
     supervisor: ^0.12.0
     ts-jest: ^29.1.2
-    typed-css-modules: ^0.9.0
+    typed-css-modules: ^0.9.1
     typescript: ^5.3.3
     zod: ^3.22.4
   languageName: unknown
@@ -17652,9 +17652,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typed-css-modules@npm:^0.9.0":
-  version: 0.9.0
-  resolution: "typed-css-modules@npm:0.9.0"
+"typed-css-modules@npm:^0.9.1":
+  version: 0.9.1
+  resolution: "typed-css-modules@npm:0.9.1"
   dependencies:
     camelcase: ^6.0.0
     chalk: ^4.0.0
@@ -17671,7 +17671,7 @@ __metadata:
     yargs: ^17.7.2
   bin:
     tcm: lib/cli.js
-  checksum: b1e5a1bf6dcc81c0b21d6bedf433b7ae3545e11d873fca99f9a39d7e42121f7ec62ffe9dfbeaeea1a4335f41b10fbc1a604ae66c685380d800ade33dd1d62a91
+  checksum: d50b09b864ba37c185b27b1d82752a08da5bd18b79bf85542c50a815e09108c81f355c6a82bb7ddbbbde75bb2482d656216ca8c3917d4e55b7f819fbf23e7901
   languageName: node
   linkType: hard
 
