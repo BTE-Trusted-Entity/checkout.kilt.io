@@ -14391,7 +14391,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nodemailer@npm:^6.9.8":
+"nodemailer@npm:^6.9.9":
   version: 6.9.9
   resolution: "nodemailer@npm:6.9.9"
   checksum: 9af862b497273796ad6ba7ca9eac23a7d69737554f6dd51cfd3557f60902c56344158192672f1208daf00340a47a9e1805bd809965edc191011b35dd98a74be1
@@ -16200,7 +16200,7 @@ __metadata:
     jest: ^29.7.0
     jest-environment-jsdom: ^29.7.0
     ky: ^1.2.0
-    nodemailer: ^6.9.8
+    nodemailer: ^6.9.9
     parcel: ^2.7.0
     pino: ^8.18.0
     pino-pretty: ^10.3.1
