@@ -107,15 +107,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-sdk/client-ses@npm:^3.507.0":
-  version: 3.507.0
-  resolution: "@aws-sdk/client-ses@npm:3.507.0"
+"@aws-sdk/client-ses@npm:^3.509.0":
+  version: 3.509.0
+  resolution: "@aws-sdk/client-ses@npm:3.509.0"
   dependencies:
     "@aws-crypto/sha256-browser": 3.0.0
     "@aws-crypto/sha256-js": 3.0.0
     "@aws-sdk/client-sts": 3.507.0
     "@aws-sdk/core": 3.496.0
-    "@aws-sdk/credential-provider-node": 3.507.0
+    "@aws-sdk/credential-provider-node": 3.509.0
     "@aws-sdk/middleware-host-header": 3.502.0
     "@aws-sdk/middleware-logger": 3.502.0
     "@aws-sdk/middleware-recursion-detection": 3.502.0
@@ -153,7 +153,7 @@ __metadata:
     "@smithy/util-waiter": ^2.1.1
     fast-xml-parser: 4.2.5
     tslib: ^2.5.0
-  checksum: 4f7f4187e3759b425edaedd9e8584efac4e5dad3538c75d9bb5e999fc5190d855d086eb15f32aa79c5c6d25019f39b5e552761452bc664613cfcc6c60eb3e047
+  checksum: 7fb9abcd3d80722df287f9cfd9fcf6b392c4c3b4b9e6d688b0b6ea0eee8155fc8fc78bf9b44b88cb772b5046f7d9afbe4af5ab006b9d4c4ea63d7e2e75efb542
   languageName: node
   linkType: hard
 
@@ -362,9 +362,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-sdk/credential-provider-node@npm:3.507.0":
-  version: 3.507.0
-  resolution: "@aws-sdk/credential-provider-node@npm:3.507.0"
+"@aws-sdk/credential-provider-node@npm:3.509.0":
+  version: 3.509.0
+  resolution: "@aws-sdk/credential-provider-node@npm:3.509.0"
   dependencies:
     "@aws-sdk/credential-provider-env": 3.502.0
     "@aws-sdk/credential-provider-http": 3.503.1
@@ -378,7 +378,7 @@ __metadata:
     "@smithy/shared-ini-file-loader": ^2.3.1
     "@smithy/types": ^2.9.1
     tslib: ^2.5.0
-  checksum: 56f3040d214471f821bd024e1e73cead7a0c1cc0ead42598e4800fc2a146b077a834969a1ba47d81418f95709bf17a6b23e443f2e12b908d4625becae5a7d9ac
+  checksum: 85bac6b0813b9c4d3cd878b21e940bb7730005c9bd7f9307e0eb9e93a229166761fcb25b57714a8019063b9eb3ff0c90cca31d9821589e8cd51adafe42232c37
   languageName: node
   linkType: hard
 
@@ -16151,7 +16151,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
-    "@aws-sdk/client-ses": ^3.507.0
+    "@aws-sdk/client-ses": ^3.509.0
     "@babel/preset-env": ^7.23.9
     "@babel/preset-react": ^7.23.3
     "@babel/preset-typescript": ^7.23.3
