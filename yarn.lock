@@ -13369,10 +13369,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ky@npm:^1.2.0":
-  version: 1.2.0
-  resolution: "ky@npm:1.2.0"
-  checksum: 10d436364d3e49e0c702adf90dfd0494812ba12853dfc4c1552a13150d769dfe0af339cd105f1076861f35ce1fb242e875858a2adb4fce62de0a5b5c7e9739fa
+"ky@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "ky@npm:1.2.1"
+  checksum: c55f6f6cd54685964cf0619ed6876f03f7b4eeeba3f836574ebf19dd6d7d707ed6ee9602df0aab2c47a248d8b316ca2dd8ab903dff26d47074f4636cb1319caa
   languageName: node
   linkType: hard
 
@@ -16169,7 +16169,7 @@ __metadata:
     hapi-pino: ^12.1.0
     jest: ^29.7.0
     jest-environment-jsdom: ^29.7.0
-    ky: ^1.2.0
+    ky: ^1.2.1
     nodemailer: ^6.9.10
     parcel: ^2.7.0
     pino: ^8.19.0
