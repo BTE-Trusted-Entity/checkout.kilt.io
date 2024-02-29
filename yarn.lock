@@ -14368,10 +14368,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nodemailer@npm:^6.9.10":
-  version: 6.9.10
-  resolution: "nodemailer@npm:6.9.10"
-  checksum: 6e447ae0b88f5c9563f9303ed708f9bd1509cf68c5019d076f65d8d0f346f40bc31b743502158b6ad9fd6b8b2792adca5714b00e6bf7aa391e074f0076c519b6
+"nodemailer@npm:^6.9.11":
+  version: 6.9.11
+  resolution: "nodemailer@npm:6.9.11"
+  checksum: 496741f440fb7e4077ce9604c8ccab05b91db23fbedc15deebcae0642e1ead6539a9c7e2ae9f6352821ebfdad7ab091fbb16b4f00bb226ef5418da6a74b180be
   languageName: node
   linkType: hard
 
@@ -16170,7 +16170,7 @@ __metadata:
     jest: ^29.7.0
     jest-environment-jsdom: ^29.7.0
     ky: ^1.2.1
-    nodemailer: ^6.9.10
+    nodemailer: ^6.9.11
     parcel: ^2.7.0
     pino: ^8.19.0
     pino-pretty: ^10.3.1
