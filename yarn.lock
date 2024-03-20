@@ -2688,9 +2688,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hapi/hapi@npm:^21.1.0, @hapi/hapi@npm:^21.3.6":
-  version: 21.3.6
-  resolution: "@hapi/hapi@npm:21.3.6"
+"@hapi/hapi@npm:^21.1.0, @hapi/hapi@npm:^21.3.7":
+  version: 21.3.7
+  resolution: "@hapi/hapi@npm:21.3.7"
   dependencies:
     "@hapi/accept": ^6.0.1
     "@hapi/ammo": ^6.0.1
@@ -2710,7 +2710,7 @@ __metadata:
     "@hapi/teamwork": ^6.0.0
     "@hapi/topo": ^6.0.1
     "@hapi/validate": ^2.0.1
-  checksum: ccf091501f86f7ccbb4d926339129955209fab6f4e0a08d60c4550985fd65b46cc65e5efecfd8f192cf08fa57af04e1a537e963f724397480f068e909a50c2e3
+  checksum: 937566ea35bd12f977b79ed7cff5121a1956a855b4da02d33039ce7c7a7875277e536373db40b0ac5ac06ef6d02b3c447c1d43d7c71ba6fe01a81775ba7dd3be
   languageName: node
   linkType: hard
 
@@ -16226,7 +16226,7 @@ __metadata:
     "@babel/preset-typescript": ^7.24.1
     "@hapi/basic": ^7.0.2
     "@hapi/boom": ^10.0.1
-    "@hapi/hapi": ^21.3.6
+    "@hapi/hapi": ^21.3.7
     "@hapi/inert": ^7.1.0
     "@jest/globals": ^29.7.0
     "@kiltprotocol/sdk-js": ^0.35.0
