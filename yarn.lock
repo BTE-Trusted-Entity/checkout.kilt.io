@@ -4323,7 +4323,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@paypal/paypal-js@npm:^7.0.0, @paypal/paypal-js@npm:^7.1.1":
+"@paypal/paypal-js@npm:^7.1.1":
   version: 7.1.1
   resolution: "@paypal/paypal-js@npm:7.1.1"
   dependencies:
@@ -4332,16 +4332,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@paypal/react-paypal-js@npm:^8.1.3":
-  version: 8.1.3
-  resolution: "@paypal/react-paypal-js@npm:8.1.3"
+"@paypal/paypal-js@npm:^8.0.4":
+  version: 8.0.4
+  resolution: "@paypal/paypal-js@npm:8.0.4"
   dependencies:
-    "@paypal/paypal-js": ^7.0.0
+    promise-polyfill: ^8.3.0
+  checksum: 20972be5bc6eda7acafad70129ffbd8a4555cc8c9d78d3d497be339458849ac4b0e5e7cdc3f5c38348992606b1cd8e429c627dcf895908cd98af0fc8bee34811
+  languageName: node
+  linkType: hard
+
+"@paypal/react-paypal-js@npm:^8.2.0":
+  version: 8.2.0
+  resolution: "@paypal/react-paypal-js@npm:8.2.0"
+  dependencies:
+    "@paypal/paypal-js": ^8.0.4
     "@paypal/sdk-constants": ^1.0.122
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-  checksum: e573f73cb1308d9d1c10a4ae5da646f31ae2857e9d1e1b7a32e6c51f7cf95a97e88cacd63db9227feb1a78e8f80a06360a006f99749be9b12ef3b1fb56ca67b1
+  checksum: a9b655a5adce18b46324f58704a9fc23637dd2bdb46c61284cbe13189f6f83e474bf4f47d1b5cd452f9cbad334a478d72396f52a980a3174067f9cec217db5fa
   languageName: node
   linkType: hard
 
@@ -16238,7 +16247,7 @@ __metadata:
     "@jest/globals": ^29.7.0
     "@kiltprotocol/sdk-js": ^0.35.0
     "@paypal/paypal-js": ^7.1.1
-    "@paypal/react-paypal-js": ^8.1.3
+    "@paypal/react-paypal-js": ^8.2.0
     "@polkadot/ui-shared": ^3.6.3
     "@storybook/addon-actions": ^8.0.5
     "@storybook/addon-controls": ^8.0.5
