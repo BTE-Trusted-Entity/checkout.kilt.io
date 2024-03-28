@@ -4596,16 +4596,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@polkadot/ui-shared@npm:^3.6.3":
-  version: 3.6.3
-  resolution: "@polkadot/ui-shared@npm:3.6.3"
+"@polkadot/ui-shared@npm:^3.6.5":
+  version: 3.6.5
+  resolution: "@polkadot/ui-shared@npm:3.6.5"
   dependencies:
     colord: ^2.9.3
     tslib: ^2.6.2
   peerDependencies:
     "@polkadot/util": "*"
     "@polkadot/util-crypto": "*"
-  checksum: 9bf09c368f876d2c7233961b8d46b1b53e8673888c5763b2eb38bcb1c7fb8bcd5b6fbf130729aee761529c89bb716743e8c7cb54b1abbc461e51687cbb224946
+  checksum: 0300afc45d9d9235883774560c787ee09426737e5e2c8892535654c150ae4bd60829056b8cb4cecc124be5c38ff705707524b6c8d7ff44cbdd13495247862b37
   languageName: node
   linkType: hard
 
@@ -16239,7 +16239,7 @@ __metadata:
     "@kiltprotocol/sdk-js": ^0.35.0
     "@paypal/paypal-js": ^7.1.1
     "@paypal/react-paypal-js": ^8.1.3
-    "@polkadot/ui-shared": ^3.6.3
+    "@polkadot/ui-shared": ^3.6.5
     "@storybook/addon-actions": ^8.0.5
     "@storybook/addon-controls": ^8.0.5
     "@storybook/addon-styling": ^1.3.7
