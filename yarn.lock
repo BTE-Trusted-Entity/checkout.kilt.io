@@ -2608,16 +2608,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hapi/bounce@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "@hapi/bounce@npm:2.0.0"
-  dependencies:
-    "@hapi/boom": 9.x.x
-    "@hapi/hoek": 9.x.x
-  checksum: 36cb6bacc508ba6bfa1426345316d6e6b8ffade79c347ccbd3ba4d8f9657342c12ac1e28f35380dec22242305b84ccaf385ce80255bcb084bfb9aa83bced513f
-  languageName: node
-  linkType: hard
-
 "@hapi/bounce@npm:^3.0.1":
   version: 3.0.1
   resolution: "@hapi/bounce@npm:3.0.1"
@@ -2745,17 +2735,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hapi/hoek@npm:9.x.x, @hapi/hoek@npm:^9.0.0, @hapi/hoek@npm:^9.0.2":
+"@hapi/hoek@npm:9.x.x, @hapi/hoek@npm:^9.0.0":
   version: 9.3.0
   resolution: "@hapi/hoek@npm:9.3.0"
   checksum: 4771c7a776242c3c022b168046af4e324d116a9d2e1d60631ee64f474c6e38d1bb07092d898bf95c7bc5d334c5582798a1456321b2e53ca817d4e7c88bc25b43
   languageName: node
   linkType: hard
 
-"@hapi/hoek@npm:^11.0.0, @hapi/hoek@npm:^11.0.2":
-  version: 11.0.2
-  resolution: "@hapi/hoek@npm:11.0.2"
-  checksum: 02e5d5d030f2c81180b43c380e6445558d1cb463c8db957c2d50e11dff83687a0ff4539a88530338e2bab1924bb8cdc7896eeb48ebf32199f89e178591d8b0b1
+"@hapi/hoek@npm:^11.0.0, @hapi/hoek@npm:^11.0.2, @hapi/hoek@npm:^11.0.4":
+  version: 11.0.4
+  resolution: "@hapi/hoek@npm:11.0.4"
+  checksum: 67dc9782a8235e066e3885352e40faa3c239621d7de29bfc88a72aba60eeb8df76b5c05d77962c734c8b0ef3fc7f818cc692689003d270a1b73ea98ba1508c5b
   languageName: node
   linkType: hard
 
@@ -10967,15 +10957,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"exiting@npm:^6.1.0":
-  version: 6.1.0
-  resolution: "exiting@npm:6.1.0"
+"exiting@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "exiting@npm:7.0.0"
   dependencies:
-    "@hapi/bounce": ^2.0.0
-    "@hapi/hoek": ^9.0.2
+    "@hapi/bounce": ^3.0.1
+    "@hapi/hoek": ^11.0.4
   peerDependencies:
-    "@hapi/hapi": ">=17.9.0"
-  checksum: 7682f3999f0c87c80af344634dfce8d326fd3865b9450e7ce714861e1ba6facb2b1c0552db3b61adfee1981dd4e57bc87ea213cdb97813d78996b65c4914ae1b
+    "@hapi/hapi": ">=21.0.0"
+  checksum: d5104fc774ce3017538647c2487c89afea4e8f8988614746aab3e4e3b51df925336bf5e3cb1a62a6a7ebb5d17a73e4ec58f8d3db27a0ee6fcd63333e6ae70742
   languageName: node
   linkType: hard
 
@@ -16283,7 +16273,7 @@ __metadata:
     eslint-plugin-react: ^7.34.1
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-storybook: ^0.8.0
-    exiting: ^6.1.0
+    exiting: ^7.0.0
     got: ^11.8.6
     hapi-dev-errors: ^4.0.0
     hapi-pino: ^12.1.0
