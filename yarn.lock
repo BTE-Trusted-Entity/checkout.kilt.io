@@ -2652,13 +2652,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hapi/catbox-memory@npm:^6.0.1":
-  version: 6.0.1
-  resolution: "@hapi/catbox-memory@npm:6.0.1"
+"@hapi/catbox-memory@npm:^6.0.2":
+  version: 6.0.2
+  resolution: "@hapi/catbox-memory@npm:6.0.2"
   dependencies:
     "@hapi/boom": ^10.0.1
     "@hapi/hoek": ^11.0.2
-  checksum: a39faa798b6da66d1cfd373faceb936ea33d58fad8cb9e84ef7d00ee2047ead5580a25cb5d1cb9b80f26cfa2b3c6e5c8d999a27c324ba1d0b8072e3f65290bd7
+  checksum: 699cb98bf8b877058ec3ca84e195d664f37906157ba3ef85026c69ab9340cbdc928e2ce0dcffa65484486084005c926d6c889991ecfac3d14659fb4b5abf2463
   languageName: node
   linkType: hard
 
@@ -2708,9 +2708,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hapi/hapi@npm:^21.1.0, @hapi/hapi@npm:^21.3.7":
-  version: 21.3.7
-  resolution: "@hapi/hapi@npm:21.3.7"
+"@hapi/hapi@npm:^21.1.0, @hapi/hapi@npm:^21.3.10":
+  version: 21.3.10
+  resolution: "@hapi/hapi@npm:21.3.10"
   dependencies:
     "@hapi/accept": ^6.0.1
     "@hapi/ammo": ^6.0.1
@@ -2718,7 +2718,7 @@ __metadata:
     "@hapi/bounce": ^3.0.1
     "@hapi/call": ^9.0.1
     "@hapi/catbox": ^12.1.1
-    "@hapi/catbox-memory": ^6.0.1
+    "@hapi/catbox-memory": ^6.0.2
     "@hapi/heavy": ^8.0.1
     "@hapi/hoek": ^11.0.2
     "@hapi/mimos": ^7.0.1
@@ -2730,7 +2730,7 @@ __metadata:
     "@hapi/teamwork": ^6.0.0
     "@hapi/topo": ^6.0.1
     "@hapi/validate": ^2.0.1
-  checksum: 937566ea35bd12f977b79ed7cff5121a1956a855b4da02d33039ce7c7a7875277e536373db40b0ac5ac06ef6d02b3c447c1d43d7c71ba6fe01a81775ba7dd3be
+  checksum: a00478ece555d7b0d74c8e0df89a2fef7fb59afb12563be3fc528ea4b07a39dad9fc24596a2e1988b322b3886b6cf55c978cb850e0eb9152471b5fbefb097de3
   languageName: node
   linkType: hard
 
@@ -16247,7 +16247,7 @@ __metadata:
     "@babel/preset-typescript": ^7.24.1
     "@hapi/basic": ^7.0.2
     "@hapi/boom": ^10.0.1
-    "@hapi/hapi": ^21.3.7
+    "@hapi/hapi": ^21.3.10
     "@hapi/inert": ^7.1.0
     "@jest/globals": ^29.7.0
     "@kiltprotocol/sdk-js": ^0.35.0
