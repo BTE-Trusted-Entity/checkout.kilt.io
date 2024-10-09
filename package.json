@@ -30,7 +30,7 @@
     "@polkadot/ui-shared": "^3.6.3",
     "dotenv": "^16.4.5",
     "exiting": "^6.1.0",
-    "got": "^11.8.6",
+    "got": "^14.4.3",
     "hapi-dev-errors": "^4.0.0",
     "hapi-pino": "^12.1.0",
     "ky": "^1.2.3",
